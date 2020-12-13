@@ -1,0 +1,195 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="CaseHandler.master.cs" Inherits="IMS2.CaseHandler" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style>
+        .header   {
+  background: #fff;
+  color: #FFF;
+  /*padding: 20px 30px;*/
+  width: 100%;
+  height: 50px;
+}
+
+/* logo */
+.logo         {
+  display: inline-block;
+  color: #051e80;
+  text-decoration: none;
+  width: 80%;
+  height: 70%;
+}
+.logo img    {
+ width: 152px;
+    height: 37px;
+  
+  margin-right: 10px;
+  vertical-align: middle;
+}
+/*.logo span   {
+  display: inline-block;
+ text-align: center;
+ width: 50%;
+}*/
+hr.new5 {
+            border: 2px solid lightgrey;
+            border-radius: 5px;
+            width: 100%;
+        }
+   
+        
+        .auto-style1 {
+            display: inline-block;
+            color: #051e80;
+            text-decoration: none;
+            width: 80%;
+            height: 70%;
+            text-align: left;
+        }
+   
+        
+  </style>
+    <link rel="stylesheet" href="style2.css"/>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <form id="form2" runat="server">
+         <div class="header">
+
+        <!-- our main logo -->
+      <div class="logo" href="index.html">
+          <img src="Images/logo.png" class="auto-style1" />
+            <span >&nbsp;&nbsp;&nbsp;
+                <asp:Label ID="Label1" runat="server" Text="Investigation Management System" ForeColor="#051E80"></asp:Label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Label ID="lbEmName" runat="server" ForeColor="Red"></asp:Label></span>
+          
+
+        <!-- main navigation links -->
+        &nbsp;&nbsp;
+        </div>
+             <hr class="new5"> 
+    </div>
+       <%-- <hr class="new5"> --%>
+       
+          
+     <nav class="main-menu">
+            <ul>
+                <li>
+                    <a href="Homepage.aspx">
+                        <i class="fa fa-home fa-2x"></i>
+                        <span class="nav-text">
+                            Home
+                        </span>
+                    </a>
+                  
+                </li>
+               
+                <li class="has-subnav">
+                    <a href="Cases.aspx">
+                       <i class="fa fa-list fa-2x"></i>
+                        <span class="nav-text">
+                            Cases
+                        </span>
+                    </a>
+                    
+                </li>
+                <li class="has-subnav">
+                    <a href="CaseRequest.aspx">
+                       <i class="fa fa-plus-square fa-2x"></i>
+                        <span class="nav-text">
+                            Request Case
+                        </span>
+                    </a>
+                   
+                </li>
+                <li>
+                    <a href="evidenceSubmission.aspx">
+                        <i class="fa fa-upload fa-2x"></i>
+                        <span class="nav-text">
+                            Evidence Submission
+                        </span>
+                    </a>
+                </li>
+                  <li>
+                    <a href="EvidenceRequest.aspx">
+                        <i class="fa fa-upload fa-2x"></i>
+                        <span class="nav-text">
+                            Evidence Request
+                        </span>
+                    </a>
+                </li>
+                  <li>
+                    <a href="InterviewInvitationRequest.aspx">
+                        <i class="fa fa-upload fa-2x"></i>
+                        <span class="nav-text">
+                            Interview Invite
+                        </span>
+                    </a>
+                </li>
+                  <li>
+                    <a href="Interview.aspx">
+                        <i class="fa fa-upload fa-2x"></i>
+                        <span class="nav-text">
+                            Interview 
+                        </span>
+                    </a>
+                </li>
+                  <li>
+                    <a href="TerminationRequest.aspx">
+                        <i class="fa fa-upload fa-2x"></i>
+                        <span class="nav-text">
+                            Termination Request
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-file-text fa-2x"></i>
+                        <span class="nav-text">
+                           Reports
+                        </span>
+                    </a>
+                </li>
+                <li>
+                   <a href="#">
+                       <i class="fa fa-tachometer fa-2x"></i>
+                        <span class="nav-text">
+                            Dashboard
+                        </span>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="logout">
+                <li>
+                   <a href="Login.aspx">
+                         <i class="fa fa-power-off fa-2x"></i>
+                        <span class="nav-text">
+                            Logout
+                        </span>
+                    </a>
+                </li>  
+            </ul>
+        </nav>
+
+    <%-- <div class="article">--%>
+       
+    <%--<h1></h1>
+    <p>London is the capital city of England. It is the most populous city in the  United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
+    <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.</p>
+  </div>--%>
+         <br />
+         <div class="article">
+           <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+     </div>
+
+      
+    </form>
+</body>
+</html>
+

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3491d9c16d8d43989edbf396d54e9345" Name="Diagram1">
+        <EntityTypeShape EntityType="Investigation_management_systemModel.Accused_case" Width="1.5" PointX="7.5" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Investigation_management_systemModel.AccusedEmp" Width="1.5" PointX="5.25" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Investigation_management_systemModel.Case_Handler" Width="1.5" PointX="5.25" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Investigation_management_systemModel.Case_Status" Width="1.5" PointX="5.25" PointY="20" IsExpanded="true" />
+        <EntityTypeShape EntityType="Investigation_management_systemModel.Case_Verdict" Width="1.5" PointX="5.25" PointY="22.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Investigation_management_systemModel.CaseType" Width="1.5" PointX="5.25" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Investigation_management_systemModel.Department" Width="1.5" PointX="0.75" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Investigation_management_systemModel.Employee" Width="1.5" PointX="3" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Investigation_management_systemModel.Evidence" Width="1.5" PointX="7.5" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Investigation_management_systemModel.Evidence_Request" Width="1.5" PointX="10.5" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Investigation_management_systemModel.Interview_Invite" Width="1.5" PointX="10.5" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Investigation_management_systemModel.Investigation_Interview" Width="1.5" PointX="10.5" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Investigation_management_systemModel.InvestigationCase1" Width="1.5" PointX="7.5" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Investigation_management_systemModel.Question" Width="1.5" PointX="10.5" PointY="22.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Investigation_management_systemModel.QuestionsAnswer" Width="1.5" PointX="12.75" PointY="18" IsExpanded="true" />
+        <EntityTypeShape EntityType="Investigation_management_systemModel.Requester" Width="1.5" PointX="5.25" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="Investigation_management_systemModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Investigation_management_systemModel.Termination_Request" Width="1.5" PointX="12.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Investigation_management_systemModel.case_view" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Investigation_management_systemModel.details_view" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Investigation_management_systemModel.View_3" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Investigation_management_systemModel.View_4" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="Investigation_management_systemModel.FK_Accused_Cases_AccusedEmp" ManuallyRouted="false" />
+        <AssociationConnector Association="Investigation_management_systemModel.FK_AccusedEmp_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="Investigation_management_systemModel.FK_Case_Handler_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="Investigation_management_systemModel.FK_Evidence_Case_Handler" ManuallyRouted="false" />
+        <AssociationConnector Association="Investigation_management_systemModel.FK_Evidence_Request_Case_Handler" ManuallyRouted="false" />
+        <AssociationConnector Association="Investigation_management_systemModel.FK_Interview_Invite_Case_Handler" ManuallyRouted="false" />
+        <AssociationConnector Association="Investigation_management_systemModel.FK_Investigation_Interview_Case_Handler" ManuallyRouted="false" />
+        <AssociationConnector Association="Investigation_management_systemModel.FK_InvestigationCase1_Case_Handler" ManuallyRouted="false" />
+        <AssociationConnector Association="Investigation_management_systemModel.FK_InvestigationCase1_Case_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="Investigation_management_systemModel.FK_InvestigationCase1_Case_Verdict" ManuallyRouted="false" />
+        <AssociationConnector Association="Investigation_management_systemModel.FK_InvestigationCase1_CaseType" ManuallyRouted="false" />
+        <AssociationConnector Association="Investigation_management_systemModel.FK_Employee_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="Investigation_management_systemModel.FK_Evidence_Request_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="Investigation_management_systemModel.FK_Interview_Invite_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="Investigation_management_systemModel.FK_Investigation_Interview_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="Investigation_management_systemModel.FK_Requester_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="Investigation_management_systemModel.FK_Termination_Request_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="Investigation_management_systemModel.FK_Evidence_InvestigationCase1" ManuallyRouted="false" />
+        <AssociationConnector Association="Investigation_management_systemModel.FK_Evidence_Request_InvestigationCase1" ManuallyRouted="false" />
+        <AssociationConnector Association="Investigation_management_systemModel.FK_Interview_Invite_InvestigationCase1" ManuallyRouted="false" />
+        <AssociationConnector Association="Investigation_management_systemModel.FK_Investigation_Interview_InvestigationCase1" ManuallyRouted="false" />
+        <AssociationConnector Association="Investigation_management_systemModel.FK_QuestionsAnswer_Investigation_Interview" ManuallyRouted="false" />
+        <AssociationConnector Association="Investigation_management_systemModel.FK_InvestigationCase1_Requester" ManuallyRouted="false" />
+        <AssociationConnector Association="Investigation_management_systemModel.FK_Termination_Request_InvestigationCase1" ManuallyRouted="false" />
+        <AssociationConnector Association="Investigation_management_systemModel.FK_QuestionsAnswer_Questions" ManuallyRouted="false" />
+        <AssociationConnector Association="Investigation_management_systemModel.Interview_Invitation_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="Investigation_management_systemModel.Investigation_Interview_Employee" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,1946 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Investigation_management_systemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Accused Cases">
+          <Key>
+            <PropertyRef Name="Case_ID" />
+            <PropertyRef Name="Accused_ID" />
+          </Key>
+          <Property Name="Case_ID" Type="int" Nullable="false" />
+          <Property Name="Accused_ID" Type="char" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AccusedEmp">
+          <Key>
+            <PropertyRef Name="A_Employee_ID" />
+          </Key>
+          <Property Name="A_Employee_ID" Type="char" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Case Handler">
+          <Key>
+            <PropertyRef Name="CH_Employee_ID" />
+          </Key>
+          <Property Name="CH_Employee_ID" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="Case_Handler_Type" Type="varchar" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Case Status">
+          <Key>
+            <PropertyRef Name="Case_Status_ID" />
+          </Key>
+          <Property Name="Case_Status_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Case_Status" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="Case Verdict">
+          <Key>
+            <PropertyRef Name="Case_Verdict_ID" />
+          </Key>
+          <Property Name="Case_Verdict_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Case_Verdict" Type="varchar" MaxLength="80" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CaseType">
+          <Key>
+            <PropertyRef Name="[Case Type ID" />
+          </Key>
+          <Property Name="[Case Type ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Case Type" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="Department_ID" />
+          </Key>
+          <Property Name="Department_ID" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="Department_Name" Type="varchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Employee_ID" />
+          </Key>
+          <Property Name="Employee_ID" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="First_Name" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="Last_Name" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Email_Address" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Mobile_Number" Type="char" MaxLength="13" Nullable="false" />
+          <Property Name="Region" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DOB" Type="date" Nullable="false" />
+          <Property Name="Job_Title" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Employee_Grade" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="Employee_Type" Type="char" MaxLength="2" />
+          <Property Name="Department_ID" Type="char" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Evidence">
+          <Key>
+            <PropertyRef Name="Evidence_ID" />
+          </Key>
+          <Property Name="Evidence_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Evidence_Type" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Evidence_Date" Type="date" Nullable="false" />
+          <Property Name="Evidence_Details" Type="varchar" MaxLength="150" />
+          <Property Name="Evidence_Document" Type="image" />
+          <Property Name="Requester_ID" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="Case_Handler_ID" Type="char" MaxLength="5" />
+          <Property Name="Case_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Evidence_Request">
+          <Key>
+            <PropertyRef Name="Evidence_Request_ID" />
+          </Key>
+          <Property Name="Evidence_Request_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Evidence_Request_Details" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Case_Handler" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="Employee" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="Case_ID" Type="int" Nullable="false" />
+          <Property Name="evidence_request_date" Type="date" />
+        </EntityType>
+        <EntityType Name="Interview Invitation Employee">
+          <Key>
+            <PropertyRef Name="Interview_Invitation_ID" />
+            <PropertyRef Name="Employee_ID" />
+          </Key>
+          <Property Name="Interview_Invitation_ID" Type="int" Nullable="false" />
+          <Property Name="Employee_ID" Type="char" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Interview_Invite">
+          <Key>
+            <PropertyRef Name="Interview_Invitation_ID" />
+          </Key>
+          <Property Name="Interview_Invitation_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Interview_Invitation_Date" Type="date" Nullable="false" />
+          <Property Name="Interview_Invitation_Time" Type="varchar" MaxLength="10" />
+          <Property Name="Interview_Invitation_Location" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Interview_Invitation_Date_Sent" Type="date" Nullable="false" />
+          <Property Name="Interview_Invitation_Acceptance" Type="varchar" MaxLength="3" />
+          <Property Name="Case_Handler_ID" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="Interview_Invitation_Invitee" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="Interview_Invitation_Details" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Case_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Investigation Interview Employee">
+          <Key>
+            <PropertyRef Name="Investigation_Interview_ID" />
+            <PropertyRef Name="Employee_ID" />
+          </Key>
+          <Property Name="Investigation_Interview_ID" Type="int" Nullable="false" />
+          <Property Name="Employee_ID" Type="char" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Investigation_Interview">
+          <Key>
+            <PropertyRef Name="Investigation_Interview_ID" />
+          </Key>
+          <Property Name="Investigation_Interview_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Investigation_Interview_Date" Type="date" Nullable="false" />
+          <Property Name="Investigation_Interview_Time" Type="varchar" MaxLength="10" />
+          <Property Name="Investigation_Interview_Location" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Investigation_Interview_Memo" Type="varchar" MaxLength="150" />
+          <Property Name="Investigation_Interview_Interviewee_ID" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="Investigation_Interview_Interviewer_ID" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="Case_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InvestigationCase1">
+          <Key>
+            <PropertyRef Name="Case_ID" />
+          </Key>
+          <Property Name="Case_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Case_Type" Type="int" />
+          <Property Name="Case_Start_Date" Type="date" Nullable="false" />
+          <Property Name="Case_End_Date" Type="date" />
+          <Property Name="Case_Status" Type="int" />
+          <Property Name="Case_Details" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Case_Duration" Type="varchar" MaxLength="8" />
+          <Property Name="Case_Verdict" Type="int" />
+          <Property Name="Employee_ID" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="Case_Handler_ID" Type="char" MaxLength="5" />
+          <Property Name="Requester_ID" Type="char" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Questions">
+          <Key>
+            <PropertyRef Name="Question_ID" />
+          </Key>
+          <Property Name="Question_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Question_Details" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="QuestionsAnswer">
+          <Key>
+            <PropertyRef Name="Investigation_Interview_ID" />
+            <PropertyRef Name="Question_ID" />
+          </Key>
+          <Property Name="Investigation_Interview_ID" Type="int" Nullable="false" />
+          <Property Name="Question_ID" Type="int" Nullable="false" />
+          <Property Name="Answer_Details" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Requester">
+          <Key>
+            <PropertyRef Name="R_Employee_ID" />
+          </Key>
+          <Property Name="R_Employee_ID" Type="char" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Termination Request">
+          <Key>
+            <PropertyRef Name="Termination_Request_ID" />
+          </Key>
+          <Property Name="Termination_Request_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Termination_Request_Date" Type="date" Nullable="false" />
+          <Property Name="Termination_Request_Justification" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Case_ID" Type="int" Nullable="false" />
+          <Property Name="Employee_ID" Type="char" MaxLength="5" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Investigation_management_system.dbo.case_view' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="case_view">
+          <Key>
+            <PropertyRef Name="Case_ID" />
+            <PropertyRef Name="Case_Start_Date" />
+            <PropertyRef Name="Case_Details" />
+            <PropertyRef Name="Employee_ID" />
+            <PropertyRef Name="Requester_ID" />
+            <PropertyRef Name="Case Type" />
+          </Key>
+          <Property Name="Case_ID" Type="int" Nullable="false" />
+          <Property Name="Case_Start_Date" Type="date" Nullable="false" />
+          <Property Name="Case_End_Date" Type="date" />
+          <Property Name="Case_Status" Type="int" />
+          <Property Name="Case_Details" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Case_Duration" Type="varchar" MaxLength="8" />
+          <Property Name="Case_Verdict" Type="int" />
+          <Property Name="Employee_ID" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="Case_Handler_ID" Type="char" MaxLength="5" />
+          <Property Name="Requester_ID" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="Case Type" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Investigation_management_system.dbo.details_view' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="details_view">
+          <Key>
+            <PropertyRef Name="Case_ID" />
+            <PropertyRef Name="Case_Start_Date" />
+            <PropertyRef Name="Case_Details" />
+            <PropertyRef Name="Employee_ID" />
+            <PropertyRef Name="Requester_ID" />
+            <PropertyRef Name="Case_Status" />
+            <PropertyRef Name="Case Type" />
+          </Key>
+          <Property Name="Case_ID" Type="int" Nullable="false" />
+          <Property Name="Case_Start_Date" Type="date" Nullable="false" />
+          <Property Name="Case_End_Date" Type="date" />
+          <Property Name="Case_Details" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Case_Duration" Type="varchar" MaxLength="8" />
+          <Property Name="Employee_ID" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="Case_Handler_ID" Type="char" MaxLength="5" />
+          <Property Name="Requester_ID" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="Case_Status" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="Case_Verdict" Type="varchar" MaxLength="80" />
+          <Property Name="Case Type" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Investigation_management_system.dbo.View_3' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="View_3">
+          <Key>
+            <PropertyRef Name="Case_Status" />
+            <PropertyRef Name="Case_ID" />
+            <PropertyRef Name="Case_Start_Date" />
+            <PropertyRef Name="Case_Details" />
+            <PropertyRef Name="Employee_ID" />
+            <PropertyRef Name="Case_Handler_ID" />
+            <PropertyRef Name="Requester_ID" />
+            <PropertyRef Name="Case Type" />
+          </Key>
+          <Property Name="Case_Status" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="Case_ID" Type="int" Nullable="false" />
+          <Property Name="Case_Type" Type="int" />
+          <Property Name="Case_Start_Date" Type="date" Nullable="false" />
+          <Property Name="Case_End_Date" Type="date" />
+          <Property Name="Case_Details" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Case_Duration" Type="varchar" MaxLength="8" />
+          <Property Name="Case_Verdict" Type="int" />
+          <Property Name="Employee_ID" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="Case_Handler_ID" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="Requester_ID" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="Case Type" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Investigation_management_system.dbo.View_4' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="View_4">
+          <Key>
+            <PropertyRef Name="Case_ID" />
+            <PropertyRef Name="Case_Start_Date" />
+            <PropertyRef Name="Case_Details" />
+            <PropertyRef Name="Employee_ID" />
+            <PropertyRef Name="Requester_ID" />
+            <PropertyRef Name="Case_Status" />
+            <PropertyRef Name="Case_Verdict" />
+            <PropertyRef Name="Case Type" />
+          </Key>
+          <Property Name="Case_ID" Type="int" Nullable="false" />
+          <Property Name="Case_Start_Date" Type="date" Nullable="false" />
+          <Property Name="Case_End_Date" Type="date" />
+          <Property Name="Case_Details" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="Case_Duration" Type="varchar" MaxLength="8" />
+          <Property Name="Employee_ID" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="Case_Handler_ID" Type="char" MaxLength="5" />
+          <Property Name="Requester_ID" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="Case_Status" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="Case_Verdict" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="Case Type" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Accused Cases_AccusedEmp">
+          <End Role="AccusedEmp" Type="Self.AccusedEmp" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Accused Cases" Type="Self.Accused Cases" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccusedEmp">
+              <PropertyRef Name="A_Employee_ID" />
+            </Principal>
+            <Dependent Role="Accused Cases">
+              <PropertyRef Name="Accused_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AccusedEmp_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AccusedEmp" Type="Self.AccusedEmp" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee_ID" />
+            </Principal>
+            <Dependent Role="AccusedEmp">
+              <PropertyRef Name="A_Employee_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Case Handler_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Case Handler" Type="Self.Case Handler" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee_ID" />
+            </Principal>
+            <Dependent Role="Case Handler">
+              <PropertyRef Name="CH_Employee_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Department">
+          <End Role="Department" Type="Self.Department" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="Department_ID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="Department_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Evidence_Case Handler">
+          <End Role="Case Handler" Type="Self.Case Handler" Multiplicity="0..1" />
+          <End Role="Evidence" Type="Self.Evidence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Case Handler">
+              <PropertyRef Name="CH_Employee_ID" />
+            </Principal>
+            <Dependent Role="Evidence">
+              <PropertyRef Name="Case_Handler_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Evidence_InvestigationCase1">
+          <End Role="InvestigationCase1" Type="Self.InvestigationCase1" Multiplicity="1" />
+          <End Role="Evidence" Type="Self.Evidence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InvestigationCase1">
+              <PropertyRef Name="Case_ID" />
+            </Principal>
+            <Dependent Role="Evidence">
+              <PropertyRef Name="Case_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Evidence_Request_Case Handler">
+          <End Role="Case Handler" Type="Self.Case Handler" Multiplicity="1" />
+          <End Role="Evidence_Request" Type="Self.Evidence_Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Case Handler">
+              <PropertyRef Name="CH_Employee_ID" />
+            </Principal>
+            <Dependent Role="Evidence_Request">
+              <PropertyRef Name="Case_Handler" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Evidence_Request_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Evidence_Request" Type="Self.Evidence_Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee_ID" />
+            </Principal>
+            <Dependent Role="Evidence_Request">
+              <PropertyRef Name="Employee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Evidence_Request_InvestigationCase1">
+          <End Role="InvestigationCase1" Type="Self.InvestigationCase1" Multiplicity="1" />
+          <End Role="Evidence_Request" Type="Self.Evidence_Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InvestigationCase1">
+              <PropertyRef Name="Case_ID" />
+            </Principal>
+            <Dependent Role="Evidence_Request">
+              <PropertyRef Name="Case_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Interview Invitation Employee_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Interview Invitation Employee" Type="Self.Interview Invitation Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee_ID" />
+            </Principal>
+            <Dependent Role="Interview Invitation Employee">
+              <PropertyRef Name="Employee_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Interview Invitation Employee_Interview_Invite">
+          <End Role="Interview_Invite" Type="Self.Interview_Invite" Multiplicity="1" />
+          <End Role="Interview Invitation Employee" Type="Self.Interview Invitation Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Interview_Invite">
+              <PropertyRef Name="Interview_Invitation_ID" />
+            </Principal>
+            <Dependent Role="Interview Invitation Employee">
+              <PropertyRef Name="Interview_Invitation_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Interview_Invite_Case Handler">
+          <End Role="Case Handler" Type="Self.Case Handler" Multiplicity="1" />
+          <End Role="Interview_Invite" Type="Self.Interview_Invite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Case Handler">
+              <PropertyRef Name="CH_Employee_ID" />
+            </Principal>
+            <Dependent Role="Interview_Invite">
+              <PropertyRef Name="Case_Handler_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Interview_Invite_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Interview_Invite" Type="Self.Interview_Invite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee_ID" />
+            </Principal>
+            <Dependent Role="Interview_Invite">
+              <PropertyRef Name="Interview_Invitation_Invitee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Interview_Invite_InvestigationCase1">
+          <End Role="InvestigationCase1" Type="Self.InvestigationCase1" Multiplicity="1" />
+          <End Role="Interview_Invite" Type="Self.Interview_Invite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InvestigationCase1">
+              <PropertyRef Name="Case_ID" />
+            </Principal>
+            <Dependent Role="Interview_Invite">
+              <PropertyRef Name="Case_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Investigation Interview Employee_Employee1">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Investigation Interview Employee" Type="Self.Investigation Interview Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee_ID" />
+            </Principal>
+            <Dependent Role="Investigation Interview Employee">
+              <PropertyRef Name="Employee_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Investigation Interview Employee_Investigation_Interview">
+          <End Role="Investigation_Interview" Type="Self.Investigation_Interview" Multiplicity="1" />
+          <End Role="Investigation Interview Employee" Type="Self.Investigation Interview Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Investigation_Interview">
+              <PropertyRef Name="Investigation_Interview_ID" />
+            </Principal>
+            <Dependent Role="Investigation Interview Employee">
+              <PropertyRef Name="Investigation_Interview_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Investigation_Interview_Case Handler">
+          <End Role="Case Handler" Type="Self.Case Handler" Multiplicity="1" />
+          <End Role="Investigation_Interview" Type="Self.Investigation_Interview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Case Handler">
+              <PropertyRef Name="CH_Employee_ID" />
+            </Principal>
+            <Dependent Role="Investigation_Interview">
+              <PropertyRef Name="Investigation_Interview_Interviewer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Investigation_Interview_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Investigation_Interview" Type="Self.Investigation_Interview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee_ID" />
+            </Principal>
+            <Dependent Role="Investigation_Interview">
+              <PropertyRef Name="Investigation_Interview_Interviewee_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Investigation_Interview_InvestigationCase1">
+          <End Role="InvestigationCase1" Type="Self.InvestigationCase1" Multiplicity="1" />
+          <End Role="Investigation_Interview" Type="Self.Investigation_Interview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InvestigationCase1">
+              <PropertyRef Name="Case_ID" />
+            </Principal>
+            <Dependent Role="Investigation_Interview">
+              <PropertyRef Name="Case_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InvestigationCase1_Case Handler">
+          <End Role="Case Handler" Type="Self.Case Handler" Multiplicity="0..1" />
+          <End Role="InvestigationCase1" Type="Self.InvestigationCase1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Case Handler">
+              <PropertyRef Name="CH_Employee_ID" />
+            </Principal>
+            <Dependent Role="InvestigationCase1">
+              <PropertyRef Name="Case_Handler_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InvestigationCase1_Case Status">
+          <End Role="Case Status" Type="Self.Case Status" Multiplicity="0..1" />
+          <End Role="InvestigationCase1" Type="Self.InvestigationCase1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Case Status">
+              <PropertyRef Name="Case_Status_ID" />
+            </Principal>
+            <Dependent Role="InvestigationCase1">
+              <PropertyRef Name="Case_Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InvestigationCase1_Case Verdict">
+          <End Role="Case Verdict" Type="Self.Case Verdict" Multiplicity="0..1" />
+          <End Role="InvestigationCase1" Type="Self.InvestigationCase1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Case Verdict">
+              <PropertyRef Name="Case_Verdict_ID" />
+            </Principal>
+            <Dependent Role="InvestigationCase1">
+              <PropertyRef Name="Case_Verdict" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InvestigationCase1_CaseType">
+          <End Role="CaseType" Type="Self.CaseType" Multiplicity="0..1" />
+          <End Role="InvestigationCase1" Type="Self.InvestigationCase1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CaseType">
+              <PropertyRef Name="[Case Type ID" />
+            </Principal>
+            <Dependent Role="InvestigationCase1">
+              <PropertyRef Name="Case_Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InvestigationCase1_Requester">
+          <End Role="Requester" Type="Self.Requester" Multiplicity="1" />
+          <End Role="InvestigationCase1" Type="Self.InvestigationCase1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Requester">
+              <PropertyRef Name="R_Employee_ID" />
+            </Principal>
+            <Dependent Role="InvestigationCase1">
+              <PropertyRef Name="Requester_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QuestionsAnswer_Investigation_Interview">
+          <End Role="Investigation_Interview" Type="Self.Investigation_Interview" Multiplicity="1" />
+          <End Role="QuestionsAnswer" Type="Self.QuestionsAnswer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Investigation_Interview">
+              <PropertyRef Name="Investigation_Interview_ID" />
+            </Principal>
+            <Dependent Role="QuestionsAnswer">
+              <PropertyRef Name="Investigation_Interview_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QuestionsAnswer_Questions">
+          <End Role="Questions" Type="Self.Questions" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="QuestionsAnswer" Type="Self.QuestionsAnswer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questions">
+              <PropertyRef Name="Question_ID" />
+            </Principal>
+            <Dependent Role="QuestionsAnswer">
+              <PropertyRef Name="Question_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Requester_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Requester" Type="Self.Requester" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee_ID" />
+            </Principal>
+            <Dependent Role="Requester">
+              <PropertyRef Name="R_Employee_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Termination Request_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Termination Request" Type="Self.Termination Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee_ID" />
+            </Principal>
+            <Dependent Role="Termination Request">
+              <PropertyRef Name="Employee_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Termination Request_InvestigationCase1">
+          <End Role="InvestigationCase1" Type="Self.InvestigationCase1" Multiplicity="1" />
+          <End Role="Termination Request" Type="Self.Termination Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InvestigationCase1">
+              <PropertyRef Name="Case_ID" />
+            </Principal>
+            <Dependent Role="Termination Request">
+              <PropertyRef Name="Case_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Investigation_management_systemModelStoreContainer">
+          <EntitySet Name="Accused Cases" EntityType="Self.Accused Cases" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AccusedEmp" EntityType="Self.AccusedEmp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Case Handler" EntityType="Self.Case Handler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Case Status" EntityType="Self.Case Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Case Verdict" EntityType="Self.Case Verdict" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CaseType" EntityType="Self.CaseType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Department" EntityType="Self.Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Evidence" EntityType="Self.Evidence" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Evidence_Request" EntityType="Self.Evidence_Request" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Interview Invitation Employee" EntityType="Self.Interview Invitation Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Interview_Invite" EntityType="Self.Interview_Invite" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Investigation Interview Employee" EntityType="Self.Investigation Interview Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Investigation_Interview" EntityType="Self.Investigation_Interview" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InvestigationCase1" EntityType="Self.InvestigationCase1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Questions" EntityType="Self.Questions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QuestionsAnswer" EntityType="Self.QuestionsAnswer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Requester" EntityType="Self.Requester" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Termination Request" EntityType="Self.Termination Request" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="case_view" EntityType="Self.case_view" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[case_view].[Case_ID] AS [Case_ID], 
+[case_view].[Case_Start_Date] AS [Case_Start_Date], 
+[case_view].[Case_End_Date] AS [Case_End_Date], 
+[case_view].[Case_Status] AS [Case_Status], 
+[case_view].[Case_Details] AS [Case_Details], 
+[case_view].[Case_Duration] AS [Case_Duration], 
+[case_view].[Case_Verdict] AS [Case_Verdict], 
+[case_view].[Employee_ID] AS [Employee_ID], 
+[case_view].[Case_Handler_ID] AS [Case_Handler_ID], 
+[case_view].[Requester_ID] AS [Requester_ID], 
+[case_view].[Case Type] AS [Case Type]
+FROM [dbo].[case_view] AS [case_view]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="details_view" EntityType="Self.details_view" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[details_view].[Case_ID] AS [Case_ID], 
+[details_view].[Case_Start_Date] AS [Case_Start_Date], 
+[details_view].[Case_End_Date] AS [Case_End_Date], 
+[details_view].[Case_Details] AS [Case_Details], 
+[details_view].[Case_Duration] AS [Case_Duration], 
+[details_view].[Employee_ID] AS [Employee_ID], 
+[details_view].[Case_Handler_ID] AS [Case_Handler_ID], 
+[details_view].[Requester_ID] AS [Requester_ID], 
+[details_view].[Case_Status] AS [Case_Status], 
+[details_view].[Case_Verdict] AS [Case_Verdict], 
+[details_view].[Case Type] AS [Case Type]
+FROM [dbo].[details_view] AS [details_view]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_3" EntityType="Self.View_3" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[View_3].[Case_Status] AS [Case_Status], 
+[View_3].[Case_ID] AS [Case_ID], 
+[View_3].[Case_Type] AS [Case_Type], 
+[View_3].[Case_Start_Date] AS [Case_Start_Date], 
+[View_3].[Case_End_Date] AS [Case_End_Date], 
+[View_3].[Case_Details] AS [Case_Details], 
+[View_3].[Case_Duration] AS [Case_Duration], 
+[View_3].[Case_Verdict] AS [Case_Verdict], 
+[View_3].[Employee_ID] AS [Employee_ID], 
+[View_3].[Case_Handler_ID] AS [Case_Handler_ID], 
+[View_3].[Requester_ID] AS [Requester_ID], 
+[View_3].[Case Type] AS [Case Type]
+FROM [dbo].[View_3] AS [View_3]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_4" EntityType="Self.View_4" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[View_4].[Case_ID] AS [Case_ID], 
+[View_4].[Case_Start_Date] AS [Case_Start_Date], 
+[View_4].[Case_End_Date] AS [Case_End_Date], 
+[View_4].[Case_Details] AS [Case_Details], 
+[View_4].[Case_Duration] AS [Case_Duration], 
+[View_4].[Employee_ID] AS [Employee_ID], 
+[View_4].[Case_Handler_ID] AS [Case_Handler_ID], 
+[View_4].[Requester_ID] AS [Requester_ID], 
+[View_4].[Case_Status] AS [Case_Status], 
+[View_4].[Case_Verdict] AS [Case_Verdict], 
+[View_4].[Case Type] AS [Case Type]
+FROM [dbo].[View_4] AS [View_4]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Accused Cases_AccusedEmp" Association="Self.FK_Accused Cases_AccusedEmp">
+            <End Role="AccusedEmp" EntitySet="AccusedEmp" />
+            <End Role="Accused Cases" EntitySet="Accused Cases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AccusedEmp_Employee" Association="Self.FK_AccusedEmp_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="AccusedEmp" EntitySet="AccusedEmp" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Case Handler_Employee" Association="Self.FK_Case Handler_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Case Handler" EntitySet="Case Handler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Department" Association="Self.FK_Employee_Department">
+            <End Role="Department" EntitySet="Department" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Evidence_Case Handler" Association="Self.FK_Evidence_Case Handler">
+            <End Role="Case Handler" EntitySet="Case Handler" />
+            <End Role="Evidence" EntitySet="Evidence" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Evidence_InvestigationCase1" Association="Self.FK_Evidence_InvestigationCase1">
+            <End Role="InvestigationCase1" EntitySet="InvestigationCase1" />
+            <End Role="Evidence" EntitySet="Evidence" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Evidence_Request_Case Handler" Association="Self.FK_Evidence_Request_Case Handler">
+            <End Role="Case Handler" EntitySet="Case Handler" />
+            <End Role="Evidence_Request" EntitySet="Evidence_Request" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Evidence_Request_Employee" Association="Self.FK_Evidence_Request_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Evidence_Request" EntitySet="Evidence_Request" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Evidence_Request_InvestigationCase1" Association="Self.FK_Evidence_Request_InvestigationCase1">
+            <End Role="InvestigationCase1" EntitySet="InvestigationCase1" />
+            <End Role="Evidence_Request" EntitySet="Evidence_Request" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Interview Invitation Employee_Employee" Association="Self.FK_Interview Invitation Employee_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Interview Invitation Employee" EntitySet="Interview Invitation Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Interview Invitation Employee_Interview_Invite" Association="Self.FK_Interview Invitation Employee_Interview_Invite">
+            <End Role="Interview_Invite" EntitySet="Interview_Invite" />
+            <End Role="Interview Invitation Employee" EntitySet="Interview Invitation Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Interview_Invite_Case Handler" Association="Self.FK_Interview_Invite_Case Handler">
+            <End Role="Case Handler" EntitySet="Case Handler" />
+            <End Role="Interview_Invite" EntitySet="Interview_Invite" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Interview_Invite_Employee" Association="Self.FK_Interview_Invite_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Interview_Invite" EntitySet="Interview_Invite" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Interview_Invite_InvestigationCase1" Association="Self.FK_Interview_Invite_InvestigationCase1">
+            <End Role="InvestigationCase1" EntitySet="InvestigationCase1" />
+            <End Role="Interview_Invite" EntitySet="Interview_Invite" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Investigation Interview Employee_Employee1" Association="Self.FK_Investigation Interview Employee_Employee1">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Investigation Interview Employee" EntitySet="Investigation Interview Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Investigation Interview Employee_Investigation_Interview" Association="Self.FK_Investigation Interview Employee_Investigation_Interview">
+            <End Role="Investigation_Interview" EntitySet="Investigation_Interview" />
+            <End Role="Investigation Interview Employee" EntitySet="Investigation Interview Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Investigation_Interview_Case Handler" Association="Self.FK_Investigation_Interview_Case Handler">
+            <End Role="Case Handler" EntitySet="Case Handler" />
+            <End Role="Investigation_Interview" EntitySet="Investigation_Interview" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Investigation_Interview_Employee" Association="Self.FK_Investigation_Interview_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Investigation_Interview" EntitySet="Investigation_Interview" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Investigation_Interview_InvestigationCase1" Association="Self.FK_Investigation_Interview_InvestigationCase1">
+            <End Role="InvestigationCase1" EntitySet="InvestigationCase1" />
+            <End Role="Investigation_Interview" EntitySet="Investigation_Interview" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InvestigationCase1_Case Handler" Association="Self.FK_InvestigationCase1_Case Handler">
+            <End Role="Case Handler" EntitySet="Case Handler" />
+            <End Role="InvestigationCase1" EntitySet="InvestigationCase1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InvestigationCase1_Case Status" Association="Self.FK_InvestigationCase1_Case Status">
+            <End Role="Case Status" EntitySet="Case Status" />
+            <End Role="InvestigationCase1" EntitySet="InvestigationCase1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InvestigationCase1_Case Verdict" Association="Self.FK_InvestigationCase1_Case Verdict">
+            <End Role="Case Verdict" EntitySet="Case Verdict" />
+            <End Role="InvestigationCase1" EntitySet="InvestigationCase1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InvestigationCase1_CaseType" Association="Self.FK_InvestigationCase1_CaseType">
+            <End Role="CaseType" EntitySet="CaseType" />
+            <End Role="InvestigationCase1" EntitySet="InvestigationCase1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InvestigationCase1_Requester" Association="Self.FK_InvestigationCase1_Requester">
+            <End Role="Requester" EntitySet="Requester" />
+            <End Role="InvestigationCase1" EntitySet="InvestigationCase1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QuestionsAnswer_Investigation_Interview" Association="Self.FK_QuestionsAnswer_Investigation_Interview">
+            <End Role="Investigation_Interview" EntitySet="Investigation_Interview" />
+            <End Role="QuestionsAnswer" EntitySet="QuestionsAnswer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QuestionsAnswer_Questions" Association="Self.FK_QuestionsAnswer_Questions">
+            <End Role="Questions" EntitySet="Questions" />
+            <End Role="QuestionsAnswer" EntitySet="QuestionsAnswer" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Requester_Employee" Association="Self.FK_Requester_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Requester" EntitySet="Requester" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Termination Request_Employee" Association="Self.FK_Termination Request_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Termination Request" EntitySet="Termination Request" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Termination Request_InvestigationCase1" Association="Self.FK_Termination Request_InvestigationCase1">
+            <End Role="InvestigationCase1" EntitySet="InvestigationCase1" />
+            <End Role="Termination Request" EntitySet="Termination Request" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Investigation_management_systemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Accused_case">
+          <Key>
+            <PropertyRef Name="Case_ID" />
+            <PropertyRef Name="Accused_ID" />
+          </Key>
+          <Property Name="Case_ID" Type="Int32" Nullable="false" />
+          <Property Name="Accused_ID" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="AccusedEmp" Relationship="Self.FK_Accused_Cases_AccusedEmp" FromRole="Accused_Cases" ToRole="AccusedEmp" />
+        </EntityType>
+        <EntityType Name="AccusedEmp">
+          <Key>
+            <PropertyRef Name="A_Employee_ID" />
+          </Key>
+          <Property Name="A_Employee_ID" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Accused_Cases" Relationship="Self.FK_Accused_Cases_AccusedEmp" FromRole="AccusedEmp" ToRole="Accused_Cases" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_AccusedEmp_Employee" FromRole="AccusedEmp" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Case_Handler">
+          <Key>
+            <PropertyRef Name="CH_Employee_ID" />
+          </Key>
+          <Property Name="CH_Employee_ID" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Case_Handler_Type" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Case_Handler_Employee" FromRole="Case_Handler" ToRole="Employee" />
+          <NavigationProperty Name="Evidences" Relationship="Self.FK_Evidence_Case_Handler" FromRole="Case_Handler" ToRole="Evidence" />
+          <NavigationProperty Name="Evidence_Request" Relationship="Self.FK_Evidence_Request_Case_Handler" FromRole="Case_Handler" ToRole="Evidence_Request" />
+          <NavigationProperty Name="Interview_Invite" Relationship="Self.FK_Interview_Invite_Case_Handler" FromRole="Case_Handler" ToRole="Interview_Invite" />
+          <NavigationProperty Name="Investigation_Interview" Relationship="Self.FK_Investigation_Interview_Case_Handler" FromRole="Case_Handler" ToRole="Investigation_Interview" />
+          <NavigationProperty Name="InvestigationCase1" Relationship="Self.FK_InvestigationCase1_Case_Handler" FromRole="Case_Handler" ToRole="InvestigationCase1" />
+        </EntityType>
+        <EntityType Name="Case_Status">
+          <Key>
+            <PropertyRef Name="Case_Status_ID" />
+          </Key>
+          <Property Name="Case_Status_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Case_Status1" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="InvestigationCase1" Relationship="Self.FK_InvestigationCase1_Case_Status" FromRole="Case_Status" ToRole="InvestigationCase1" />
+        </EntityType>
+        <EntityType Name="Case_Verdict">
+          <Key>
+            <PropertyRef Name="Case_Verdict_ID" />
+          </Key>
+          <Property Name="Case_Verdict_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Case_Verdict1" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="InvestigationCase1" Relationship="Self.FK_InvestigationCase1_Case_Verdict" FromRole="Case_Verdict" ToRole="InvestigationCase1" />
+        </EntityType>
+        <EntityType Name="CaseType">
+          <Key>
+            <PropertyRef Name="C_Case_Type_ID" />
+          </Key>
+          <Property Name="C_Case_Type_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Case_Type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="InvestigationCase1" Relationship="Self.FK_InvestigationCase1_CaseType" FromRole="CaseType" ToRole="InvestigationCase1" />
+        </EntityType>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="Department_ID" />
+          </Key>
+          <Property Name="Department_ID" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Department_Name" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK_Employee_Department" FromRole="Department" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Employee_ID" />
+          </Key>
+          <Property Name="Employee_ID" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="First_Name" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Last_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Mobile_Number" Type="String" MaxLength="13" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Region" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DOB" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Job_Title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Employee_Grade" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Employee_Type" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="Department_ID" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="AccusedEmp" Relationship="Self.FK_AccusedEmp_Employee" FromRole="Employee" ToRole="AccusedEmp" />
+          <NavigationProperty Name="Case_Handler" Relationship="Self.FK_Case_Handler_Employee" FromRole="Employee" ToRole="Case_Handler" />
+          <NavigationProperty Name="Department" Relationship="Self.FK_Employee_Department" FromRole="Employee" ToRole="Department" />
+          <NavigationProperty Name="Evidence_Request" Relationship="Self.FK_Evidence_Request_Employee" FromRole="Employee" ToRole="Evidence_Request" />
+          <NavigationProperty Name="Interview_Invite" Relationship="Self.FK_Interview_Invite_Employee" FromRole="Employee" ToRole="Interview_Invite" />
+          <NavigationProperty Name="Investigation_Interview" Relationship="Self.FK_Investigation_Interview_Employee" FromRole="Employee" ToRole="Investigation_Interview" />
+          <NavigationProperty Name="Requester" Relationship="Self.FK_Requester_Employee" FromRole="Employee" ToRole="Requester" />
+          <NavigationProperty Name="Termination_Request" Relationship="Self.FK_Termination_Request_Employee" FromRole="Employee" ToRole="Termination_Request" />
+          <NavigationProperty Name="Interview_Invite1" Relationship="Self.Interview_Invitation_Employee" FromRole="Employee" ToRole="Interview_Invite" />
+          <NavigationProperty Name="Investigation_Interview1" Relationship="Self.Investigation_Interview_Employee" FromRole="Employee" ToRole="Investigation_Interview" />
+        </EntityType>
+        <EntityType Name="Evidence">
+          <Key>
+            <PropertyRef Name="Evidence_ID" />
+          </Key>
+          <Property Name="Evidence_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Evidence_Type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Evidence_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Evidence_Details" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Evidence_Document" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Requester_ID" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Case_Handler_ID" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="Case_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Case_Handler" Relationship="Self.FK_Evidence_Case_Handler" FromRole="Evidence" ToRole="Case_Handler" />
+          <NavigationProperty Name="InvestigationCase1" Relationship="Self.FK_Evidence_InvestigationCase1" FromRole="Evidence" ToRole="InvestigationCase1" />
+        </EntityType>
+        <EntityType Name="Evidence_Request">
+          <Key>
+            <PropertyRef Name="Evidence_Request_ID" />
+          </Key>
+          <Property Name="Evidence_Request_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Evidence_Request_Details" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Case_Handler" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Employee" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Case_ID" Type="Int32" Nullable="false" />
+          <Property Name="evidence_request_date" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Case_Handler1" Relationship="Self.FK_Evidence_Request_Case_Handler" FromRole="Evidence_Request" ToRole="Case_Handler" />
+          <NavigationProperty Name="Employee1" Relationship="Self.FK_Evidence_Request_Employee" FromRole="Evidence_Request" ToRole="Employee" />
+          <NavigationProperty Name="InvestigationCase1" Relationship="Self.FK_Evidence_Request_InvestigationCase1" FromRole="Evidence_Request" ToRole="InvestigationCase1" />
+        </EntityType>
+        <EntityType Name="Interview_Invite">
+          <Key>
+            <PropertyRef Name="Interview_Invitation_ID" />
+          </Key>
+          <Property Name="Interview_Invitation_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Interview_Invitation_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Interview_Invitation_Time" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Interview_Invitation_Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Interview_Invitation_Date_Sent" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Interview_Invitation_Acceptance" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="Case_Handler_ID" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Interview_Invitation_Invitee" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Interview_Invitation_Details" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Case_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Case_Handler" Relationship="Self.FK_Interview_Invite_Case_Handler" FromRole="Interview_Invite" ToRole="Case_Handler" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Interview_Invite_Employee" FromRole="Interview_Invite" ToRole="Employee" />
+          <NavigationProperty Name="InvestigationCase1" Relationship="Self.FK_Interview_Invite_InvestigationCase1" FromRole="Interview_Invite" ToRole="InvestigationCase1" />
+          <NavigationProperty Name="Employees" Relationship="Self.Interview_Invitation_Employee" FromRole="Interview_Invite" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Investigation_Interview">
+          <Key>
+            <PropertyRef Name="Investigation_Interview_ID" />
+          </Key>
+          <Property Name="Investigation_Interview_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Investigation_Interview_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Investigation_Interview_Time" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Investigation_Interview_Location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Investigation_Interview_Memo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Investigation_Interview_Interviewee_ID" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Investigation_Interview_Interviewer_ID" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Case_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Case_Handler" Relationship="Self.FK_Investigation_Interview_Case_Handler" FromRole="Investigation_Interview" ToRole="Case_Handler" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Investigation_Interview_Employee" FromRole="Investigation_Interview" ToRole="Employee" />
+          <NavigationProperty Name="InvestigationCase1" Relationship="Self.FK_Investigation_Interview_InvestigationCase1" FromRole="Investigation_Interview" ToRole="InvestigationCase1" />
+          <NavigationProperty Name="QuestionsAnswers" Relationship="Self.FK_QuestionsAnswer_Investigation_Interview" FromRole="Investigation_Interview" ToRole="QuestionsAnswer" />
+          <NavigationProperty Name="Employees" Relationship="Self.Investigation_Interview_Employee" FromRole="Investigation_Interview" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="InvestigationCase1">
+          <Key>
+            <PropertyRef Name="Case_ID" />
+          </Key>
+          <Property Name="Case_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Case_Type" Type="Int32" />
+          <Property Name="Case_Start_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Case_End_Date" Type="DateTime" Precision="0" />
+          <Property Name="Case_Status" Type="Int32" DefaultValue="4" />
+          <Property Name="Case_Details" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Case_Duration" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Case_Verdict" Type="Int32" DefaultValue="28" />
+          <Property Name="Employee_ID" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Case_Handler_ID" Type="String" MaxLength="5" FixedLength="true" Unicode="false" DefaultValue="22189" />
+          <Property Name="Requester_ID" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Case_Handler" Relationship="Self.FK_InvestigationCase1_Case_Handler" FromRole="InvestigationCase1" ToRole="Case_Handler" />
+          <NavigationProperty Name="Case_Status1" Relationship="Self.FK_InvestigationCase1_Case_Status" FromRole="InvestigationCase1" ToRole="Case_Status" />
+          <NavigationProperty Name="Case_Verdict1" Relationship="Self.FK_InvestigationCase1_Case_Verdict" FromRole="InvestigationCase1" ToRole="Case_Verdict" />
+          <NavigationProperty Name="CaseType" Relationship="Self.FK_InvestigationCase1_CaseType" FromRole="InvestigationCase1" ToRole="CaseType" />
+          <NavigationProperty Name="Evidences" Relationship="Self.FK_Evidence_InvestigationCase1" FromRole="InvestigationCase1" ToRole="Evidence" />
+          <NavigationProperty Name="Evidence_Request" Relationship="Self.FK_Evidence_Request_InvestigationCase1" FromRole="InvestigationCase1" ToRole="Evidence_Request" />
+          <NavigationProperty Name="Interview_Invite" Relationship="Self.FK_Interview_Invite_InvestigationCase1" FromRole="InvestigationCase1" ToRole="Interview_Invite" />
+          <NavigationProperty Name="Investigation_Interview" Relationship="Self.FK_Investigation_Interview_InvestigationCase1" FromRole="InvestigationCase1" ToRole="Investigation_Interview" />
+          <NavigationProperty Name="Requester" Relationship="Self.FK_InvestigationCase1_Requester" FromRole="InvestigationCase1" ToRole="Requester" />
+          <NavigationProperty Name="Termination_Request" Relationship="Self.FK_Termination_Request_InvestigationCase1" FromRole="InvestigationCase1" ToRole="Termination_Request" />
+        </EntityType>
+        <EntityType Name="Question">
+          <Key>
+            <PropertyRef Name="Question_ID" />
+          </Key>
+          <Property Name="Question_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Question_Details" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="QuestionsAnswers" Relationship="Self.FK_QuestionsAnswer_Questions" FromRole="Questions" ToRole="QuestionsAnswer" />
+        </EntityType>
+        <EntityType Name="QuestionsAnswer">
+          <Key>
+            <PropertyRef Name="Investigation_Interview_ID" />
+            <PropertyRef Name="Question_ID" />
+          </Key>
+          <Property Name="Investigation_Interview_ID" Type="Int32" Nullable="false" />
+          <Property Name="Question_ID" Type="Int32" Nullable="false" />
+          <Property Name="Answer_Details" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Investigation_Interview" Relationship="Self.FK_QuestionsAnswer_Investigation_Interview" FromRole="QuestionsAnswer" ToRole="Investigation_Interview" />
+          <NavigationProperty Name="Question" Relationship="Self.FK_QuestionsAnswer_Questions" FromRole="QuestionsAnswer" ToRole="Questions" />
+        </EntityType>
+        <EntityType Name="Requester">
+          <Key>
+            <PropertyRef Name="R_Employee_ID" />
+          </Key>
+          <Property Name="R_Employee_ID" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Requester_Employee" FromRole="Requester" ToRole="Employee" />
+          <NavigationProperty Name="InvestigationCase1" Relationship="Self.FK_InvestigationCase1_Requester" FromRole="Requester" ToRole="InvestigationCase1" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Termination_Request">
+          <Key>
+            <PropertyRef Name="Termination_Request_ID" />
+          </Key>
+          <Property Name="Termination_Request_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Termination_Request_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Termination_Request_Justification" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Case_ID" Type="Int32" Nullable="false" />
+          <Property Name="Employee_ID" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK_Termination_Request_Employee" FromRole="Termination_Request" ToRole="Employee" />
+          <NavigationProperty Name="InvestigationCase1" Relationship="Self.FK_Termination_Request_InvestigationCase1" FromRole="Termination_Request" ToRole="InvestigationCase1" />
+        </EntityType>
+        <EntityType Name="case_view">
+          <Key>
+            <PropertyRef Name="Case_ID" />
+            <PropertyRef Name="Case_Start_Date" />
+            <PropertyRef Name="Case_Details" />
+            <PropertyRef Name="Employee_ID" />
+            <PropertyRef Name="Requester_ID" />
+            <PropertyRef Name="Case_Type" />
+          </Key>
+          <Property Name="Case_ID" Type="Int32" Nullable="false" />
+          <Property Name="Case_Start_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Case_End_Date" Type="DateTime" Precision="0" />
+          <Property Name="Case_Status" Type="Int32" />
+          <Property Name="Case_Details" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Case_Duration" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Case_Verdict" Type="Int32" />
+          <Property Name="Employee_ID" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Case_Handler_ID" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="Requester_ID" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Case_Type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="details_view">
+          <Key>
+            <PropertyRef Name="Case_ID" />
+            <PropertyRef Name="Case_Start_Date" />
+            <PropertyRef Name="Case_Details" />
+            <PropertyRef Name="Employee_ID" />
+            <PropertyRef Name="Requester_ID" />
+            <PropertyRef Name="Case_Status" />
+            <PropertyRef Name="Case_Type" />
+          </Key>
+          <Property Name="Case_ID" Type="Int32" Nullable="false" />
+          <Property Name="Case_Start_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Case_End_Date" Type="DateTime" Precision="0" />
+          <Property Name="Case_Details" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Case_Duration" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Employee_ID" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Case_Handler_ID" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="Requester_ID" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Case_Status" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Case_Verdict" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="Case_Type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="View_3">
+          <Key>
+            <PropertyRef Name="Case_Status" />
+            <PropertyRef Name="Case_ID" />
+            <PropertyRef Name="Case_Start_Date" />
+            <PropertyRef Name="Case_Details" />
+            <PropertyRef Name="Employee_ID" />
+            <PropertyRef Name="Case_Handler_ID" />
+            <PropertyRef Name="Requester_ID" />
+            <PropertyRef Name="Case_Type1" />
+          </Key>
+          <Property Name="Case_Status" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Case_ID" Type="Int32" Nullable="false" />
+          <Property Name="Case_Type" Type="Int32" />
+          <Property Name="Case_Start_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Case_End_Date" Type="DateTime" Precision="0" />
+          <Property Name="Case_Details" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Case_Duration" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Case_Verdict" Type="Int32" />
+          <Property Name="Employee_ID" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Case_Handler_ID" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Requester_ID" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Case_Type1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="View_4">
+          <Key>
+            <PropertyRef Name="Case_ID" />
+            <PropertyRef Name="Case_Start_Date" />
+            <PropertyRef Name="Case_Details" />
+            <PropertyRef Name="Employee_ID" />
+            <PropertyRef Name="Requester_ID" />
+            <PropertyRef Name="Case_Status" />
+            <PropertyRef Name="Case_Verdict" />
+            <PropertyRef Name="Case_Type" />
+          </Key>
+          <Property Name="Case_ID" Type="Int32" Nullable="false" />
+          <Property Name="Case_Start_Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Case_End_Date" Type="DateTime" Precision="0" />
+          <Property Name="Case_Details" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Case_Duration" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Employee_ID" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Case_Handler_ID" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="Requester_ID" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Case_Status" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Case_Verdict" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Case_Type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Accused_Cases_AccusedEmp">
+          <End Role="AccusedEmp" Type="Self.AccusedEmp" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Accused_Cases" Type="Self.Accused_case" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AccusedEmp">
+              <PropertyRef Name="A_Employee_ID" />
+            </Principal>
+            <Dependent Role="Accused_Cases">
+              <PropertyRef Name="Accused_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AccusedEmp_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AccusedEmp" Type="Self.AccusedEmp" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee_ID" />
+            </Principal>
+            <Dependent Role="AccusedEmp">
+              <PropertyRef Name="A_Employee_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Case_Handler_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Case_Handler" Type="Self.Case_Handler" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee_ID" />
+            </Principal>
+            <Dependent Role="Case_Handler">
+              <PropertyRef Name="CH_Employee_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Evidence_Case_Handler">
+          <End Role="Case_Handler" Type="Self.Case_Handler" Multiplicity="0..1" />
+          <End Role="Evidence" Type="Self.Evidence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Case_Handler">
+              <PropertyRef Name="CH_Employee_ID" />
+            </Principal>
+            <Dependent Role="Evidence">
+              <PropertyRef Name="Case_Handler_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Evidence_Request_Case_Handler">
+          <End Role="Case_Handler" Type="Self.Case_Handler" Multiplicity="1" />
+          <End Role="Evidence_Request" Type="Self.Evidence_Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Case_Handler">
+              <PropertyRef Name="CH_Employee_ID" />
+            </Principal>
+            <Dependent Role="Evidence_Request">
+              <PropertyRef Name="Case_Handler" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Interview_Invite_Case_Handler">
+          <End Role="Case_Handler" Type="Self.Case_Handler" Multiplicity="1" />
+          <End Role="Interview_Invite" Type="Self.Interview_Invite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Case_Handler">
+              <PropertyRef Name="CH_Employee_ID" />
+            </Principal>
+            <Dependent Role="Interview_Invite">
+              <PropertyRef Name="Case_Handler_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Investigation_Interview_Case_Handler">
+          <End Role="Case_Handler" Type="Self.Case_Handler" Multiplicity="1" />
+          <End Role="Investigation_Interview" Type="Self.Investigation_Interview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Case_Handler">
+              <PropertyRef Name="CH_Employee_ID" />
+            </Principal>
+            <Dependent Role="Investigation_Interview">
+              <PropertyRef Name="Investigation_Interview_Interviewer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InvestigationCase1_Case_Handler">
+          <End Role="Case_Handler" Type="Self.Case_Handler" Multiplicity="0..1" />
+          <End Role="InvestigationCase1" Type="Self.InvestigationCase1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Case_Handler">
+              <PropertyRef Name="CH_Employee_ID" />
+            </Principal>
+            <Dependent Role="InvestigationCase1">
+              <PropertyRef Name="Case_Handler_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InvestigationCase1_Case_Status">
+          <End Role="Case_Status" Type="Self.Case_Status" Multiplicity="0..1" />
+          <End Role="InvestigationCase1" Type="Self.InvestigationCase1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Case_Status">
+              <PropertyRef Name="Case_Status_ID" />
+            </Principal>
+            <Dependent Role="InvestigationCase1">
+              <PropertyRef Name="Case_Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InvestigationCase1_Case_Verdict">
+          <End Role="Case_Verdict" Type="Self.Case_Verdict" Multiplicity="0..1" />
+          <End Role="InvestigationCase1" Type="Self.InvestigationCase1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Case_Verdict">
+              <PropertyRef Name="Case_Verdict_ID" />
+            </Principal>
+            <Dependent Role="InvestigationCase1">
+              <PropertyRef Name="Case_Verdict" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InvestigationCase1_CaseType">
+          <End Role="CaseType" Type="Self.CaseType" Multiplicity="0..1" />
+          <End Role="InvestigationCase1" Type="Self.InvestigationCase1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CaseType">
+              <PropertyRef Name="C_Case_Type_ID" />
+            </Principal>
+            <Dependent Role="InvestigationCase1">
+              <PropertyRef Name="Case_Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Department">
+          <End Role="Department" Type="Self.Department" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Department">
+              <PropertyRef Name="Department_ID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="Department_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Evidence_Request_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Evidence_Request" Type="Self.Evidence_Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee_ID" />
+            </Principal>
+            <Dependent Role="Evidence_Request">
+              <PropertyRef Name="Employee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Interview_Invite_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Interview_Invite" Type="Self.Interview_Invite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee_ID" />
+            </Principal>
+            <Dependent Role="Interview_Invite">
+              <PropertyRef Name="Interview_Invitation_Invitee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Investigation_Interview_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="Investigation_Interview" Type="Self.Investigation_Interview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee_ID" />
+            </Principal>
+            <Dependent Role="Investigation_Interview">
+              <PropertyRef Name="Investigation_Interview_Interviewee_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Requester_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Requester" Type="Self.Requester" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee_ID" />
+            </Principal>
+            <Dependent Role="Requester">
+              <PropertyRef Name="R_Employee_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Termination_Request_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Termination_Request" Type="Self.Termination_Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Employee_ID" />
+            </Principal>
+            <Dependent Role="Termination_Request">
+              <PropertyRef Name="Employee_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Evidence_InvestigationCase1">
+          <End Role="InvestigationCase1" Type="Self.InvestigationCase1" Multiplicity="1" />
+          <End Role="Evidence" Type="Self.Evidence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InvestigationCase1">
+              <PropertyRef Name="Case_ID" />
+            </Principal>
+            <Dependent Role="Evidence">
+              <PropertyRef Name="Case_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Evidence_Request_InvestigationCase1">
+          <End Role="InvestigationCase1" Type="Self.InvestigationCase1" Multiplicity="1" />
+          <End Role="Evidence_Request" Type="Self.Evidence_Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InvestigationCase1">
+              <PropertyRef Name="Case_ID" />
+            </Principal>
+            <Dependent Role="Evidence_Request">
+              <PropertyRef Name="Case_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Interview_Invite_InvestigationCase1">
+          <End Role="InvestigationCase1" Type="Self.InvestigationCase1" Multiplicity="1" />
+          <End Role="Interview_Invite" Type="Self.Interview_Invite" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InvestigationCase1">
+              <PropertyRef Name="Case_ID" />
+            </Principal>
+            <Dependent Role="Interview_Invite">
+              <PropertyRef Name="Case_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Investigation_Interview_InvestigationCase1">
+          <End Role="InvestigationCase1" Type="Self.InvestigationCase1" Multiplicity="1" />
+          <End Role="Investigation_Interview" Type="Self.Investigation_Interview" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InvestigationCase1">
+              <PropertyRef Name="Case_ID" />
+            </Principal>
+            <Dependent Role="Investigation_Interview">
+              <PropertyRef Name="Case_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QuestionsAnswer_Investigation_Interview">
+          <End Role="Investigation_Interview" Type="Self.Investigation_Interview" Multiplicity="1" />
+          <End Role="QuestionsAnswer" Type="Self.QuestionsAnswer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Investigation_Interview">
+              <PropertyRef Name="Investigation_Interview_ID" />
+            </Principal>
+            <Dependent Role="QuestionsAnswer">
+              <PropertyRef Name="Investigation_Interview_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InvestigationCase1_Requester">
+          <End Role="Requester" Type="Self.Requester" Multiplicity="1" />
+          <End Role="InvestigationCase1" Type="Self.InvestigationCase1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Requester">
+              <PropertyRef Name="R_Employee_ID" />
+            </Principal>
+            <Dependent Role="InvestigationCase1">
+              <PropertyRef Name="Requester_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Termination_Request_InvestigationCase1">
+          <End Role="InvestigationCase1" Type="Self.InvestigationCase1" Multiplicity="1" />
+          <End Role="Termination_Request" Type="Self.Termination_Request" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InvestigationCase1">
+              <PropertyRef Name="Case_ID" />
+            </Principal>
+            <Dependent Role="Termination_Request">
+              <PropertyRef Name="Case_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_QuestionsAnswer_Questions">
+          <End Role="Questions" Type="Self.Question" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="QuestionsAnswer" Type="Self.QuestionsAnswer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Questions">
+              <PropertyRef Name="Question_ID" />
+            </Principal>
+            <Dependent Role="QuestionsAnswer">
+              <PropertyRef Name="Question_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Interview_Invitation_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <End Role="Interview_Invite" Type="Self.Interview_Invite" Multiplicity="*" />
+        </Association>
+        <Association Name="Investigation_Interview_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <End Role="Investigation_Interview" Type="Self.Investigation_Interview" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="Investigation_management_systemEntities4" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accused_Cases" EntityType="Self.Accused_case" />
+          <EntitySet Name="AccusedEmps" EntityType="Self.AccusedEmp" />
+          <EntitySet Name="Case_Handler" EntityType="Self.Case_Handler" />
+          <EntitySet Name="Case_Status" EntityType="Self.Case_Status" />
+          <EntitySet Name="Case_Verdict" EntityType="Self.Case_Verdict" />
+          <EntitySet Name="CaseType" EntityType="Self.CaseType" />
+          <EntitySet Name="Departments" EntityType="Self.Department" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="Evidences" EntityType="Self.Evidence" />
+          <EntitySet Name="Evidence_Request" EntityType="Self.Evidence_Request" />
+          <EntitySet Name="Interview_Invite" EntityType="Self.Interview_Invite" />
+          <EntitySet Name="Investigation_Interview" EntityType="Self.Investigation_Interview" />
+          <EntitySet Name="InvestigationCase1" EntityType="Self.InvestigationCase1" />
+          <EntitySet Name="Questions" EntityType="Self.Question" />
+          <EntitySet Name="QuestionsAnswers" EntityType="Self.QuestionsAnswer" />
+          <EntitySet Name="Requesters" EntityType="Self.Requester" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Termination_Requests" EntityType="Self.Termination_Request" />
+          <EntitySet Name="case_view" EntityType="Self.case_view" />
+          <EntitySet Name="details_view" EntityType="Self.details_view" />
+          <EntitySet Name="View_3" EntityType="Self.View_3" />
+          <EntitySet Name="View_4" EntityType="Self.View_4" />
+          <AssociationSet Name="FK_Accused_Cases_AccusedEmp" Association="Self.FK_Accused_Cases_AccusedEmp">
+            <End Role="AccusedEmp" EntitySet="AccusedEmps" />
+            <End Role="Accused_Cases" EntitySet="Accused_Cases" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AccusedEmp_Employee" Association="Self.FK_AccusedEmp_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="AccusedEmp" EntitySet="AccusedEmps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Case_Handler_Employee" Association="Self.FK_Case_Handler_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Case_Handler" EntitySet="Case_Handler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Evidence_Case_Handler" Association="Self.FK_Evidence_Case_Handler">
+            <End Role="Case_Handler" EntitySet="Case_Handler" />
+            <End Role="Evidence" EntitySet="Evidences" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Evidence_Request_Case_Handler" Association="Self.FK_Evidence_Request_Case_Handler">
+            <End Role="Case_Handler" EntitySet="Case_Handler" />
+            <End Role="Evidence_Request" EntitySet="Evidence_Request" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Interview_Invite_Case_Handler" Association="Self.FK_Interview_Invite_Case_Handler">
+            <End Role="Case_Handler" EntitySet="Case_Handler" />
+            <End Role="Interview_Invite" EntitySet="Interview_Invite" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Investigation_Interview_Case_Handler" Association="Self.FK_Investigation_Interview_Case_Handler">
+            <End Role="Case_Handler" EntitySet="Case_Handler" />
+            <End Role="Investigation_Interview" EntitySet="Investigation_Interview" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InvestigationCase1_Case_Handler" Association="Self.FK_InvestigationCase1_Case_Handler">
+            <End Role="Case_Handler" EntitySet="Case_Handler" />
+            <End Role="InvestigationCase1" EntitySet="InvestigationCase1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InvestigationCase1_Case_Status" Association="Self.FK_InvestigationCase1_Case_Status">
+            <End Role="Case_Status" EntitySet="Case_Status" />
+            <End Role="InvestigationCase1" EntitySet="InvestigationCase1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InvestigationCase1_Case_Verdict" Association="Self.FK_InvestigationCase1_Case_Verdict">
+            <End Role="Case_Verdict" EntitySet="Case_Verdict" />
+            <End Role="InvestigationCase1" EntitySet="InvestigationCase1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InvestigationCase1_CaseType" Association="Self.FK_InvestigationCase1_CaseType">
+            <End Role="CaseType" EntitySet="CaseType" />
+            <End Role="InvestigationCase1" EntitySet="InvestigationCase1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Department" Association="Self.FK_Employee_Department">
+            <End Role="Department" EntitySet="Departments" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Evidence_Request_Employee" Association="Self.FK_Evidence_Request_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Evidence_Request" EntitySet="Evidence_Request" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Interview_Invite_Employee" Association="Self.FK_Interview_Invite_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Interview_Invite" EntitySet="Interview_Invite" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Investigation_Interview_Employee" Association="Self.FK_Investigation_Interview_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Investigation_Interview" EntitySet="Investigation_Interview" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Requester_Employee" Association="Self.FK_Requester_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Requester" EntitySet="Requesters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Termination_Request_Employee" Association="Self.FK_Termination_Request_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Termination_Request" EntitySet="Termination_Requests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Evidence_InvestigationCase1" Association="Self.FK_Evidence_InvestigationCase1">
+            <End Role="InvestigationCase1" EntitySet="InvestigationCase1" />
+            <End Role="Evidence" EntitySet="Evidences" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Evidence_Request_InvestigationCase1" Association="Self.FK_Evidence_Request_InvestigationCase1">
+            <End Role="InvestigationCase1" EntitySet="InvestigationCase1" />
+            <End Role="Evidence_Request" EntitySet="Evidence_Request" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Interview_Invite_InvestigationCase1" Association="Self.FK_Interview_Invite_InvestigationCase1">
+            <End Role="InvestigationCase1" EntitySet="InvestigationCase1" />
+            <End Role="Interview_Invite" EntitySet="Interview_Invite" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Investigation_Interview_InvestigationCase1" Association="Self.FK_Investigation_Interview_InvestigationCase1">
+            <End Role="InvestigationCase1" EntitySet="InvestigationCase1" />
+            <End Role="Investigation_Interview" EntitySet="Investigation_Interview" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QuestionsAnswer_Investigation_Interview" Association="Self.FK_QuestionsAnswer_Investigation_Interview">
+            <End Role="Investigation_Interview" EntitySet="Investigation_Interview" />
+            <End Role="QuestionsAnswer" EntitySet="QuestionsAnswers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InvestigationCase1_Requester" Association="Self.FK_InvestigationCase1_Requester">
+            <End Role="Requester" EntitySet="Requesters" />
+            <End Role="InvestigationCase1" EntitySet="InvestigationCase1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Termination_Request_InvestigationCase1" Association="Self.FK_Termination_Request_InvestigationCase1">
+            <End Role="InvestigationCase1" EntitySet="InvestigationCase1" />
+            <End Role="Termination_Request" EntitySet="Termination_Requests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_QuestionsAnswer_Questions" Association="Self.FK_QuestionsAnswer_Questions">
+            <End Role="Questions" EntitySet="Questions" />
+            <End Role="QuestionsAnswer" EntitySet="QuestionsAnswers" />
+          </AssociationSet>
+          <AssociationSet Name="Interview_Invitation_Employee" Association="Self.Interview_Invitation_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Interview_Invite" EntitySet="Interview_Invite" />
+          </AssociationSet>
+          <AssociationSet Name="Investigation_Interview_Employee" Association="Self.Investigation_Interview_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="Investigation_Interview" EntitySet="Investigation_Interview" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Investigation_management_systemModelStoreContainer" CdmEntityContainer="Investigation_management_systemEntities4">
+          <EntitySetMapping Name="Accused_Cases">
+            <EntityTypeMapping TypeName="Investigation_management_systemModel.Accused_case">
+              <MappingFragment StoreEntitySet="Accused Cases">
+                <ScalarProperty Name="Case_ID" ColumnName="Case_ID" />
+                <ScalarProperty Name="Accused_ID" ColumnName="Accused_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccusedEmps">
+            <EntityTypeMapping TypeName="Investigation_management_systemModel.AccusedEmp">
+              <MappingFragment StoreEntitySet="AccusedEmp">
+                <ScalarProperty Name="A_Employee_ID" ColumnName="A_Employee_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Case_Handler">
+            <EntityTypeMapping TypeName="Investigation_management_systemModel.Case_Handler">
+              <MappingFragment StoreEntitySet="Case Handler">
+                <ScalarProperty Name="CH_Employee_ID" ColumnName="CH_Employee_ID" />
+                <ScalarProperty Name="Case_Handler_Type" ColumnName="Case_Handler_Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Case_Status">
+            <EntityTypeMapping TypeName="Investigation_management_systemModel.Case_Status">
+              <MappingFragment StoreEntitySet="Case Status">
+                <ScalarProperty Name="Case_Status_ID" ColumnName="Case_Status_ID" />
+                <ScalarProperty Name="Case_Status1" ColumnName="Case_Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Case_Verdict">
+            <EntityTypeMapping TypeName="Investigation_management_systemModel.Case_Verdict">
+              <MappingFragment StoreEntitySet="Case Verdict">
+                <ScalarProperty Name="Case_Verdict_ID" ColumnName="Case_Verdict_ID" />
+                <ScalarProperty Name="Case_Verdict1" ColumnName="Case_Verdict" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CaseType">
+            <EntityTypeMapping TypeName="Investigation_management_systemModel.CaseType">
+              <MappingFragment StoreEntitySet="CaseType">
+                <ScalarProperty Name="C_Case_Type_ID" ColumnName="[Case Type ID" />
+                <ScalarProperty Name="Case_Type" ColumnName="Case Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="Investigation_management_systemModel.Department">
+              <MappingFragment StoreEntitySet="Department">
+                <ScalarProperty Name="Department_ID" ColumnName="Department_ID" />
+                <ScalarProperty Name="Department_Name" ColumnName="Department_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="Investigation_management_systemModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+                <ScalarProperty Name="First_Name" ColumnName="First_Name" />
+                <ScalarProperty Name="Last_Name" ColumnName="Last_Name" />
+                <ScalarProperty Name="Email_Address" ColumnName="Email_Address" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Mobile_Number" ColumnName="Mobile_Number" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Job_Title" ColumnName="Job_Title" />
+                <ScalarProperty Name="Employee_Grade" ColumnName="Employee_Grade" />
+                <ScalarProperty Name="Employee_Type" ColumnName="Employee_Type" />
+                <ScalarProperty Name="Department_ID" ColumnName="Department_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Evidences">
+            <EntityTypeMapping TypeName="Investigation_management_systemModel.Evidence">
+              <MappingFragment StoreEntitySet="Evidence">
+                <ScalarProperty Name="Evidence_ID" ColumnName="Evidence_ID" />
+                <ScalarProperty Name="Evidence_Type" ColumnName="Evidence_Type" />
+                <ScalarProperty Name="Evidence_Date" ColumnName="Evidence_Date" />
+                <ScalarProperty Name="Evidence_Details" ColumnName="Evidence_Details" />
+                <ScalarProperty Name="Evidence_Document" ColumnName="Evidence_Document" />
+                <ScalarProperty Name="Requester_ID" ColumnName="Requester_ID" />
+                <ScalarProperty Name="Case_Handler_ID" ColumnName="Case_Handler_ID" />
+                <ScalarProperty Name="Case_ID" ColumnName="Case_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Evidence_Request">
+            <EntityTypeMapping TypeName="Investigation_management_systemModel.Evidence_Request">
+              <MappingFragment StoreEntitySet="Evidence_Request">
+                <ScalarProperty Name="Evidence_Request_ID" ColumnName="Evidence_Request_ID" />
+                <ScalarProperty Name="Evidence_Request_Details" ColumnName="Evidence_Request_Details" />
+                <ScalarProperty Name="Case_Handler" ColumnName="Case_Handler" />
+                <ScalarProperty Name="Employee" ColumnName="Employee" />
+                <ScalarProperty Name="Case_ID" ColumnName="Case_ID" />
+                <ScalarProperty Name="evidence_request_date" ColumnName="evidence_request_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Interview_Invite">
+            <EntityTypeMapping TypeName="Investigation_management_systemModel.Interview_Invite">
+              <MappingFragment StoreEntitySet="Interview_Invite">
+                <ScalarProperty Name="Interview_Invitation_ID" ColumnName="Interview_Invitation_ID" />
+                <ScalarProperty Name="Interview_Invitation_Date" ColumnName="Interview_Invitation_Date" />
+                <ScalarProperty Name="Interview_Invitation_Time" ColumnName="Interview_Invitation_Time" />
+                <ScalarProperty Name="Interview_Invitation_Location" ColumnName="Interview_Invitation_Location" />
+                <ScalarProperty Name="Interview_Invitation_Date_Sent" ColumnName="Interview_Invitation_Date_Sent" />
+                <ScalarProperty Name="Interview_Invitation_Acceptance" ColumnName="Interview_Invitation_Acceptance" />
+                <ScalarProperty Name="Case_Handler_ID" ColumnName="Case_Handler_ID" />
+                <ScalarProperty Name="Interview_Invitation_Invitee" ColumnName="Interview_Invitation_Invitee" />
+                <ScalarProperty Name="Interview_Invitation_Details" ColumnName="Interview_Invitation_Details" />
+                <ScalarProperty Name="Case_ID" ColumnName="Case_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Investigation_Interview">
+            <EntityTypeMapping TypeName="Investigation_management_systemModel.Investigation_Interview">
+              <MappingFragment StoreEntitySet="Investigation_Interview">
+                <ScalarProperty Name="Investigation_Interview_ID" ColumnName="Investigation_Interview_ID" />
+                <ScalarProperty Name="Investigation_Interview_Date" ColumnName="Investigation_Interview_Date" />
+                <ScalarProperty Name="Investigation_Interview_Time" ColumnName="Investigation_Interview_Time" />
+                <ScalarProperty Name="Investigation_Interview_Location" ColumnName="Investigation_Interview_Location" />
+                <ScalarProperty Name="Investigation_Interview_Memo" ColumnName="Investigation_Interview_Memo" />
+                <ScalarProperty Name="Investigation_Interview_Interviewee_ID" ColumnName="Investigation_Interview_Interviewee_ID" />
+                <ScalarProperty Name="Investigation_Interview_Interviewer_ID" ColumnName="Investigation_Interview_Interviewer_ID" />
+                <ScalarProperty Name="Case_ID" ColumnName="Case_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InvestigationCase1">
+            <EntityTypeMapping TypeName="Investigation_management_systemModel.InvestigationCase1">
+              <MappingFragment StoreEntitySet="InvestigationCase1">
+                <ScalarProperty Name="Case_ID" ColumnName="Case_ID" />
+                <ScalarProperty Name="Case_Type" ColumnName="Case_Type" />
+                <ScalarProperty Name="Case_Start_Date" ColumnName="Case_Start_Date" />
+                <ScalarProperty Name="Case_End_Date" ColumnName="Case_End_Date" />
+                <ScalarProperty Name="Case_Status" ColumnName="Case_Status" />
+                <ScalarProperty Name="Case_Details" ColumnName="Case_Details" />
+                <ScalarProperty Name="Case_Duration" ColumnName="Case_Duration" />
+                <ScalarProperty Name="Case_Verdict" ColumnName="Case_Verdict" />
+                <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+                <ScalarProperty Name="Case_Handler_ID" ColumnName="Case_Handler_ID" />
+                <ScalarProperty Name="Requester_ID" ColumnName="Requester_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Questions">
+            <EntityTypeMapping TypeName="Investigation_management_systemModel.Question">
+              <MappingFragment StoreEntitySet="Questions">
+                <ScalarProperty Name="Question_ID" ColumnName="Question_ID" />
+                <ScalarProperty Name="Question_Details" ColumnName="Question_Details" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QuestionsAnswers">
+            <EntityTypeMapping TypeName="Investigation_management_systemModel.QuestionsAnswer">
+              <MappingFragment StoreEntitySet="QuestionsAnswer">
+                <ScalarProperty Name="Investigation_Interview_ID" ColumnName="Investigation_Interview_ID" />
+                <ScalarProperty Name="Question_ID" ColumnName="Question_ID" />
+                <ScalarProperty Name="Answer_Details" ColumnName="Answer_Details" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Requesters">
+            <EntityTypeMapping TypeName="Investigation_management_systemModel.Requester">
+              <MappingFragment StoreEntitySet="Requester">
+                <ScalarProperty Name="R_Employee_ID" ColumnName="R_Employee_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Investigation_management_systemModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Termination_Requests">
+            <EntityTypeMapping TypeName="Investigation_management_systemModel.Termination_Request">
+              <MappingFragment StoreEntitySet="Termination Request">
+                <ScalarProperty Name="Termination_Request_ID" ColumnName="Termination_Request_ID" />
+                <ScalarProperty Name="Termination_Request_Date" ColumnName="Termination_Request_Date" />
+                <ScalarProperty Name="Termination_Request_Justification" ColumnName="Termination_Request_Justification" />
+                <ScalarProperty Name="Case_ID" ColumnName="Case_ID" />
+                <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="case_view">
+            <EntityTypeMapping TypeName="Investigation_management_systemModel.case_view">
+              <MappingFragment StoreEntitySet="case_view">
+                <ScalarProperty Name="Case_ID" ColumnName="Case_ID" />
+                <ScalarProperty Name="Case_Start_Date" ColumnName="Case_Start_Date" />
+                <ScalarProperty Name="Case_End_Date" ColumnName="Case_End_Date" />
+                <ScalarProperty Name="Case_Status" ColumnName="Case_Status" />
+                <ScalarProperty Name="Case_Details" ColumnName="Case_Details" />
+                <ScalarProperty Name="Case_Duration" ColumnName="Case_Duration" />
+                <ScalarProperty Name="Case_Verdict" ColumnName="Case_Verdict" />
+                <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+                <ScalarProperty Name="Case_Handler_ID" ColumnName="Case_Handler_ID" />
+                <ScalarProperty Name="Requester_ID" ColumnName="Requester_ID" />
+                <ScalarProperty Name="Case_Type" ColumnName="Case Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="details_view">
+            <EntityTypeMapping TypeName="Investigation_management_systemModel.details_view">
+              <MappingFragment StoreEntitySet="details_view">
+                <ScalarProperty Name="Case_ID" ColumnName="Case_ID" />
+                <ScalarProperty Name="Case_Start_Date" ColumnName="Case_Start_Date" />
+                <ScalarProperty Name="Case_End_Date" ColumnName="Case_End_Date" />
+                <ScalarProperty Name="Case_Details" ColumnName="Case_Details" />
+                <ScalarProperty Name="Case_Duration" ColumnName="Case_Duration" />
+                <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+                <ScalarProperty Name="Case_Handler_ID" ColumnName="Case_Handler_ID" />
+                <ScalarProperty Name="Requester_ID" ColumnName="Requester_ID" />
+                <ScalarProperty Name="Case_Status" ColumnName="Case_Status" />
+                <ScalarProperty Name="Case_Verdict" ColumnName="Case_Verdict" />
+                <ScalarProperty Name="Case_Type" ColumnName="Case Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_3">
+            <EntityTypeMapping TypeName="Investigation_management_systemModel.View_3">
+              <MappingFragment StoreEntitySet="View_3">
+                <ScalarProperty Name="Case_Status" ColumnName="Case_Status" />
+                <ScalarProperty Name="Case_ID" ColumnName="Case_ID" />
+                <ScalarProperty Name="Case_Type" ColumnName="Case_Type" />
+                <ScalarProperty Name="Case_Start_Date" ColumnName="Case_Start_Date" />
+                <ScalarProperty Name="Case_End_Date" ColumnName="Case_End_Date" />
+                <ScalarProperty Name="Case_Details" ColumnName="Case_Details" />
+                <ScalarProperty Name="Case_Duration" ColumnName="Case_Duration" />
+                <ScalarProperty Name="Case_Verdict" ColumnName="Case_Verdict" />
+                <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+                <ScalarProperty Name="Case_Handler_ID" ColumnName="Case_Handler_ID" />
+                <ScalarProperty Name="Requester_ID" ColumnName="Requester_ID" />
+                <ScalarProperty Name="Case_Type1" ColumnName="Case Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_4">
+            <EntityTypeMapping TypeName="Investigation_management_systemModel.View_4">
+              <MappingFragment StoreEntitySet="View_4">
+                <ScalarProperty Name="Case_ID" ColumnName="Case_ID" />
+                <ScalarProperty Name="Case_Start_Date" ColumnName="Case_Start_Date" />
+                <ScalarProperty Name="Case_End_Date" ColumnName="Case_End_Date" />
+                <ScalarProperty Name="Case_Details" ColumnName="Case_Details" />
+                <ScalarProperty Name="Case_Duration" ColumnName="Case_Duration" />
+                <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+                <ScalarProperty Name="Case_Handler_ID" ColumnName="Case_Handler_ID" />
+                <ScalarProperty Name="Requester_ID" ColumnName="Requester_ID" />
+                <ScalarProperty Name="Case_Status" ColumnName="Case_Status" />
+                <ScalarProperty Name="Case_Verdict" ColumnName="Case_Verdict" />
+                <ScalarProperty Name="Case_Type" ColumnName="Case Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Interview_Invitation_Employee" TypeName="Investigation_management_systemModel.Interview_Invitation_Employee" StoreEntitySet="Interview Invitation Employee">
+            <EndProperty Name="Employee">
+              <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+            </EndProperty>
+            <EndProperty Name="Interview_Invite">
+              <ScalarProperty Name="Interview_Invitation_ID" ColumnName="Interview_Invitation_ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="Investigation_Interview_Employee" TypeName="Investigation_management_systemModel.Investigation_Interview_Employee" StoreEntitySet="Investigation Interview Employee">
+            <EndProperty Name="Employee">
+              <ScalarProperty Name="Employee_ID" ColumnName="Employee_ID" />
+            </EndProperty>
+            <EndProperty Name="Investigation_Interview">
+              <ScalarProperty Name="Investigation_Interview_ID" ColumnName="Investigation_Interview_ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
