@@ -19,11 +19,11 @@ namespace IMS2
             this.Case_Status = 4;
             this.Case_Verdict = 28;
             this.Case_Handler_ID = "22189";
-            this.Evidences = new HashSet<Evidence>();
             this.Evidence_Request = new HashSet<Evidence_Request>();
             this.Interview_Invite = new HashSet<Interview_Invite>();
-            this.Investigation_Interview = new HashSet<Investigation_Interview>();
             this.Termination_Request = new HashSet<Termination_Request>();
+            this.Investigation_Interview = new HashSet<Investigation_Interview>();
+            this.Evidences = new HashSet<Evidence>();
         }
     
         public int Case_ID { get; set; }
@@ -42,11 +42,11 @@ namespace IMS2
         public virtual Case_Status Case_Status1 { get; set; }
         public virtual Case_Verdict Case_Verdict1 { get; set; }
         public virtual CaseType CaseType { get; set; }
-        public virtual ICollection<Evidence> Evidences { get; set; }
         public virtual ICollection<Evidence_Request> Evidence_Request { get; set; }
         public virtual ICollection<Interview_Invite> Interview_Invite { get; set; }
-        public virtual ICollection<Investigation_Interview> Investigation_Interview { get; set; }
         public virtual Requester Requester { get; set; }
         public virtual ICollection<Termination_Request> Termination_Request { get; set; }
+        public virtual ICollection<Investigation_Interview> Investigation_Interview { get; set; }
+        public virtual ICollection<Evidence> Evidences { get; set; }
     }
 }

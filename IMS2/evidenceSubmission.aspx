@@ -73,7 +73,7 @@ border-color: #d9d9d9;
         </style>
    
     <div class="groove">
-           <h3 style=" color: #051e80 ">Evidence Details </h3>
+           <h3 style=" color: #051e80 ">Evidence Submission Details </h3>
         <table style="width: 100%;">
             <tr>
                 <td class="auto-style2">
@@ -109,7 +109,10 @@ border-color: #d9d9d9;
             <tr>
                 <td class="auto-style2"> <asp:Label class="text" ID="Label3" runat="server" Text="Case ID"></asp:Label></td>
                 <td>
-                    <asp:TextBox ID="casetxt" runat="server" class="input" TextMode="SingleLine"></asp:TextBox>
+                    <asp:DropDownList ID="CaseDropDownList" runat="server" DataSourceID="EntityDataSource1" CssClass="select" DataTextField="Case_ID" DataValueField="Case_ID">
+                    </asp:DropDownList>
+                    <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=Investigation_management_systemEntities4" DefaultContainerName="Investigation_management_systemEntities4" EnableFlattening="False" EntitySetName="InvestigationCase1" Select="it.[Case_ID]">
+                    </asp:EntityDataSource>
                 </td>
               
             </tr>

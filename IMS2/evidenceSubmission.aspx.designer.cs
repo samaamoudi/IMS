@@ -58,13 +58,22 @@ namespace IMS2 {
         protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// casetxt control.
+        /// CaseDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox casetxt;
+        protected global::System.Web.UI.WebControls.DropDownList CaseDropDownList;
+        
+        /// <summary>
+        /// EntityDataSource1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSource1;
         
         /// <summary>
         /// Label4 control.

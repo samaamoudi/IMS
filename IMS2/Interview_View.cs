@@ -12,27 +12,17 @@ namespace IMS2
     using System;
     using System.Collections.Generic;
     
-    public partial class Investigation_Interview
+    public partial class Interview_View
     {
-        public Investigation_Interview()
-        {
-            this.Interview_Memo = new HashSet<Interview_Memo>();
-            this.QuestionsAnswers = new HashSet<QuestionsAnswer>();
-        }
-    
+        public string Answer_Details { get; set; }
+        public string Investigation_Interview_Memo { get; set; }
         public int Investigation_Interview_ID { get; set; }
         public System.DateTime Investigation_Interview_Date { get; set; }
         public string Investigation_Interview_Time { get; set; }
         public string Investigation_Interview_Location { get; set; }
-        public string Investigation_Interview_Memo { get; set; }
         public string Investigation_Interview_Interviewee_ID { get; set; }
         public string Investigation_Interview_Interviewer_ID { get; set; }
         public int Case_ID { get; set; }
-    
-        public virtual Case_Handler Case_Handler { get; set; }
-        public virtual Employee Employee { get; set; }
-        public virtual ICollection<Interview_Memo> Interview_Memo { get; set; }
-        public virtual InvestigationCase1 InvestigationCase1 { get; set; }
-        public virtual ICollection<QuestionsAnswer> QuestionsAnswers { get; set; }
+        public string Question_Details { get; set; }
     }
 }

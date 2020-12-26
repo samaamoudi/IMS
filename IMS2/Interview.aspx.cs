@@ -27,6 +27,15 @@ namespace IMS2
 
             Investigation_Interview t = new Investigation_Interview();
 
+            var userinfo = (from a in db.Employees
+                            where a.Employee_ID == Interviewertxt.Text
+                            select new LoginRecords
+                            {
+                                UserID = a.Employee_ID,
+
+                            }).FirstOrDefault();
+
+
             t.Investigation_Interview_Interviewer_ID = Interviewertxt.Text;
             t.Investigation_Interview_Interviewee_ID = intervieweetxt.Text;
             t.Case_ID = int.Parse(iDropDownList.SelectedValue);
@@ -37,22 +46,25 @@ namespace IMS2
 
             db.Investigation_Interview.Add(t);
 
-            int res = db.SaveChanges();
-
-            if (res > 0)
+            if (userinfo != null)
             {
+                int res = db.SaveChanges();
 
-                LabelInterview.Text = "Data Inserted Successfully";
+                if (res > 0)
+                {
 
+                    LabelInterview.Text = "Data Inserted Successfully";
+
+                }
+                else
+                {
+
+                    LabelInterview.Text = "Try Again!!!";
+
+
+                }
             }
-            else
-            {
-
-                LabelInterview.Text = "Try Again!!!";
-
-
-            }
-
+            else LabelInterview.Text = "Invalid username";
             int newID = t.Investigation_Interview_ID;
 
 
@@ -61,6 +73,7 @@ namespace IMS2
             //Response.Write(newID);
             //Response.Redirect("QandA.aspx?Investigation_Interview_ID =" + newID);
         }
+        
 
 
     }

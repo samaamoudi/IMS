@@ -92,17 +92,7 @@ border-color: #d9d9d9;
 
                                                     </tr>
                                                     <tr>
-                                                        <td class="auto-style2">&nbsp;</td>
-                                                        <td>&nbsp;</td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="auto-style2">&nbsp;</td>
-                                                        <td>&nbsp;</td>
-
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="auto-style2">&nbsp;</td>
+                                                        <td class="auto-style2"></td>
                                                         <td>
                                                             <asp:EntityDataSource ID="EntityDataSource7" runat="server" ConnectionString="name=Investigation_management_systemEntities4" DefaultContainerName="Investigation_management_systemEntities4" EnableFlattening="False" EntitySetName="InvestigationCase1" Select="it.[Case_ID]">
                                                             </asp:EntityDataSource>
@@ -120,14 +110,8 @@ border-color: #d9d9d9;
 
                                                         </td>
 
-                                                        <tr>
-                                                            <td class="auto-style2">&nbsp;</td>
-                                                            <td>&nbsp;</td>
+                                                       
 
-                                                        </tr>
-                                                    <tr>
-                                                        <td class="auto-style2">&nbsp;</td>
-                                                        <td>&nbsp;</td>
 
                                                         <tr>
                                                             <td class="auto-style2">&nbsp;</td>
@@ -143,15 +127,6 @@ border-color: #d9d9d9;
                                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="trDatetxt" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
 
                                                         </td>
-
-                                                        <tr>
-                                                            <td class="auto-style2">&nbsp;</td>
-                                                            <td>&nbsp;</td>
-
-                                                        </tr>
-                                                    <tr>
-                                                        <td class="auto-style2">&nbsp;</td>
-                                                        <td>&nbsp;</td>
 
                                                         <tr>
                                                             <td class="auto-style2">&nbsp;</td>

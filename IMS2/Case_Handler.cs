@@ -16,21 +16,19 @@ namespace IMS2
     {
         public Case_Handler()
         {
-            this.Evidences = new HashSet<Evidence>();
             this.Evidence_Request = new HashSet<Evidence_Request>();
             this.Interview_Invite = new HashSet<Interview_Invite>();
-            this.Investigation_Interview = new HashSet<Investigation_Interview>();
             this.InvestigationCase1 = new HashSet<InvestigationCase1>();
+            this.Investigation_Interview = new HashSet<Investigation_Interview>();
         }
     
         public string CH_Employee_ID { get; set; }
         public string Case_Handler_Type { get; set; }
     
         public virtual Employee Employee { get; set; }
-        public virtual ICollection<Evidence> Evidences { get; set; }
         public virtual ICollection<Evidence_Request> Evidence_Request { get; set; }
         public virtual ICollection<Interview_Invite> Interview_Invite { get; set; }
-        public virtual ICollection<Investigation_Interview> Investigation_Interview { get; set; }
         public virtual ICollection<InvestigationCase1> InvestigationCase1 { get; set; }
+        public virtual ICollection<Investigation_Interview> Investigation_Interview { get; set; }
     }
 }

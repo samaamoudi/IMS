@@ -18,10 +18,10 @@ namespace IMS2
         {
             this.Evidence_Request = new HashSet<Evidence_Request>();
             this.Interview_Invite = new HashSet<Interview_Invite>();
-            this.Investigation_Interview = new HashSet<Investigation_Interview>();
             this.Termination_Request = new HashSet<Termination_Request>();
             this.Interview_Invite1 = new HashSet<Interview_Invite>();
-            this.Investigation_Interview1 = new HashSet<Investigation_Interview>();
+            this.Investigation_Interview = new HashSet<Investigation_Interview>();
+            this.Evidences = new HashSet<Evidence>();
         }
     
         public string Employee_ID { get; set; }
@@ -42,10 +42,10 @@ namespace IMS2
         public virtual Department Department { get; set; }
         public virtual ICollection<Evidence_Request> Evidence_Request { get; set; }
         public virtual ICollection<Interview_Invite> Interview_Invite { get; set; }
-        public virtual ICollection<Investigation_Interview> Investigation_Interview { get; set; }
         public virtual Requester Requester { get; set; }
         public virtual ICollection<Termination_Request> Termination_Request { get; set; }
         public virtual ICollection<Interview_Invite> Interview_Invite1 { get; set; }
-        public virtual ICollection<Investigation_Interview> Investigation_Interview1 { get; set; }
+        public virtual ICollection<Investigation_Interview> Investigation_Interview { get; set; }
+        public virtual ICollection<Evidence> Evidences { get; set; }
     }
 }

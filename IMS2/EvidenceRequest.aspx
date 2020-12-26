@@ -83,6 +83,10 @@ border-color: #d9d9d9;
                                                         <td>
                                                             <asp:TextBox ID="chtxt" runat="server" CssClass="input" placeholder="Employee ID"></asp:TextBox>
                                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator21" runat="server" ControlToValidate="chtxt" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                        &nbsp;<asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="EntityDataSource1" DataTextField="CH_Employee_ID" DataValueField="CH_Employee_ID">
+                                                            </asp:DropDownList>
+                                                            <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=Investigation_management_systemEntities4" DefaultContainerName="Investigation_management_systemEntities4" EnableFlattening="False" EntitySetName="Case_Handler">
+                                                            </asp:EntityDataSource>
                                                         </td>
 
                                                     </tr>

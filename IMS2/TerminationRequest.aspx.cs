@@ -30,35 +30,6 @@ namespace IMS2
         }
 
 
-        //protected void Button2_Click(object sender, EventArgs e)
-        //{
-        //    Investigation_management_systemEntities4 db = new Investigation_management_systemEntities4();
-
-        //    Termination_Request tr = new Termination_Request();
-
-        //    tr.Termination_Request_Date = Convert.ToDateTime(Datetxt.Text);
-        //    tr.Termination_Request_Justification = Justificationtxt.Text;
-        //    tr.Case_ID = Convert.ToInt32(Casetxt.Text);
-        //    tr.Employee_ID = Emptxt.Text;
-
-        //    db.Termination_Requests.Add(tr);
-
-        //    int res = db.SaveChanges();
-
-        //    if (res > 0)
-        //    {
-
-        //        Response.Write("Data Inserted Successfully");
-
-        //    }
-        //    else
-        //    {
-
-        //        Response.Write("Try Again!!!");
-
-        //    }
-
-        //}
 
         protected void trsavebtn_Click(object sender, EventArgs e)
         {
@@ -71,22 +42,35 @@ namespace IMS2
             tr.Case_ID = int.Parse(trDropDownList.SelectedValue);
             tr.Employee_ID = trEmptxt.Text;
 
+            var userinfo = (from a in db.Employees
+                            where a.Employee_ID == trEmptxt.Text
+                            select new LoginRecords
+                            {
+                                UserID = a.Employee_ID,
+
+                            }).FirstOrDefault();
+
             db.Termination_Requests.Add(tr);
 
-            int res = db.SaveChanges();
-
-            if (res > 0)
+            if (userinfo != null)
             {
+                int res = db.SaveChanges();
 
-                LabelTermination.Text = "Data Inserted Successfully";
+                if (res > 0)
+                {
 
+                    LabelTermination.Text = "Data Inserted Successfully";
+
+                }
+                else
+                {
+
+                    LabelTermination.Text = "Try Again!!!";
+
+                }
+               
             }
-            else
-            {
-
-                LabelTermination.Text = "Try Again!!!";
-
-            }
+            else LabelTermination.Text = "Invalid username";
         }
     }
 }

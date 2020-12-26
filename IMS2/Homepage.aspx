@@ -77,19 +77,36 @@
 
 <h2 style="color:#051e80">New Cases</h2>
 
-      <div class="rounded_corners" style="width: 1000px"> 
-    <asp:GridView ID="GridView4" runat="server" AutoGenerateColumns="False"   HeaderStyle-BackColor="#A9A9A9" GridLines="None" style="width: 1000px" 
-        HeaderStyle-ForeColor="White" RowStyle-BackColor="#DCDCDC" AlternatingRowStyle-BackColor="White" Height="208px"
-        DataKeyNames="Case_ID,Case_Start_Date,Case_Details,Employee_ID,Requester_ID,Case_Status,Case_Type" DataSourceID="EntityDataSource4">
-             <AlternatingRowStyle BackColor="White"></AlternatingRowStyle>
-         <Columns>
-            <asp:BoundField DataField="Case_ID" HeaderText="Case_ID" ReadOnly="True" SortExpression="Case_ID" />
+       <div class="rounded_corners" style="width: 1000px">
+         <asp:GridView ID="GridView2" runat="server"  AutoGenerateColumns="False" OnSelectedIndexChanged="GridView2_SelectedIndexChanged" OnPageIndexChanging="GridView2_PageIndexChanging"   HeaderStyle-BackColor="#A9A9A9" GridLines="None" style="width: 1000px" HeaderStyle-ForeColor="White" RowStyle-BackColor="#DCDCDC" AlternatingRowStyle-BackColor="White" Height="208px" DataSourceID="EntityDataSource4" AllowPaging="True" PageSize="5" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="Case_ID,Case_Start_Date,Case_Details,Employee_ID,Requester_ID,Case_Status,Case_Type" >
+<AlternatingRowStyle BackColor="#DCDCDC"></AlternatingRowStyle>
+             <Columns>
+                <asp:BoundField DataField="Case_ID" HeaderText="Case_ID" ReadOnly="True" SortExpression="Case_ID" />
             <asp:BoundField DataField="Case_Start_Date" HeaderText="Case_Start_Date" ReadOnly="True" SortExpression="Case_Start_Date" />
-            <asp:BoundField DataField="Requester_ID" HeaderText="Requester_ID" ReadOnly="True" SortExpression="Requester_ID" />
-            <asp:BoundField DataField="Case_Status" HeaderText="Case_Status" ReadOnly="True" SortExpression="Case_Status" />
-            <asp:BoundField DataField="Case_Type" HeaderText="Case_Type" ReadOnly="True" SortExpression="Case_Type" />
-        </Columns>
-    </asp:GridView>
+            
+           
+             <asp:BoundField DataField="Requester_ID" HeaderText="Requester_ID" ReadOnly="True" SortExpression="Requester_ID" />
+             <asp:BoundField DataField="Case_Status" HeaderText="Case_Status" ReadOnly="True" SortExpression="Case_Status" />
+            
+             <asp:BoundField DataField="Case_Type" HeaderText="Case_Type" ReadOnly="True" SortExpression="Case_Type" />
+                  <asp:CommandField ButtonType="Button" SelectText="Details" ShowSelectButton="True"  ControlStyle-CssClass="button button3" />
+
+                 </Columns>
+               <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
+               <HeaderStyle BackColor="#000084" ForeColor="White" Font-Bold="True"></HeaderStyle>
+
+             <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+
+<RowStyle BackColor="#EEEEEE" ForeColor="Black"></RowStyle>
+             <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="White" />
+             <SortedAscendingCellStyle BackColor="#F1F1F1" />
+             <SortedAscendingHeaderStyle BackColor="#0000A9" />
+             <SortedDescendingCellStyle BackColor="#CAC9C9" />
+             <SortedDescendingHeaderStyle BackColor="#000065" />
+         </asp:GridView>
+        </div>
+
+      <div class="rounded_corners" style="width: 1000px"> 
           </div>
     <asp:EntityDataSource ID="EntityDataSource4" runat="server" ConnectionString="name=Investigation_management_systemEntities4" DefaultContainerName="Investigation_management_systemEntities4" EnableFlattening="False" EntitySetName="details_view"  Where="it.Case_Status=@param"  >
              <WhereParameters>
@@ -97,82 +114,42 @@
              </WhereParameters>
     </asp:EntityDataSource>
 
-<h2 style="color:#051e80">Reviewd Cases</h2>
-
-     <div class="rounded_corners" style="width: 1000px">
-      <asp:GridView ID="GridView3" runat="server" AutoGenerateColumns="False" DataKeyNames="Case_ID,Case_Start_Date,Case_Details,Employee_ID,Requester_ID,Case_Status,Case_Type" DataSourceID="EntityDataSource3"
-          HeaderStyle-BackColor="#A9A9A9" GridLines="None" style="width: 1000px" 
-        HeaderStyle-ForeColor="White" RowStyle-BackColor="#DCDCDC" AlternatingRowStyle-BackColor="White" Height="208px">
-          <AlternatingRowStyle BackColor="White"></AlternatingRowStyle>
-        <Columns>
-            <asp:BoundField DataField="Case_ID" HeaderText="Case_ID" ReadOnly="True" SortExpression="Case_ID" />
-            <asp:BoundField DataField="Case_Start_Date" HeaderText="Case_Start_Date" ReadOnly="True" SortExpression="Case_Start_Date" />
-            <asp:BoundField DataField="Requester_ID" HeaderText="Requester_ID" ReadOnly="True" SortExpression="Requester_ID" />
-            <asp:BoundField DataField="Case_Status" HeaderText="Case_Status" ReadOnly="True" SortExpression="Case_Status" />
-            <asp:BoundField DataField="Case_Type" HeaderText="Case_Type" ReadOnly="True" SortExpression="Case_Type" />
-        </Columns>
-           <HeaderStyle BackColor="DarkGray" ForeColor="White"></HeaderStyle>
-
-<RowStyle BackColor="Gainsboro"></RowStyle>
-    </asp:GridView>
-    </div>
-    <asp:EntityDataSource ID="EntityDataSource3" runat="server" ConnectionString="name=Investigation_management_systemEntities4" DefaultContainerName="Investigation_management_systemEntities4" EnableFlattening="False" EntitySetName="details_view" Where="it.Case_Status=@nwparam"  >
-             <WhereParameters>
-                 <asp:ControlParameter ControlID="GridView3" DefaultValue="Reviewed" Name="nwparam" PropertyName="SelectedValue" DbType="String" />
-             </WhereParameters>
-    </asp:EntityDataSource>
-   
-
-  <h2 style="color:#051e80">  Open Cases</h2>
+      <h2 style="color:#051e80">  Open Cases</h2>
 
 
      <div class="rounded_corners" style="width: 1000px"> 
-      <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Case_ID,Case_Start_Date,Case_Details,Employee_ID,Requester_ID,Case_Status,Case_Type" DataSourceID="EntityDataSource1"
-                    HeaderStyle-BackColor="#A9A9A9" GridLines="None" style="width: 1000px" 
-        HeaderStyle-ForeColor="White" RowStyle-BackColor="#DCDCDC" AlternatingRowStyle-BackColor="White" Height="208px">
-          <AlternatingRowStyle BackColor="White"></AlternatingRowStyle>
-        <Columns>
-            <asp:BoundField DataField="Case_ID" HeaderText="Case_ID" ReadOnly="True" SortExpression="Case_ID" />
-            <asp:BoundField DataField="Case_Start_Date" HeaderText="Case_Start_Date" ReadOnly="True" SortExpression="Case_Start_Date" />
-            <asp:BoundField DataField="Requester_ID" HeaderText="Requester_ID" ReadOnly="True" SortExpression="Requester_ID" />
-            <asp:BoundField DataField="Case_Status" HeaderText="Case_Status" ReadOnly="True" SortExpression="Case_Status" />
-            <asp:BoundField DataField="Case_Type" HeaderText="Case_Type" ReadOnly="True" SortExpression="Case_Type" />
-        </Columns>
-           <HeaderStyle BackColor="DarkGray" ForeColor="White"></HeaderStyle>
-
-<RowStyle BackColor="Gainsboro"></RowStyle>
-    </asp:GridView>
          </div>
     <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=Investigation_management_systemEntities4" DefaultContainerName="Investigation_management_systemEntities4" EnableFlattening="False" EntitySetName="details_view" Where="it.Case_Status=@nparam" >
              <WhereParameters>
                  <asp:ControlParameter ControlID="GridView1" DefaultValue="In-Progress" Name="nparam" PropertyName="SelectedValue" DbType="String" />
              </WhereParameters>
     </asp:EntityDataSource>
-<h2 style="color:#051e80">Closed Cases</h2>
-    
-  <div class="rounded_corners" style="width: 1000px"> 
-    <asp:GridView ID="GridView2" runat="server"  style="width: 1000px" 
-        HeaderStyle-ForeColor="White" RowStyle-BackColor="#DCDCDC" AlternatingRowStyle-BackColor="White" Height="208px" AutoGenerateColumns="False" DataKeyNames="Case_ID,Case_Start_Date,Case_Details,Employee_ID,Requester_ID,Case_Status,Case_Type" DataSourceID="EntityDataSource2">
-        <AlternatingRowStyle BackColor="White"></AlternatingRowStyle>
-        <Columns>
-            <asp:BoundField DataField="Case_ID" HeaderText="Case_ID" ReadOnly="True" SortExpression="Case_ID" />
-            <asp:BoundField DataField="Case_Start_Date" HeaderText="Case_Start_Date" ReadOnly="True" SortExpression="Case_Start_Date" />
-            <asp:BoundField DataField="Requester_ID" HeaderText="Requester_ID" ReadOnly="True" SortExpression="Requester_ID" />
-            <asp:BoundField DataField="Case_Status" HeaderText="Case_Status" ReadOnly="True" SortExpression="Case_Status" />
-            <asp:BoundField DataField="Case_Type" HeaderText="Case_Type" ReadOnly="True" SortExpression="Case_Type" />
-        </Columns>
-        <HeaderStyle BackColor="DarkGray" ForeColor="White"></HeaderStyle>
 
-<RowStyle BackColor="Gainsboro"></RowStyle>
-    </asp:GridView>
-      </div>
-    <asp:EntityDataSource ID="EntityDataSource2" runat="server" ConnectionString="name=Investigation_management_systemEntities4" DefaultContainerName="Investigation_management_systemEntities4" EnableFlattening="False" EntitySetName="details_view"  Where="it.Case_Status=@newparam" >
-             <WhereParameters>
-                 <asp:ControlParameter ControlID="GridView2" DefaultValue="Completed" Name="newparam" PropertyName="SelectedValue" DbType="String" />
-             </WhereParameters>
-    </asp:EntityDataSource>
-    
+    <div class="rounded_corners" style="width: 1000px">
+         <asp:GridView ID="GridView3" runat="server"  AutoGenerateColumns="False" OnSelectedIndexChanged="GridView3_SelectedIndexChanged" OnPageIndexChanging="GridView3_PageIndexChanging"   HeaderStyle-BackColor="#A9A9A9" GridLines="None" style="width: 1000px" HeaderStyle-ForeColor="White" RowStyle-BackColor="#DCDCDC" AlternatingRowStyle-BackColor="White" Height="208px" DataSourceID="EntityDataSource1" AllowPaging="True" PageSize="7" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="Case_ID,Case_Start_Date,Case_Details,Employee_ID,Requester_ID,Case_Status,Case_Type" >
+<AlternatingRowStyle BackColor="#DCDCDC"></AlternatingRowStyle>
+             <Columns>
+                 <asp:BoundField DataField="Case_ID" HeaderText="Case_ID" ReadOnly="True" SortExpression="Case_ID" />
+                 <asp:BoundField DataField="Case_Start_Date" HeaderText="Case_Start_Date" ReadOnly="True" SortExpression="Case_Start_Date" />
+                 
+            
+                 <asp:BoundField DataField="Requester_ID" HeaderText="Requester_ID" ReadOnly="True" SortExpression="Requester_ID" />
+                 <asp:BoundField DataField="Case_Status" HeaderText="Case_Status" ReadOnly="True" SortExpression="Case_Status" />
+               
+                 <asp:BoundField DataField="Case_Type" HeaderText="Case_Type" ReadOnly="True" SortExpression="Case_Type" />
+                  <asp:CommandField ButtonType="Button" SelectText="Details" ShowSelectButton="True"  ControlStyle-CssClass="button button3" />
+                 </Columns>
+               <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
+               <HeaderStyle BackColor="#000084" ForeColor="White" Font-Bold="True"></HeaderStyle>
 
+             <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
 
-
+<RowStyle BackColor="#EEEEEE" ForeColor="Black"></RowStyle>
+             <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="White" />
+             <SortedAscendingCellStyle BackColor="#F1F1F1" />
+             <SortedAscendingHeaderStyle BackColor="#0000A9" />
+             <SortedDescendingCellStyle BackColor="#CAC9C9" />
+             <SortedDescendingHeaderStyle BackColor="#000065" />
+         </asp:GridView>
+        </div>
 </asp:Content>

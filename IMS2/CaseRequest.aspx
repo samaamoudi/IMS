@@ -121,12 +121,11 @@ border-color: #d9d9d9;
             <tr>
                 <td class="auto-style2"> <asp:Label class="text" ID="Label3" runat="server" Text="Case Type"></asp:Label></td>
                 <td>
-                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                    <asp:DropDownList ID="DropDownList1" runat="server" CssClass="auto-style3" DataSourceID="EntityDataSource1" DataTextField="Case_Type" DataValueField="C_Case_Type_ID" Width="346px" AutoPostBack="true"  AppendDataBoundItems ="true">
+                    <asp:DropDownList ID="DropDownList1" runat="server" CssClass="auto-style3" DataSourceID="EntityDataSource1" DataTextField="Case_Type" DataValueField="C_Case_Type_ID" Width="346px" AutoPostBack="True"  AppendDataBoundItems ="True">
                   <asp:ListItem Enabled="true" Text="--Select Case Type--" Value="-1" Selected=True></asp:ListItem>
                         </asp:DropDownList> 
 <%--                      <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="DropDownList1" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>--%>
-                    <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=Investigation_management_systemEntities4" DefaultContainerName="Investigation_management_systemEntities4" EnableFlattening="False" EntitySetName="CaseTypes">
+                    <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=Investigation_management_systemEntities4" DefaultContainerName="Investigation_management_systemEntities4" EnableFlattening="False" EntitySetName="CaseType">
                     </asp:EntityDataSource>
                   
                 </td>
@@ -145,18 +144,6 @@ border-color: #d9d9d9;
                     <asp:TextBox ID="casedetailstxt" runat="server" class="input" TextMode="MultiLine"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="casedetailstxt" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                 </td>
-               
-            </tr>
-            <tr>
-                <td class="auto-style2"> 
-                    &nbsp;</td>
-                <td>&nbsp;</td>
-                
-            </tr>
-            <tr>
-                <td class="auto-style2">  &nbsp;</td>
-                <td>
-                    &nbsp;</td>
                
             </tr>
             <tr>

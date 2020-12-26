@@ -49,10 +49,15 @@ namespace IMS2
                 Response.Write("Try Again!!!");
 
             }
-            //int newID = c.Case_ID;
-            //Response.Redirect("Evidence.aspx?CaseID=" + newID);
+            int newID = qa.Investigation_Interview_ID;
+            Response.Redirect("Interviewmemo.aspx?CaseID=" + newID);
 
 
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("QandA.aspx");
         }
     }
 }

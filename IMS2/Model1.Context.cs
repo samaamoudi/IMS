@@ -33,10 +33,8 @@ namespace IMS2
         public DbSet<CaseType> CaseType { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Employee> Employees { get; set; }
-        public DbSet<Evidence> Evidences { get; set; }
         public DbSet<Evidence_Request> Evidence_Request { get; set; }
         public DbSet<Interview_Invite> Interview_Invite { get; set; }
-        public DbSet<Investigation_Interview> Investigation_Interview { get; set; }
         public DbSet<InvestigationCase1> InvestigationCase1 { get; set; }
         public DbSet<Question> Questions { get; set; }
         public DbSet<QuestionsAnswer> QuestionsAnswers { get; set; }
@@ -47,5 +45,9 @@ namespace IMS2
         public DbSet<details_view> details_view { get; set; }
         public DbSet<View_3> View_3 { get; set; }
         public DbSet<View_4> View_4 { get; set; }
+        public DbSet<Interview_Memo> Interview_Memo { get; set; }
+        public DbSet<Investigation_Interview> Investigation_Interview { get; set; }
+        public DbSet<Interview_View> Interview_View { get; set; }
+        public DbSet<Evidence> Evidences { get; set; }
     }
 }

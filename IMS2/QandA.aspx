@@ -82,6 +82,13 @@ border-color: #d9d9d9;
            .auto-style4 {
                color: #051E80;
            }
+         .auto-style5 {
+             width: 360px;
+             height: 40px;
+         }
+         .auto-style6 {
+             height: 40px;
+         }
     </style>
    
     <div class="groove">
@@ -135,32 +142,46 @@ border-color: #d9d9d9;
                 
             </tr>
             <tr>
-                <td class="auto-style2">  &nbsp;</td>
+                <td class="auto-style2"> <asp:Label class="text" ID="Label5" runat="server" Text="Question"></asp:Label></td>
                 <td>
-                    &nbsp;</td>
-               
-            </tr>
-            <tr>
-                <td class="auto-style2">  &nbsp;</td>
-                <td>&nbsp;</td>
-                
-            </tr>
-            <tr>
-                <td class="auto-style2">  
-                    &nbsp;</td>
-                <td>
-                    &nbsp;</td>
-               
-            </tr>
-            <tr>
-                <td class="auto-style2">  &nbsp;</td>
-                <td>&nbsp;</td>
+                    <asp:DropDownList ID="DropDownList2" runat="server" CssClass="auto-style3" DataSourceID="EntityDataSource1" DataTextField="Question_Details" DataValueField="Question_ID" Width="468px" AutoPostBack="true"  AppendDataBoundItems ="true">
+                     <asp:ListItem Enabled="true" Text="--Select Question--" Value="-1" Selected=True></asp:ListItem>
+                    </asp:DropDownList>
+                </td>
               
+            </tr>
+            <tr>
+                <td class="auto-style2"> &nbsp;</td>
+                <td>&nbsp;</td>
+               
+            </tr>
+            <tr>
+                <td class="auto-style2"> 
+                    <asp:Label ID="Label6" runat="server" class="text" Text="Answer"></asp:Label>
+                </td>
+                <td>
+                    <asp:TextBox ID="answertxt0" runat="server" class="input" TextMode="MultiLine"></asp:TextBox>
+                </td>
+               
+            </tr>
+            <tr>
+                <td class="auto-style5">  </td>
+                <td class="auto-style6">
+                    </td>
+               
+            </tr>
+            <tr>
+                <td class="auto-style2">  &nbsp;</td>
+                <td>
+                    <asp:Label ID="LabelQandA" runat="server"></asp:Label>
+                </td>
+                
             </tr>
             <tr>
                 <td >  
                     &nbsp;</td>
                 <td>
+                    <asp:Button ID="Button3" runat="server" Text="Next"  CssClass="button button2" OnClick="Button2_Click"  />
                     <asp:Button ID="Button1" runat="server" Text="Submit"  CssClass="button button2" OnClick="Button1_Click"  />
                     &nbsp;&nbsp;&nbsp;
                     <asp:Button ID="Button2" runat="server" Text="Cancel" CssClass="button button3" /></td>

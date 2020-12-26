@@ -132,7 +132,7 @@ hr.new5 {
                 </li>
                   <li>
                     <a href="Interview.aspx">
-                        <i class="fa fa-upload fa-2x"></i>
+                         <i class="fa fa-file-text fa-2x"></i>
                         <span class="nav-text">
                             Interview 
                         </span>
@@ -146,16 +146,9 @@ hr.new5 {
                         </span>
                     </a>
                 </li>
+                
                 <li>
-                    <a href="#">
-                        <i class="fa fa-file-text fa-2x"></i>
-                        <span class="nav-text">
-                           Reports
-                        </span>
-                    </a>
-                </li>
-                <li>
-                   <a href="#">
+                   <a href="dashbaord.aspx">
                        <i class="fa fa-tachometer fa-2x"></i>
                         <span class="nav-text">
                             Dashboard

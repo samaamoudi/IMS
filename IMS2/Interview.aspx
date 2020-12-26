@@ -173,36 +173,6 @@ border-color: #d9d9d9;
                                                         </td>
 
                                                         <tr>
-                                                            <td class="auto-style2">&nbsp;</td>
-                                                            <td>&nbsp;</td>
-
-                                                        </tr>
-                                                    <tr>
-                                                        <td class="auto-style2">
-                                                            <asp:Label class="text" ID="Label24" runat="server" Text="Interview Memo"></asp:Label></td>
-                                                        <td>
-                                                            <asp:TextBox ID="imemotxt" runat="server" class="input" TextMode="MultiLine"></asp:TextBox>
-
-                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator18" runat="server" ControlToValidate="imemotxt" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-
-                                                        </td>
-
-                                                        <tr>
-                                                            <td class="auto-style2">&nbsp;</td>
-                                                            <td>&nbsp;</td>
-
-                                                        </tr>
-                                                    <tr>
-                                                        <td class="auto-style2">
-                                                            <asp:Label ID="Label25" runat="server" class="text" Text="Interview Questions "></asp:Label>
-                                                        </td>
-                                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="Button8" runat="server" CssClass="button button2" Text="Details"  />
-                                                        </td>
-
-                                                    </tr>
-
-                                                    <tr>
                                                         <td class="auto-style2">&nbsp;</td>
                                                         <td>
                                                             <asp:Label ID="LabelInterview" runat="server"></asp:Label>
@@ -213,7 +183,7 @@ border-color: #d9d9d9;
                                                     <tr>
                                                         <td>&nbsp;</td>
                                                         <td>
-                                                            <asp:Button ID="inextbtn" runat="server" Text="Next" CssClass="button button2" OnClick="isavebtn_Click" />
+                                                            <asp:Button ID="inextbtn" runat="server" Text="Next" CssClass="button button2" OnClick="inextbtn_Click" />
                                                             &nbsp;&nbsp;&nbsp;
                     <asp:Button ID="iclosebtn" runat="server" Text="Cancel" CssClass="button button3" />
 

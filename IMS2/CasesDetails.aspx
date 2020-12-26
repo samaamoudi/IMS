@@ -120,6 +120,8 @@
                         OnClick="Tab4_Click" />
                     <asp:Button Text="Termination Request" BorderStyle="None" ID="Tab5" CssClass="Initial" runat="server"
                         OnClick="Tab5_Click" />
+                     <asp:Button Text="Interview Invite" BorderStyle="None" ID="Tab6" CssClass="Initial" runat="server"
+                        OnClick="Tab6_Click" />
                     <asp:MultiView ID="MainView" runat="server">
                         <asp:View ID="View1" runat="server">
                             <table class="groove">
@@ -156,63 +158,23 @@
                                                     </tr>
                                                     <tr>
                                                         <td>
-                                                            <asp:DetailsView ID="DetailsView1" runat="server" Height="50px" Width="125px" AutoGenerateEditButton="True" AutoGenerateRows="False" DataKeyNames="Case_ID" DataSourceID="EntityDataSource1" CellPadding="4" ForeColor="#333333" GridLines="None">
+                                                            <asp:DetailsView ID="DetailsView1" runat="server" Height="16px" Width="814px" AutoGenerateEditButton="True" AutoGenerateRows="False" DataKeyNames="Case_ID" DataSourceID="EntityDataSource1" CellPadding="4" ForeColor="#333333" GridLines="None">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <CommandRowStyle BackColor="#E2DED6" Font-Bold="True" />
         <EditRowStyle BackColor="#999999" />
         <FieldHeaderStyle BackColor="#E9ECF1" Font-Bold="True" />
         <Fields>
             <asp:BoundField DataField="Case_ID" HeaderText="Case ID" ReadOnly="True" SortExpression="Case_ID" />
-            <asp:TemplateField HeaderText="Case Type"  SortExpression="Case Type">
-                <ItemTemplate>
-                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("CaseType.Case_Type") %>'></asp:Label>
-                </ItemTemplate>
-            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Case Type"  SortExpression="Case Type"><ItemTemplate><asp:Label ID="Label2" runat="server" Text='<%# Eval("CaseType.Case_Type") %>'></asp:Label></ItemTemplate></asp:TemplateField>
             <asp:BoundField DataField="Case_Start_Date" ReadOnly="True" HeaderText="Start Date" SortExpression="Case_Start_Date" />
        
-             <asp:TemplateField HeaderText="End Date" SortExpression="Case_End_Date">
-                                                                        <EditItemTemplate>
-                                                                            <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Case_End_Date") %>' TextMode="Date"></asp:TextBox>
-                                                                        </EditItemTemplate>
-                                                                        <ItemTemplate>
-                                                                            <asp:Label ID="Label4" runat="server" Text='<%# Bind("Case_End_Date") %>'></asp:Label>
-                                                                        </ItemTemplate>
-                                                                    </asp:TemplateField>
-            <asp:TemplateField HeaderText="Status" SortExpression="Case_Status">
-                <EditItemTemplate>
-                    <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="EntityDataSource2" Text='<%# Bind("Case_Status") %>' DataTextField="Case_Status1" DataValueField="Case_Status_ID">
-    </asp:DropDownList>
-                </EditItemTemplate>
-   <%--             <InsertItemTemplate>
-                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Case_Status") %>'></asp:TextBox>
-                </InsertItemTemplate>--%>
-                <ItemTemplate>
-                    <asp:Label ID="Label3" runat="server" Text='<%# Bind("Case_Status1.Case_Status1") %>'></asp:Label>
-                </ItemTemplate>
-            </asp:TemplateField>
+             <asp:TemplateField HeaderText="End Date" SortExpression="Case_End_Date"><EditItemTemplate><asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Case_End_Date") %>' TextMode="Date"></asp:TextBox></EditItemTemplate><ItemTemplate><asp:Label ID="Label4" runat="server" Text='<%# Bind("Case_End_Date") %>'></asp:Label></ItemTemplate></asp:TemplateField>
+            <asp:TemplateField HeaderText="Status" SortExpression="Case_Status"><EditItemTemplate><asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="EntityDataSource2" Text='<%# Bind("Case_Status") %>' DataTextField="Case_Status1" DataValueField="Case_Status_ID"></asp:DropDownList></EditItemTemplate><ItemTemplate><asp:Label ID="Label3" runat="server" Text='<%# Bind("Case_Status1.Case_Status1") %>'></asp:Label></ItemTemplate></asp:TemplateField>
             <asp:BoundField DataField="Case_Details" HeaderText="Details" SortExpression="Case_Details" />
             <asp:BoundField DataField="Case_Duration" HeaderText="Duration" SortExpression="Case_Duration" />
-            <asp:TemplateField HeaderText="Case_Verdict" SortExpression="Verdict">
-                <EditItemTemplate>
-                    <asp:DropDownList ID="verdictdropdown" runat="server" Text='<%# Bind("Case_Verdict") %>' DataSourceID="EntityDataSource3" DataTextField="Case_Verdict1" DataValueField="Case_Verdict_ID"></asp:DropDownList>
-                </EditItemTemplate>
-              
-            
-                <ItemTemplate>
-                    <asp:Label ID="Label1" runat="server" Text='<%# Eval("Case_Verdict1.Case_Verdict1") %>'></asp:Label>
-                </ItemTemplate>
-            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Case_Verdict" SortExpression="Verdict"><EditItemTemplate><asp:DropDownList ID="verdictdropdown" runat="server" Text='<%# Bind("Case_Verdict") %>' DataSourceID="EntityDataSource3" DataTextField="Case_Verdict1" DataValueField="Case_Verdict_ID"></asp:DropDownList></EditItemTemplate><ItemTemplate><asp:Label ID="Label1" runat="server" Text='<%# Eval("Case_Verdict1.Case_Verdict1") %>'></asp:Label></ItemTemplate></asp:TemplateField>
             <asp:BoundField DataField="Employee_ID" HeaderText="Employee ID" SortExpression="Employee_ID" />
-            <asp:TemplateField HeaderText="Case Handler ID" SortExpression="Case Handler ID">
-                <EditItemTemplate>
-                     <asp:DropDownList ID="DropDownList2" runat="server" Text='<%# Bind("Case_Handler_ID") %>' DataSourceID="EntityDataSource4" DataTextField="CH_Employee_ID" DataValueField="CH_Employee_ID"></asp:DropDownList>
-                   
-                </EditItemTemplate>
-                
-                <ItemTemplate>
-                    <asp:Label ID="Label4" runat="server" Text='<%# Bind("Case_Handler_ID") %>'></asp:Label>
-                </ItemTemplate>
-            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Case Handler ID" SortExpression="Case Handler ID"><EditItemTemplate><asp:DropDownList ID="DropDownList2" runat="server" Text='<%# Bind("Case_Handler_ID") %>' DataSourceID="EntityDataSource4" DataTextField="CH_Employee_ID" DataValueField="CH_Employee_ID"></asp:DropDownList></EditItemTemplate><ItemTemplate><asp:Label ID="Label4" runat="server" Text='<%# Bind("Case_Handler_ID") %>'></asp:Label></ItemTemplate></asp:TemplateField>
             <asp:BoundField DataField="Requester_ID" HeaderText="Requester ID" ReadOnly="True" SortExpression="Requester_ID" />
         </Fields>
         <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -221,15 +183,10 @@
         <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
     </asp:DetailsView>
     </div>
-    <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=Investigation_management_systemEntities4" DefaultContainerName="Investigation_management_systemEntities4" EnableFlattening="False" EnableUpdate="True" EntitySetName="InvestigationCase1" Include="Case_Verdict1,CaseType,Case_Status1,Case_Handler" Where="it.Case_ID=@idparam" >
-                                                    <WhereParameters>
-                                                        <asp:ControlParameter ControlID="lpCaseID" DbType="Int32" DefaultValue="1" Name="idparam" PropertyName="Text" />
-                                                    </WhereParameters>
-    </asp:EntityDataSource>
+    <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=Investigation_management_systemEntities4" DefaultContainerName="Investigation_management_systemEntities4" EnableFlattening="False" EnableUpdate="True" EntitySetName="InvestigationCase1" Include="Case_Verdict1,CaseType,Case_Status1,Case_Handler" Where="it.Case_ID=@idparam" ><WhereParameters><asp:ControlParameter ControlID="lpCaseID" DbType="Int32" DefaultValue="1" Name="idparam" PropertyName="Text" /></WhereParameters></asp:EntityDataSource>
  
 &nbsp;<%--<asp:DropDownList ID="DropDownList2" runat="server" DataSourceID="EntityDataSource3" DataTextField="Case_Verdict1" DataValueField="Case_Verdict_ID">
-    </asp:DropDownList>--%><asp:EntityDataSource ID="EntityDataSource3" runat="server" ConnectionString="name=Investigation_management_systemEntities4" DefaultContainerName="Investigation_management_systemEntities4" EnableFlattening="False" EntitySetName="Case_Verdict">
-    </asp:EntityDataSource>
+    </asp:DropDownList>--%><asp:EntityDataSource ID="EntityDataSource3" runat="server" ConnectionString="name=Investigation_management_systemEntities4" DefaultContainerName="Investigation_management_systemEntities4" EnableFlattening="False" EntitySetName="Case_Verdict"></asp:EntityDataSource>
     <asp:EntityDataSource ID="EntityDataSource2" runat="server" ConnectionString="name=Investigation_management_systemEntities4" DefaultContainerName="Investigation_management_systemEntities4" EnableFlattening="False" EntitySetName="Case_Status"></asp:EntityDataSource>
     <asp:EntityDataSource ID="EntityDataSource4" runat="server" ConnectionString="name=Investigation_management_systemEntities4" DefaultContainerName="Investigation_management_systemEntities4" EnableFlattening="False" EntitySetName="Case_Handler"></asp:EntityDataSource>
    
@@ -253,6 +210,7 @@
                                             <h3></h3>
                                             <h3></h3>
                                             <h3></h3>
+                                            <h3></h3>
                                         </h3>
                                     </td>
                                 </tr>
@@ -266,10 +224,13 @@
                                           
                                          
                                                 <h3 style="color: #051e80">Reallocate Case </h3>
-                                                <%--<asp:RadioButtonList ID="RadioButtonList2" runat="server" DataSourceID="EntityDataSource6" DataTextField="Case_Handler_Type" DataValueField="CH_Employee_ID">
-                                                </asp:RadioButtonList>--%>
+                                                <asp:RadioButtonList ID="RadioButtonList2" runat="server" DataSourceID="EntityDataSource6" DataTextField="Case_Handler_Type" DataValueField="CH_Employee_ID">
+                                                </asp:RadioButtonList>
+                                            <asp:EntityDataSource ID="EntityDataSource6" runat="server" ConnectionString="name=Investigation_management_systemEntities4" DefaultContainerName="Investigation_management_systemEntities4" EnableFlattening="False" EntitySetName="Case_Handler"></asp:EntityDataSource>
                                             
-                                            <h3></h3>
+                                            <h3 class="auto-style3">                                      <asp:Button ID="Button1" runat="server" class="button button2"  OnClick="Button1_Click" Text="Submit" />
+</h3>
+                                                <h3></h3>
                                         </h3>
                                     </td>
                                 </tr>
@@ -294,22 +255,32 @@
                                                                 <br />
                                                                 Details of case number: 
             <asp:Label ID="lbEvid" runat="server" Text=""></asp:Label>
-                                                        <asp:DetailsView ID="DetailsView2" runat="server" Height="50px" Width="125px" AutoGenerateRows="False" DataKeyNames="Evidence_ID" DataSourceID="EntityDataSource8" AllowPaging="True">
+                                                        <asp:DetailsView ID="DetailsView2" runat="server" Height="16px" Width="814px" AutoGenerateRows="False" DataKeyNames="Evidence_ID" DataSourceID="EntityDataSource8" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None">
+                                                            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                                                            <CommandRowStyle BackColor="#E2DED6" Font-Bold="True" />
+                                                            <EditRowStyle BackColor="#999999" />
+                                                            <FieldHeaderStyle BackColor="#E9ECF1" Font-Bold="True" />
                                                             <Fields>
-                                                                <asp:BoundField DataField="Evidence_ID" HeaderText="Evidence_ID" ReadOnly="True" SortExpression="Evidence_ID" />
-                                                                <asp:BoundField DataField="Evidence_Type" HeaderText="Evidence_Type" SortExpression="Evidence_Type" />
-                                                                <asp:BoundField DataField="Evidence_Date" HeaderText="Evidence_Date" SortExpression="Evidence_Date" />
-                                                                <asp:BoundField DataField="Evidence_Details" HeaderText="Evidence_Details" SortExpression="Evidence_Details" />
-                                                                <asp:BoundField DataField="Requester_ID" HeaderText="Requester_ID" SortExpression="Requester_ID" />
-                                                                <asp:BoundField DataField="Case_Handler_ID" HeaderText="Case_Handler_ID" SortExpression="Case_Handler_ID" />
-                                                                <asp:BoundField DataField="Case_ID" HeaderText="Case_ID" SortExpression="Case_ID" />
+                                                                <asp:BoundField DataField="Evidence_ID" HeaderText="Evidence ID" ReadOnly="True" SortExpression="Evidence_ID" />
+                                                                <asp:BoundField DataField="Evidence_Type" HeaderText="Evidence Type" SortExpression="Evidence_Type" />
+                                                                <asp:BoundField DataField="Evidence_Date" HeaderText="Evidence Date" SortExpression="Evidence_Date" />
+                                                                <asp:BoundField DataField="Evidence_Details" HeaderText="Evidence Details" SortExpression="Evidence_Details" />
+                                                                <asp:BoundField DataField="Requester_ID" HeaderText="Employee ID" SortExpression="Requester_ID" />
+                                                                <asp:BoundField DataField="Case_ID" HeaderText="Case ID" SortExpression="Case_ID" />
+                                                                <asp:BoundField DataField="FileName" HeaderText="File Name" SortExpression="FileName" />
+                                                                <asp:TemplateField HeaderText="Eviddoc">
+                   <ItemTemplate>  
+                        <asp:LinkButton ID="lnkDownload" runat="server" Text="Download" OnClick="DownloadFile"  
+                            CommandArgument='<%# Eval("Evidence_ID") %>'></asp:LinkButton>  
+                    </ItemTemplate>  
+               </asp:TemplateField>
                                                             </Fields>
+                                                            <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                                            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                                            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                                                            <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
                                                         </asp:DetailsView>
-                                                        <asp:EntityDataSource ID="EntityDataSource8" runat="server" ConnectionString="name=Investigation_management_systemEntities4" DefaultContainerName="Investigation_management_systemEntities4" EnableFlattening="False" EntitySetName="Evidences"  Where="it.Case_ID=@idparam">
-                                                         <WhereParameters>
-                                                        <asp:ControlParameter ControlID="lbEvid" DbType="Int32" DefaultValue="1" Name="idparam" PropertyName="Text" />
-                                                    </WhereParameters>
-                                                            </asp:EntityDataSource>
+                                                        <asp:EntityDataSource ID="EntityDataSource8" runat="server" ConnectionString="name=Investigation_management_systemEntities4" DefaultContainerName="Investigation_management_systemEntities4" EnableFlattening="False" EntitySetName="Evidences"  Where="it.Case_ID=@idparam"><WhereParameters><asp:ControlParameter ControlID="lbEvid" DbType="Int32" DefaultValue="1" Name="idparam" PropertyName="Text" /></WhereParameters></asp:EntityDataSource>
                                                              </div>
                                                     </td>
                                                  
@@ -327,6 +298,8 @@
                                             <h3></h3>
 
                                             <h3></h3>
+
+                                                <h3></h3>
 
                                                 <h3></h3>
 
@@ -367,24 +340,32 @@
             <asp:Label ID="InterviewLabel" runat="server" Text=""></asp:Label></h3>
 
                                             <h3>
-                                                <asp:DetailsView ID="DetailsView3" runat="server" Height="50px" Width="125px" AutoGenerateRows="False" DataKeyNames="Investigation_Interview_ID" DataSourceID="EntityDataSource9" AllowPaging="True">
+                                                <asp:DetailsView ID="DetailsView3" runat="server" Height="16px" Width="814px" AutoGenerateRows="False" DataKeyNames="Investigation_Interview_ID,Investigation_Interview_Date,Investigation_Interview_Location,Investigation_Interview_Interviewee_ID,Investigation_Interview_Interviewer_ID,Case_ID" DataSourceID="EntityDataSource9" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None">
+                                                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                                                    <CommandRowStyle BackColor="#E2DED6" Font-Bold="True" />
+                                                    <EditRowStyle BackColor="#999999" />
+                                                    <FieldHeaderStyle BackColor="#E9ECF1" Font-Bold="True" />
                                                     <Fields>
                                                         <asp:BoundField DataField="Investigation_Interview_ID" HeaderText="Investigation_Interview_ID" ReadOnly="True" SortExpression="Investigation_Interview_ID" />
-                                                        <asp:BoundField DataField="Investigation_Interview_Date" HeaderText="Investigation_Interview_Date" SortExpression="Investigation_Interview_Date" />
-                                                        <asp:BoundField DataField="Investigation_Interview_Time" HeaderText="Investigation_Interview_Time" SortExpression="Investigation_Interview_Time" />
-                                                        <asp:BoundField DataField="Investigation_Interview_Location" HeaderText="Investigation_Interview_Location" SortExpression="Investigation_Interview_Location" />
-                                                        <asp:BoundField DataField="Investigation_Interview_Memo" HeaderText="Investigation_Interview_Memo" SortExpression="Investigation_Interview_Memo" />
-                                                        <asp:BoundField DataField="Investigation_Interview_Interviewee_ID" HeaderText="Investigation_Interview_Interviewee_ID" SortExpression="Investigation_Interview_Interviewee_ID" />
-                                                        <asp:BoundField DataField="Investigation_Interview_Interviewer_ID" HeaderText="Investigation_Interview_Interviewer_ID" SortExpression="Investigation_Interview_Interviewer_ID" />
-                                                        <asp:BoundField DataField="Case_ID" HeaderText="Case_ID" SortExpression="Case_ID" />
+                                                        <asp:BoundField DataField="Investigation_Interview_Date" HeaderText="Interview Date" ReadOnly="True" SortExpression="Investigation_Interview_Date" />
+                                                        <asp:BoundField DataField="Investigation_Interview_Time" HeaderText="Interview Time" SortExpression="Investigation_Interview_Time" />
+                                                        <asp:BoundField DataField="Investigation_Interview_Location" HeaderText="Interview Location" ReadOnly="True" SortExpression="Investigation_Interview_Location" />
+                                                        <asp:BoundField DataField="Investigation_Interview_Interviewee_ID" HeaderText="Interviewee ID" ReadOnly="True" SortExpression="Investigation_Interview_Interviewee_ID" />
+                                                        <asp:BoundField DataField="Investigation_Interview_Interviewer_ID" HeaderText="Interviewer ID" ReadOnly="True" SortExpression="Investigation_Interview_Interviewer_ID" />
+                                                        <asp:BoundField DataField="Investigation_Interview_Memo" HeaderText="Interview Memo" SortExpression="Investigation_Interview_Memo" />
+                                                        <asp:BoundField DataField="Case_ID" HeaderText="Case ID" ReadOnly="True" SortExpression="Case_ID" />
+                                                        <asp:BoundField DataField="Question_Details" HeaderText="Question" SortExpression="Question_Details" />
+                                                        <asp:BoundField DataField="Answer_Details" HeaderText="Answer" SortExpression="Answer_Details" />
                                                     </Fields>
+                                                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                                                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
                                                 </asp:DetailsView>
-                                                <asp:EntityDataSource ID="EntityDataSource9" runat="server" ConnectionString="name=Investigation_management_systemEntities4" DefaultContainerName="Investigation_management_systemEntities4" EnableFlattening="False" EntitySetName="Investigation_Interview" Where="it.Case_ID=@idparam">
-                                                         <WhereParameters>
-                                                        <asp:ControlParameter ControlID="InterviewLabel" DbType="Int32" DefaultValue="1" Name="idparam" PropertyName="Text" />
-                                                    </WhereParameters>
-                                                </asp:EntityDataSource>
+                                                <asp:EntityDataSource ID="EntityDataSource9" runat="server" ConnectionString="name=Investigation_management_systemEntities4" DefaultContainerName="Investigation_management_systemEntities4" EnableFlattening="False" EntitySetName="Interview_View" Where="it.Case_ID=@idparam"><WhereParameters><asp:ControlParameter ControlID="InterviewLabel" DbType="Int32" DefaultValue="1" Name="idparam" PropertyName="Text" /></WhereParameters></asp:EntityDataSource>
                                             </h3>
+
+                                                <h3></h3>
 
                                                 <h3></h3>
 
@@ -410,21 +391,83 @@
             <asp:Label ID="TerminationLabel" runat="server" Text=""></asp:Label></h3>
 
                                             <h3>
-                                                <asp:DetailsView ID="DetailsView4" runat="server" Height="50px" Width="125px" AutoGenerateRows="False" DataKeyNames="Termination_Request_ID" DataSourceID="EntityDataSource10" AllowPaging="True">
+                                                <asp:DetailsView ID="DetailsView4" runat="server" Height="16px" Width="814px" AutoGenerateRows="False" DataKeyNames="Termination_Request_ID" DataSourceID="EntityDataSource10" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None">
+                                                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                                                    <CommandRowStyle BackColor="#E2DED6" Font-Bold="True" />
+                                                    <EditRowStyle BackColor="#999999" />
+                                                    <FieldHeaderStyle BackColor="#E9ECF1" Font-Bold="True" />
                                                     <Fields>
-                                                        <asp:BoundField DataField="Termination_Request_ID" HeaderText="Termination_Request_ID" ReadOnly="True" SortExpression="Termination_Request_ID" />
-                                                        <asp:BoundField DataField="Termination_Request_Date" HeaderText="Termination_Request_Date" SortExpression="Termination_Request_Date" />
-                                                        <asp:BoundField DataField="Termination_Request_Justification" HeaderText="Termination_Request_Justification" SortExpression="Termination_Request_Justification" />
-                                                        <asp:BoundField DataField="Case_ID" HeaderText="Case_ID" SortExpression="Case_ID" />
-                                                        <asp:BoundField DataField="Employee_ID" HeaderText="Employee_ID" SortExpression="Employee_ID" />
+                                                        <asp:BoundField DataField="Termination_Request_ID" HeaderText="Termination Request ID" ReadOnly="True" SortExpression="Termination_Request_ID" />
+                                                        <asp:BoundField DataField="Termination_Request_Date" HeaderText="Termination Request Date" SortExpression="Termination_Request_Date" />
+                                                        <asp:BoundField DataField="Termination_Request_Justification" HeaderText="Termination Request Justification" SortExpression="Termination_Request_Justification" />
+                                                        <asp:BoundField DataField="Case_ID" HeaderText="Case ID" SortExpression="Case_ID" />
+                                                        <asp:BoundField DataField="Employee_ID" HeaderText="Employee ID" SortExpression="Employee_ID" />
                                                     </Fields>
+                                                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                                                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
                                                 </asp:DetailsView>
-                                                <asp:EntityDataSource ID="EntityDataSource10" runat="server" ConnectionString="name=Investigation_management_systemEntities4" DefaultContainerName="Investigation_management_systemEntities4" EnableFlattening="False" EntitySetName="Termination_Requests" Where="it.Case_ID=@idparam">
-                                                         <WhereParameters>
-                                                        <asp:ControlParameter ControlID="TerminationLabel" DbType="Int32" DefaultValue="1" Name="idparam" PropertyName="Text" />
-                                                    </WhereParameters>
-                                                </asp:EntityDataSource>
+                                                <asp:EntityDataSource ID="EntityDataSource10" runat="server" ConnectionString="name=Investigation_management_systemEntities4" DefaultContainerName="Investigation_management_systemEntities4" EnableFlattening="False" EntitySetName="Termination_Requests" Where="it.Case_ID=@idparam"><WhereParameters><asp:ControlParameter ControlID="TerminationLabel" DbType="Int32" DefaultValue="1" Name="idparam" PropertyName="Text" /></WhereParameters></asp:EntityDataSource>
                                             </h3>
+
+                                                <h3></h3>
+
+                                                <h3></h3>
+
+                                                <h3></h3>
+
+                                                <h3></h3>
+
+                                                <h3></h3>
+
+                                                <h3></h3>
+
+                                        </h3>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                        </asp:View>
+                         <asp:View ID="View6" runat="server">
+                           <table class="groove">
+                                <tr>
+                                    <td>
+                                        <h3>
+                                            
+                                                <h3 style="color: #051e80">Termination </h3>
+                                              
+                                           
+                                            <h3> Details of case number: 
+            <asp:Label ID="InviteLabel" runat="server" Text=""></asp:Label></h3>
+
+                                            <h3>
+                                                <asp:DetailsView ID="DetailsView5" runat="server" Height="16px" Width="814px" AutoGenerateRows="False" DataKeyNames="Interview_Invitation_ID" DataSourceID="EntityDataSource5" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None">
+                                                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                                                    <CommandRowStyle BackColor="#E2DED6" Font-Bold="True" />
+                                                    <EditRowStyle BackColor="#999999" />
+                                                    <FieldHeaderStyle BackColor="#E9ECF1" Font-Bold="True" />
+                                                    <Fields>
+                                                        <asp:BoundField DataField="Interview_Invitation_ID" HeaderText="Interview_Invitation_ID" ReadOnly="True" SortExpression="Interview_Invitation_ID" />
+                                                        <asp:BoundField DataField="Interview_Invitation_Date" HeaderText="Interview_Invitation_Date" SortExpression="Interview_Invitation_Date" />
+                                                        <asp:BoundField DataField="Interview_Invitation_Time" HeaderText="Interview_Invitation_Time" SortExpression="Interview_Invitation_Time" />
+                                                        <asp:BoundField DataField="Interview_Invitation_Location" HeaderText="Interview_Invitation_Location" SortExpression="Interview_Invitation_Location" />
+                                                        <asp:BoundField DataField="Interview_Invitation_Date_Sent" HeaderText="Interview_Invitation_Date_Sent" SortExpression="Interview_Invitation_Date_Sent" />
+                                                        <asp:BoundField DataField="Interview_Invitation_Acceptance" HeaderText="Interview_Invitation_Acceptance" SortExpression="Interview_Invitation_Acceptance" />
+                                                        <asp:BoundField DataField="Case_Handler_ID" HeaderText="Case_Handler_ID" SortExpression="Case_Handler_ID" />
+                                                        <asp:BoundField DataField="Interview_Invitation_Invitee" HeaderText="Interview_Invitation_Invitee" SortExpression="Interview_Invitation_Invitee" />
+                                                        <asp:BoundField DataField="Interview_Invitation_Details" HeaderText="Interview Invitation Details" SortExpression="Interview_Invitation_Details" />
+                                                        <asp:BoundField DataField="Case_ID" HeaderText="Case ID" SortExpression="Case_ID" />
+                                                    </Fields>
+                                                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                                    <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                                                    <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                                                    <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                                                </asp:DetailsView>
+                                                <asp:EntityDataSource ID="EntityDataSource5" runat="server" ConnectionString="name=Investigation_management_systemEntities4" DefaultContainerName="Investigation_management_systemEntities4" EnableFlattening="False" EntitySetName="Interview_Invite" Where="it.Case_ID=@idparam"><WhereParameters><asp:ControlParameter ControlID="InviteLabel" DbType="Int32" DefaultValue="1" Name="idparam" PropertyName="Text" /></WhereParameters></asp:EntityDataSource>
+                                            </h3>
+
+                                                <h3></h3>
 
                                                 <h3></h3>
 

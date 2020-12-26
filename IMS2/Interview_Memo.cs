@@ -12,13 +12,12 @@ namespace IMS2
     using System;
     using System.Collections.Generic;
     
-    public partial class QuestionsAnswer
+    public partial class Interview_Memo
     {
+        public int Interview_Memo_ID { get; set; }
         public int Investigation_Interview_ID { get; set; }
-        public int Question_ID { get; set; }
-        public string Answer_Details { get; set; }
+        public string Investigation_Interview_Memo { get; set; }
     
-        public virtual Question Question { get; set; }
         public virtual Investigation_Interview Investigation_Interview { get; set; }
     }
 }

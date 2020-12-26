@@ -18,12 +18,13 @@ namespace IMS2
         public string Evidence_Type { get; set; }
         public System.DateTime Evidence_Date { get; set; }
         public string Evidence_Details { get; set; }
-        public byte[] Evidence_Document { get; set; }
         public string Requester_ID { get; set; }
-        public string Case_Handler_ID { get; set; }
         public int Case_ID { get; set; }
+        public string FileName { get; set; }
+        public string FileContentType { get; set; }
+        public byte[] FileData { get; set; }
     
-        public virtual Case_Handler Case_Handler { get; set; }
+        public virtual Employee Employee { get; set; }
         public virtual InvestigationCase1 InvestigationCase1 { get; set; }
     }
 }
