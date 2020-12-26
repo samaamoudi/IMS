@@ -13,5 +13,18 @@ namespace IMS2
         {
 
         }
+        protected void GridView3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Response.Redirect("CasesDetails.aspx?CaseID=" + GridView2.SelectedRow.Cells[0].Text);
+            Response.Redirect("CasesDetails.aspx?CaseID=" + GridView3.SelectedRow.Cells[0].Text);
+        }
+
+        protected void GridView3_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView3.PageIndex = e.NewPageIndex;
+            GridView3.DataBind();
+
+
+        }
     }
 }

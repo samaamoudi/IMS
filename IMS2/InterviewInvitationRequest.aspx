@@ -88,6 +88,11 @@ border-color: #d9d9d9;
                                                         </td>
                                                         <td>
                                                             <asp:TextBox ID="iichtxt" runat="server" CssClass="input" placeholder="Employee ID"></asp:TextBox>
+                                                            &nbsp;<asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="EntityDataSource1" DataTextField="CH_Employee_ID" DataValueField="CH_Employee_ID">
+                                                            </asp:DropDownList>
+                                                            <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=Investigation_management_systemEntities4" DefaultContainerName="Investigation_management_systemEntities4" EnableFlattening="False" EntitySetName="Case_Handler">
+                                                            </asp:EntityDataSource>
+                                                            <br />
                                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="iichtxt" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                                                             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="iichtxt" Display="Dynamic" ErrorMessage="Please enter a valid employee ID" ForeColor="Red" ValidationExpression="^\d{5}$"></asp:RegularExpressionValidator>
                                                         </td>
