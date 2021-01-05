@@ -1,4 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CaseHandler.Master" AutoEventWireup="true" CodeBehind="EvidenceRequest.aspx.cs" Inherits="IMS2.EvidenceRequest" %>
+﻿
+<%--this page for the case ahndler to request either missing or more required evidence form employees--%>
+
+
+<%@ Page Title="" Language="C#" MasterPageFile="~/CaseHandler.Master" AutoEventWireup="true" CodeBehind="EvidenceRequest.aspx.cs" Inherits="IMS2.EvidenceRequest" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -81,13 +85,9 @@ border-color: #d9d9d9;
                                                             <asp:Label class="text" ID="Label9" runat="server" Text="Case Handler ID"></asp:Label>
                                                         </td>
                                                         <td>
-                                                            <asp:TextBox ID="chtxt" runat="server" CssClass="input" placeholder="Employee ID"></asp:TextBox>
-                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator21" runat="server" ControlToValidate="chtxt" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-                                                        &nbsp;<asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="EntityDataSource1" DataTextField="CH_Employee_ID" DataValueField="CH_Employee_ID">
-                                                            </asp:DropDownList>
-                                                            <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=Investigation_management_systemEntities4" DefaultContainerName="Investigation_management_systemEntities4" EnableFlattening="False" EntitySetName="Case_Handler">
-                                                            </asp:EntityDataSource>
-                                                        </td>
+                                                            <asp:Label ID="CHlbl" runat="server"></asp:Label>
+                                                            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator21" runat="server" ControlToValidate="chtxt" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>--%>
+                                                        &nbsp;</td>
 
                                                     </tr>
                                                     <tr>
@@ -99,8 +99,12 @@ border-color: #d9d9d9;
                                                         <td class="auto-style2">
                                                             <asp:Label class="text" ID="Label10" runat="server" Text="To Whom "></asp:Label></td>
                                                         <td>
-                                                            <asp:TextBox ID="emptxt" runat="server" class="input" placeholder="Employee ID"></asp:TextBox>
-                                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator20" runat="server" ControlToValidate="emptxt" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                                                <asp:DropDownList ID="EmpDropDownList" runat="server" Class="select" DataSourceID="SqlDataSource1" DataTextField="Name" DataValueField="Employee_ID"  AppendDataBoundItems="true">
+                                                            <asp:ListItem Enabled="true" Text="--Select Employee--" Value="-1" Selected=True></asp:ListItem>
+                                                             
+                                                            </asp:DropDownList>
+                                                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Investigation_management_systemConnectionString %>" SelectCommand="SELECT [Employee_ID], [First_Name] + ' ' + [Last_Name] as Name FROM [Employee] ORDER BY [First_Name]"></asp:SqlDataSource>
+                                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator20" runat="server" ControlToValidate="EmpDropDownList" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                                                         </td>
 
                                                     </tr>
@@ -117,11 +121,11 @@ border-color: #d9d9d9;
                                                             <asp:Label class="text" ID="Label11" runat="server" Text="Case ID"></asp:Label></td>
                                                         <td>
 
-                                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator19" runat="server" ControlToValidate="casedropdownlist" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-            
                                                             <asp:DropDownList ID="casedropdownlist" runat="server" DataSourceID="EntityDataSource7" DataTextField="Case_ID" DataValueField="Case_ID" CssClass="select" AppendDataBoundItems="true">
                                                             <asp:ListItem Enabled="true" Text="--Select Case ID--" Value="-1" Selected=True></asp:ListItem>
                                                                 </asp:DropDownList>
+            
+                                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator19" runat="server" ControlToValidate="casedropdownlist" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
             
                                                         </td>
 

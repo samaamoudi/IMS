@@ -13,19 +13,13 @@ namespace IMS2
         {
             UnobtrusiveValidationMode = System.Web.UI.UnobtrusiveValidationMode.None;
 
-            if (IsPostBack)
+            if (!IsPostBack)
             //if the user clicked on the submit button, and the page is refreshing
             {
                 Validate();
-
-                //if (Page.IsValid)
-                //{
-                //    successLabel.Text = "All Required Fields are Filled and Valid";
-                //}
-                //else
-                //{
-                //    successLabel.Text = "";
-                //}
+                Emplbl.Text = Session["empID"].ToString();
+                
+         
             }
 
 
@@ -39,26 +33,25 @@ namespace IMS2
 
             InvestigationCase1 c = new InvestigationCase1();
 
-            var userinfo = (from a in te.Employees
-                            where a.Employee_ID == requestertxt.Text 
-                            select new LoginRecords
-                            {
-                                UserID = a.Employee_ID,
+            //var userinfo = (from a in te.Employees
+            //                where a.Employee_ID == requestertxt.Text 
+            //                select new LoginRecords
+            //                {
+            //                    UserID = a.Employee_ID,
                                
-                            }).FirstOrDefault();
-
-          
+            //                }).FirstOrDefault();
 
 
 
-                c.Requester_ID = requestertxt.Text;
-            c.Employee_ID = accusedtxt.Text;
+
+
+
+            c.Requester_ID = Emplbl.Text;
+            c.Employee_ID = EmpDropDownList.SelectedValue;
             c.Case_Details = casedetailstxt.Text;
             c.Case_Start_Date = Convert.ToDateTime(datetxt.Text);
             c.Case_Type = int.Parse(DropDownList1.SelectedValue);
             //c.Case_Type = Convert.ToInt32(TextBox1.Text);
-
-
 
 
 
@@ -68,8 +61,7 @@ namespace IMS2
 
 
             //insert it into table
-            if (userinfo != null)
-            {
+            
                 int res = te.SaveChanges();
 
                 if (res > 0)
@@ -84,8 +76,8 @@ namespace IMS2
                     Label7.Text = "Try Again!!!";
 
                 }
-            }
-            else Label7.Text = "Invalid username";
+
+
             int newID = c.Case_ID;
 
             string requesterID = c.Requester_ID;

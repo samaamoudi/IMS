@@ -19,6 +19,7 @@ namespace IMS2
         public string Termination_Request_Justification { get; set; }
         public int Case_ID { get; set; }
         public string Employee_ID { get; set; }
+        public string Case_Handler_ID { get; set; }
     
         public virtual Employee Employee { get; set; }
         public virtual InvestigationCase1 InvestigationCase1 { get; set; }

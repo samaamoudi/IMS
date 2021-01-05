@@ -1,4 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CaseHandler.Master" AutoEventWireup="true" CodeBehind="Interview.aspx.cs" Inherits="IMS2.Interview" %>
+﻿
+<%--this page is the main page for conducting an interview for the investiagtion--%>
+
+<%@ Page Title="" Language="C#" MasterPageFile="~/CaseHandler.Master" AutoEventWireup="true" CodeBehind="Interview.aspx.cs" Inherits="IMS2.Interview" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -86,9 +89,8 @@ border-color: #d9d9d9;
                                                             <asp:Label class="text" ID="Label18" runat="server" Text="Interviewer ID"></asp:Label>
                                                         </td>
                                                         <td>
-                                                            <asp:TextBox ID="Interviewertxt" runat="server" CssClass="input" placeholder="Employee ID"></asp:TextBox>
-                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="Interviewertxt" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-                                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="Interviewertxt" Display="Dynamic" ErrorMessage="Please enter a valid employee ID" ForeColor="Red" ValidationExpression="^\d{5}$"></asp:RegularExpressionValidator>
+                                                                                                                        <asp:Label ID="CHlbl" runat="server"></asp:Label>
+
                                                         </td>
 
                                                     </tr>
@@ -99,11 +101,15 @@ border-color: #d9d9d9;
                                                     </tr>
                                                     <tr>
                                                         <td class="auto-style2">
-                                                            <asp:Label class="text" ID="Label19" runat="server" Text="Interviewee ID "></asp:Label></td>
+                                                            <asp:Label class="text" ID="Label19" runat="server" Text="Interviewee "></asp:Label></td>
                                                         <td>
-                                                            <asp:TextBox ID="intervieweetxt" runat="server" class="input" placeholder="Employee ID"></asp:TextBox>
-                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="intervieweetxt" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-                                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="intervieweetxt" Display="Dynamic" ErrorMessage="Please enter a valid employee ID" ForeColor="Red" ValidationExpression="^\d{5}$"></asp:RegularExpressionValidator>
+                                                             <asp:DropDownList ID="EmpDropDownList" runat="server" Class="select" DataSourceID="SqlDataSource1" DataTextField="Name" DataValueField="Employee_ID"  AppendDataBoundItems="true">
+                                                            <asp:ListItem Enabled="true" Text="--Select Employee--" Value="-1" Selected=True></asp:ListItem>
+                                                              </asp:DropDownList>
+                                                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Investigation_management_systemConnectionString %>" SelectCommand="SELECT [Employee_ID], [First_Name] + ' ' + [Last_Name] as Name FROM [Employee] ORDER BY [First_Name]"></asp:SqlDataSource>
+                                                                              
+                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="EmpDropDownList" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+<%--                                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="intervieweetxt" Display="Dynamic" ErrorMessage="Please enter a valid employee ID" ForeColor="Red" ValidationExpression="^\d{5}$"></asp:RegularExpressionValidator>--%>
                                                         </td>
 
                                                     </tr>

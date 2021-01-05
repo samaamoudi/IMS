@@ -1,4 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CaseHandler.Master" AutoEventWireup="true" CodeBehind="Evidence.aspx.cs" Inherits="IMS2.Evidence1" %>
+﻿
+<%--this page is for evidnce submission part during the proccess of requesting an investigation case --%>
+
+
+<%@ Page Title="" Language="C#" MasterPageFile="~/CaseHandler.Master" AutoEventWireup="true" CodeBehind="Evidence.aspx.cs" Inherits="IMS2.Evidence1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -124,7 +128,6 @@ border-color: #d9d9d9;
                     <asp:Label ID="Eviddoc" runat="server" class="text" Text="Evidence Documents"></asp:Label>
                 </td>
                 <td>
-                    <asp:Button ID="Button3" runat="server" Text="Button" />
                     <asp:FileUpload ID="FileUpload1" runat="server" />
                 </td>
                
@@ -167,7 +170,7 @@ border-color: #d9d9d9;
                 <td>
                     <asp:Button ID="Button1" runat="server" Text="Save"  CssClass="button button2" OnClick="Button1_Click1" />
                     &nbsp;&nbsp;&nbsp;
-                    <asp:Button ID="Button2" runat="server" Text="Cancel" CssClass="button button3" OnClick="Button2_Click" /></td>
+                    <asp:Button ID="Button2" runat="server" Text="Cancel" CssClass="button button3"  /></td>
                 
             </tr>
         </table>

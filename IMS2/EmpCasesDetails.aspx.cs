@@ -10,10 +10,9 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 
-
 namespace IMS2
 {
-    public partial class CasesDetails : System.Web.UI.Page
+    public partial class EmpCasesDetails : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,8 +20,8 @@ namespace IMS2
             lpCaseID.Text = id.ToString();
             //int evidid= int.Parse(Request.QueryString["CaseID"]);
             lbEvid.Text = id.ToString();
-            InterviewLabel.Text = id.ToString();
-            TerminationLabel.Text = id.ToString();
+            //InterviewLabel.Text = id.ToString();
+            //TerminationLabel.Text = id.ToString();
             InviteLabel.Text = id.ToString();
             EvidRequest.Text = id.ToString();
 
@@ -74,7 +73,7 @@ namespace IMS2
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Response.Redirect("cases.aspx");
+            Response.Redirect("EmpCases.aspx");
         }
 
         protected void Tab1_Click(object sender, EventArgs e)
@@ -83,9 +82,9 @@ namespace IMS2
             Tab2.CssClass = "Initial";
             Tab3.CssClass = "Initial";
             Tab4.CssClass = "Initial";
-            Tab5.CssClass = "Initial";
-            Tab6.CssClass = "Initial";
-            Tab7.CssClass = "Initial";
+            //Tab5.CssClass = "Initial";
+            //Tab6.CssClass = "Initial";
+            //Tab7.CssClass = "Initial";
             MainView.ActiveViewIndex = 0;
         }
 
@@ -95,9 +94,9 @@ namespace IMS2
             Tab2.CssClass = "Clicked";
             Tab3.CssClass = "Initial";
             Tab4.CssClass = "Initial";
-            Tab5.CssClass = "Initial";
-            Tab6.CssClass = "Initial";
-            Tab7.CssClass = "Initial";
+            //Tab5.CssClass = "Initial";
+            //Tab6.CssClass = "Initial";
+            //Tab7.CssClass = "Initial";
             MainView.ActiveViewIndex = 1;
         }
 
@@ -107,9 +106,9 @@ namespace IMS2
             Tab2.CssClass = "Initial";
             Tab3.CssClass = "Clicked";
             Tab4.CssClass = "Initial";
-            Tab5.CssClass = "Initial";
-            Tab6.CssClass = "Initial";
-            Tab7.CssClass = "Initial";
+            //Tab5.CssClass = "Initial";
+            //Tab6.CssClass = "Initial";
+            //Tab7.CssClass = "Initial";
             MainView.ActiveViewIndex = 2;
         }
         protected void Tab4_Click(object sender, EventArgs e)
@@ -118,47 +117,44 @@ namespace IMS2
             Tab2.CssClass = "Initial";
             Tab3.CssClass = "Initial";
             Tab4.CssClass = "Clicked";
-            Tab5.CssClass = "Initial";
-            Tab6.CssClass = "Initial";
-            Tab7.CssClass = "Initial";
+            //Tab5.CssClass = "Initial";
+            //Tab6.CssClass = "Initial";
+            //Tab7.CssClass = "Initial";
             MainView.ActiveViewIndex = 3;
 
         }
-        protected void Tab5_Click(object sender, EventArgs e)
-        {
-            Tab1.CssClass = "Initial";
-            Tab2.CssClass = "Initial";
-            Tab3.CssClass = "Initial";
-            Tab4.CssClass = "Initial";
-            Tab5.CssClass = "Clicked";
-            Tab6.CssClass = "Initial";
-            Tab7.CssClass = "Initial";
-            MainView.ActiveViewIndex = 4;
-        }
-        protected void Tab6_Click(object sender, EventArgs e)
-        {
-            Tab1.CssClass = "Initial";
-            Tab2.CssClass = "Initial";
-            Tab3.CssClass = "Initial";
-            Tab4.CssClass = "Initial";
-            Tab5.CssClass = "Initial";
-            Tab6.CssClass = "Clicked";
-            Tab7.CssClass = "Initial";
-            MainView.ActiveViewIndex = 5;
-        }
-
-        protected void Tab7_Click(object sender, EventArgs e)
-        {
-            Tab1.CssClass = "Initial";
-            Tab2.CssClass = "Initial";
-            Tab3.CssClass = "Initial";
-            Tab4.CssClass = "Initial";
-            Tab5.CssClass = "Initial";
-            Tab6.CssClass = "Initial";
-            Tab7.CssClass = "Clicked";
-            MainView.ActiveViewIndex = 6;
-        }
-
-
+        //protected void Tab5_Click(object sender, EventArgs e)
+        //{
+        //    Tab1.CssClass = "Initial";
+        //    Tab2.CssClass = "Initial";
+        //    Tab3.CssClass = "Initial";
+        //    Tab4.CssClass = "Initial";
+        //    Tab5.CssClass = "Clicked";
+        //    Tab6.CssClass = "Initial";
+        //    //Tab7.CssClass = "Initial";
+        //    MainView.ActiveViewIndex = 4;
+        //}
+        //protected void Tab6_Click(object sender, EventArgs e)
+        //{
+        //    Tab1.CssClass = "Initial";
+        //    Tab2.CssClass = "Initial";
+        //    Tab3.CssClass = "Initial";
+        //    Tab4.CssClass = "Initial";
+        //    Tab5.CssClass = "Initial";
+        //    Tab6.CssClass = "Clicked";
+        //    Tab7.CssClass = "Initial";
+        //    MainView.ActiveViewIndex = 5;
+        //}
+        //protected void Tab7_Click(object sender, EventArgs e)
+        //{
+        //    Tab1.CssClass = "Initial";
+        //    Tab2.CssClass = "Initial";
+        //    Tab3.CssClass = "Initial";
+        //    Tab4.CssClass = "Initial";
+        //    Tab5.CssClass = "Initial";
+        //    Tab6.CssClass = "Initial";
+        //    Tab7.CssClass = "Clicked";
+        //    MainView.ActiveViewIndex = 6;
+        //}
     }
 }

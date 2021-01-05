@@ -1,4 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CaseHandler.Master" AutoEventWireup="true" CodeBehind="QandA.aspx.cs" Inherits="IMS2.QandA" %>
+﻿
+<%--the Question and answer part of the interview process come after thr interview page--%>
+
+<%@ Page Title="" Language="C#" MasterPageFile="~/CaseHandler.Master" AutoEventWireup="true" CodeBehind="QandA.aspx.cs" Inherits="IMS2.QandA" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

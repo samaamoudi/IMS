@@ -11,7 +11,29 @@ namespace IMS2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+           
 
-        }
+            if (!IsPostBack)
+            {
+
+                {
+                    lbId.Text = Session["empID"].ToString();
+                    lbEmName.Text = Session["name"].ToString();
+
+                }
+            }
+
+
+                //if (!IsPostBack)
+
+                //{
+
+                //    validatePath(this.Request.Url.AbsolutePath);
+
+                //}
+
+            }
+        
     }
-}
+
+ }

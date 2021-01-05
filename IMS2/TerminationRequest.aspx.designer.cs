@@ -13,6 +13,24 @@ namespace IMS2 {
     public partial class TerminationRequest {
         
         /// <summary>
+        /// Label18 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label18;
+        
+        /// <summary>
+        /// CHlbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label CHlbl;
+        
+        /// <summary>
         /// Label14 control.
         /// </summary>
         /// <remarks>
@@ -22,22 +40,31 @@ namespace IMS2 {
         protected global::System.Web.UI.WebControls.Label Label14;
         
         /// <summary>
-        /// trEmptxt control.
+        /// EmpDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox trEmptxt;
+        protected global::System.Web.UI.WebControls.DropDownList EmpDropDownList;
         
         /// <summary>
-        /// RequiredFieldValidator1 control.
+        /// SqlDataSource1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        
+        /// <summary>
+        /// RequiredFieldValidator13 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator13;
         
         /// <summary>
         /// EntityDataSource7 control.

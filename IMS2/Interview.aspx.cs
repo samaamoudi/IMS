@@ -17,6 +17,7 @@ namespace IMS2
             {
 
                 Validate();
+                CHlbl.Text = Session["empID"].ToString();
             }
         }
 
@@ -27,17 +28,19 @@ namespace IMS2
 
             Investigation_Interview t = new Investigation_Interview();
 
-            var userinfo = (from a in db.Employees
-                            where a.Employee_ID == Interviewertxt.Text
-                            select new LoginRecords
-                            {
-                                UserID = a.Employee_ID,
+            //var userinfo = (from a in db.Employees
+            //                where a.Employee_ID == Interviewertxt.Text
+            //                select new LoginRecords
+            //                {
+            //                    UserID = a.Employee_ID,
 
-                            }).FirstOrDefault();
+            //                }).FirstOrDefault();
 
 
-            t.Investigation_Interview_Interviewer_ID = Interviewertxt.Text;
-            t.Investigation_Interview_Interviewee_ID = intervieweetxt.Text;
+
+
+            t.Investigation_Interview_Interviewer_ID = CHlbl.Text;
+            t.Investigation_Interview_Interviewee_ID = EmpDropDownList.SelectedValue;
             t.Case_ID = int.Parse(iDropDownList.SelectedValue);
             t.Investigation_Interview_Date = Convert.ToDateTime(idatetxt.Text);
             t.Investigation_Interview_Location = ilocationtxt.Text;
@@ -46,25 +49,43 @@ namespace IMS2
 
             db.Investigation_Interview.Add(t);
 
-            if (userinfo != null)
+            int res = db.SaveChanges();
+
+            if (res > 0)
             {
-                int res = db.SaveChanges();
 
-                if (res > 0)
-                {
+                LabelInterview.Text = "Data Inserted Successfully";
 
-                    LabelInterview.Text = "Data Inserted Successfully";
-
-                }
-                else
-                {
-
-                    LabelInterview.Text = "Try Again!!!";
-
-
-                }
             }
-            else LabelInterview.Text = "Invalid username";
+            else
+            {
+
+                LabelInterview.Text = "Try Again!!!";
+            }
+        
+
+
+            
+
+            //if (userinfo != null)
+            //{
+            //    int res = db.SaveChanges();
+
+            //    if (res > 0)
+            //    {
+
+            //        LabelInterview.Text = "Data Inserted Successfully";
+
+            //    }
+            //    else
+            //    {
+
+            //        LabelInterview.Text = "Try Again!!!";
+
+
+            //    }
+            //}
+            /*else LabelInterview.Text = "Invalid username"*/
             int newID = t.Investigation_Interview_ID;
 
 

@@ -11,7 +11,8 @@ namespace IMS2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            string empID = Request.QueryString["emp_ID"];
+            Label2.Text = empID;
         }
         protected void GridView3_SelectedIndexChanged(object sender, EventArgs e)
         {

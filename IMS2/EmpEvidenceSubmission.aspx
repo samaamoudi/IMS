@@ -1,10 +1,12 @@
 ﻿
-<%--this page for submitting evidence that the case handler recieved --%>
+<%--this page for submitting evidence upon the case handlers request or for submmiing more evidence --%>
 
-<%@ Page Title="" Language="C#" MasterPageFile="~/CaseHandler.Master" AutoEventWireup="true" CodeBehind="evidenceSubmission.aspx.cs" Inherits="IMS2.evidenceSubmission" %>
+
+<%@ Page Title="" Language="C#" MasterPageFile="~/Employee.Master" AutoEventWireup="true" CodeBehind="EmpEvidenceSubmission.aspx.cs" Inherits="IMS2.EmpEvidenceSubmission" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
      <style>
     .select {
   width: 30%;

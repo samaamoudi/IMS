@@ -17,6 +17,7 @@ namespace IMS2
             {
 
                 Validate();
+                CHlbl.Text = Session["empID"].ToString();
             }
         }
 
@@ -29,43 +30,58 @@ namespace IMS2
 
             Interview_Invite i = new Interview_Invite();
 
-            var userinfo = (from a in db.Employees
-                            where a.Employee_ID == iichtxt.Text
-                            select new LoginRecords
-                            {
-                                UserID = a.Employee_ID,
+            //var userinfo = (from a in db.Employees
+            //                where a.Employee_ID == iichtxt.Text
+            //                select new LoginRecords
+            //                {
+            //                    UserID = a.Employee_ID,
 
-                            }).FirstOrDefault();
+            //                }).FirstOrDefault();
 
             i.Interview_Invitation_Date = Convert.ToDateTime(iidatetxt.Text);
             i.Interview_Invitation_Date_Sent = Convert.ToDateTime(iidatesenttxt.Text);
-            i.Interview_Invitation_Invitee = iiemptxt.Text;
+            i.Interview_Invitation_Invitee = EmpDropDownList.SelectedValue; 
             i.Interview_Invitation_Location = iilocationtxt.Text;
             i.Interview_Invitation_Time = iiTimetxt.Text;
             i.Interview_Invitation_Details = iiDetailstxt.Text;
-            i.Case_Handler_ID = iichtxt.Text;
+            i.Case_Handler_ID = CHlbl.Text;
             i.Case_ID = int.Parse(iiDropDownList.SelectedValue);
-
+          
             db.Interview_Invite.Add(i);
 
-            if (userinfo != null)
+            int res = db.SaveChanges();
+
+            if (res > 0)
             {
-                int res = db.SaveChanges();
 
-                if (res > 0)
-                {
+                LabelInvite.Text = "Data Inserted Successfully";
 
-                    LabelInvite.Text = "Data Inserted Successfully";
-
-                }
-                else
-                {
-
-                    LabelInvite.Text = "Try Again!!!";
-
-                }
             }
-            else LabelInvite.Text = "Invalid username";
+            else
+            {
+
+                LabelInvite.Text = "Try Again!!!";
+
+            }
+
+            //if (userinfo != null)
+            //{
+            //    int res = db.SaveChanges();
+
+            //    if (res > 0)
+            //    {
+
+            //        LabelInvite.Text = "Data Inserted Successfully";
+
+            //    }
+            //    else
+            //    {
+
+            //        LabelInvite.Text = "Try Again!!!";
+
+            //    }
+            //}
+            //else LabelInvite.Text = "Invalid username";
         }
     }
 }

@@ -17,6 +17,7 @@ namespace IMS2
             {
 
                 Validate();
+                CHlbl.Text = Session["empID"].ToString();
             }
         }
 
@@ -28,40 +29,55 @@ namespace IMS2
 
             Evidence_Request evid = new Evidence_Request();
 
-            var userinfo = (from a in db.Employees
-                            where a.Employee_ID == chtxt.Text
-                            select new LoginRecords
-                            {
-                                UserID = a.Employee_ID,
+            //var userinfo = (from a in db.Employees
+            //                where a.Employee_ID == EmpDropDownList.SelectedValue
+            //                select new LoginRecords
+            //                {
+            //                    UserID = a.Employee_ID,
 
-                            }).FirstOrDefault();
+            //                }).FirstOrDefault();
 
             evid.Evidence_Request_Details = evidtxt.Text;
-            evid.Case_Handler = chtxt.Text;
-            evid.Employee = emptxt.Text;
+            evid.Case_Handler = CHlbl.Text;
+            evid.Employee = EmpDropDownList.SelectedValue;
             evid.Case_ID = int.Parse(casedropdownlist.SelectedValue);
             evid.evidence_request_date = Convert.ToDateTime(datetxt.Text);
 
             db.Evidence_Request.Add(evid);
 
-            if (userinfo != null)
+            int res = db.SaveChanges();
+
+            if (res > 0)
             {
-                int res = db.SaveChanges();
 
-                if (res > 0)
-                {
+                labelevid.Text = "Data Inserted Successfully";
 
-                    labelevid.Text = "Data Inserted Successfully";
-
-                }
-                else
-                {
-
-                    labelevid.Text = "Try Again!!!";
-
-                }
             }
-            else labelevid.Text = "Invalid username";
+            else
+            {
+
+                labelevid.Text = "Try Again!!!";
+
+            }
+
+            //if (userinfo != null)
+            //{
+            //    int res = db.SaveChanges();
+
+            //    if (res > 0)
+            //    {
+
+            //        labelevid.Text = "Data Inserted Successfully";
+
+            //    }
+            //    else
+            //    {
+
+            //        labelevid.Text = "Try Again!!!";
+
+            //    }
+            //}
+            //else labelevid.Text = "Invalid User ID";
         }
     }
 }

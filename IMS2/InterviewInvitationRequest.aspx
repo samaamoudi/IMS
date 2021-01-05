@@ -1,4 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CaseHandler.Master" AutoEventWireup="true" CodeBehind="InterviewInvitationRequest.aspx.cs" Inherits="IMS2.InterviewInvitationRequest" %>
+﻿
+<%--The page is for submitting an interview invitation request to employees--%>
+
+<%@ Page Title="" Language="C#" MasterPageFile="~/CaseHandler.Master" AutoEventWireup="true" CodeBehind="InterviewInvitationRequest.aspx.cs" Inherits="IMS2.InterviewInvitationRequest" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -87,14 +90,8 @@ border-color: #d9d9d9;
                                                             <asp:Label class="text" ID="Label2" runat="server" Text="Case Handler ID"></asp:Label>
                                                         </td>
                                                         <td>
-                                                            <asp:TextBox ID="iichtxt" runat="server" CssClass="input" placeholder="Employee ID"></asp:TextBox>
-                                                            &nbsp;<asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="EntityDataSource1" DataTextField="CH_Employee_ID" DataValueField="CH_Employee_ID">
-                                                            </asp:DropDownList>
-                                                            <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=Investigation_management_systemEntities4" DefaultContainerName="Investigation_management_systemEntities4" EnableFlattening="False" EntitySetName="Case_Handler">
-                                                            </asp:EntityDataSource>
-                                                            <br />
-                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="iichtxt" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-                                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="iichtxt" Display="Dynamic" ErrorMessage="Please enter a valid employee ID" ForeColor="Red" ValidationExpression="^\d{5}$"></asp:RegularExpressionValidator>
+                                                            <asp:Label ID="CHlbl" runat="server"></asp:Label>
+                                                            &nbsp;<br />
                                                         </td>
 
                                                     </tr>
@@ -107,9 +104,12 @@ border-color: #d9d9d9;
                                                         <td class="auto-style2">
                                                             <asp:Label class="text" ID="Label1" runat="server" Text="To Whom "></asp:Label></td>
                                                         <td>
-                                                            <asp:TextBox ID="iiemptxt" runat="server" class="input" placeholder="Employee ID"></asp:TextBox>
-                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="iiemptxt" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-                                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="iiemptxt" Display="Dynamic" ErrorMessage="Please enter a valid employee ID" ForeColor="Red" ValidationExpression="^\d{5}$"></asp:RegularExpressionValidator>
+                                                              <asp:DropDownList ID="EmpDropDownList" runat="server" DataSourceID="SqlDataSource1" DataTextField="Name" DataValueField="Employee_ID" Class="select" AppendDataBoundItems="true">
+                                                            <asp:ListItem Enabled="true" Text="--Select Employee--" Value="-1" Selected=True></asp:ListItem>
+                                                              </asp:DropDownList>
+                                                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Investigation_management_systemConnectionString %>" SelectCommand="SELECT [Employee_ID], [First_Name] + ' ' + [Last_Name] as Name FROM [Employee] ORDER BY [First_Name]"></asp:SqlDataSource>
+                                                                              
+                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="EmpDropDownList" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                                                         </td>
 
                                                     </tr>

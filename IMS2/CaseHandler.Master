@@ -1,4 +1,8 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="CaseHandler.master.cs" Inherits="IMS2.CaseHandler" %>
+﻿
+<%--This is the master site page for the Case Handlers--%>
+
+
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="CaseHandler.master.cs" Inherits="IMS2.CaseHandler" %>
 
 <!DOCTYPE html>
 
@@ -52,7 +56,12 @@ hr.new5 {
             text-align: left;
         }
    
-        
+        .footer1 {
+    background: #051e80;
+    color: lightgrey;
+    padding: 2px;
+    text-align: center;
+}
   </style>
     <link rel="stylesheet" href="style2.css"/>
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -65,15 +74,18 @@ hr.new5 {
       <div class="logo" href="index.html">
           <img src="Images/logo.png" class="auto-style1" />
             <span >&nbsp;&nbsp;&nbsp;
-                <asp:Label ID="Label1" runat="server" Text="Investigation Management System" ForeColor="#051E80"></asp:Label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Label ID="lbEmName" runat="server" ForeColor="Red"></asp:Label></span>
+                <asp:Label ID="Label1" runat="server" Text="Investigation Management System" ForeColor="#051E80"></asp:Label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <asp:Label ID="lbEmName" runat="server" ForeColor="Red"></asp:Label></span>
           
 
         <!-- main navigation links -->
         &nbsp;&nbsp;
+            <span > <asp:Label ID="lbId" runat="server" ForeColor="Red"></asp:Label></span>
+          
+
         </div>
              <hr class="new5"> 
     </div>
-       <%-- <hr class="new5"> --%>
+         <%-- <hr class="new5"> --%>
        
           
      <nav class="main-menu">
@@ -148,7 +160,7 @@ hr.new5 {
                 </li>
                 
                 <li>
-                   <a href="dashbaord.aspx">
+                   <a href="Dashboard.aspx">
                        <i class="fa fa-tachometer fa-2x"></i>
                         <span class="nav-text">
                             Dashboard
@@ -169,8 +181,7 @@ hr.new5 {
             </ul>
         </nav>
 
-    <%-- <div class="article">--%>
-       
+    <%-- <div class="article">--%>       
     <%--<h1></h1>
     <p>London is the capital city of England. It is the most populous city in the  United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
     <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.</p>
@@ -181,6 +192,9 @@ hr.new5 {
             </asp:ContentPlaceHolder>
      </div>
 
+        <div class="footer1">
+              <p>&copy; <%: DateTime.Now.Year %> - Binzagr Company </p>
+        </div>
       
     </form>
 </body>

@@ -22,40 +22,13 @@ namespace IMS2 {
         protected global::System.Web.UI.WebControls.Label Label9;
         
         /// <summary>
-        /// chtxt control.
+        /// CHlbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox chtxt;
-        
-        /// <summary>
-        /// RequiredFieldValidator21 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator21;
-        
-        /// <summary>
-        /// DropDownList1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
-        
-        /// <summary>
-        /// EntityDataSource1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSource1;
+        protected global::System.Web.UI.WebControls.Label CHlbl;
         
         /// <summary>
         /// Label10 control.
@@ -67,13 +40,22 @@ namespace IMS2 {
         protected global::System.Web.UI.WebControls.Label Label10;
         
         /// <summary>
-        /// emptxt control.
+        /// EmpDropDownList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox emptxt;
+        protected global::System.Web.UI.WebControls.DropDownList EmpDropDownList;
+        
+        /// <summary>
+        /// SqlDataSource1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
         
         /// <summary>
         /// RequiredFieldValidator20 control.
@@ -103,15 +85,6 @@ namespace IMS2 {
         protected global::System.Web.UI.WebControls.Label Label11;
         
         /// <summary>
-        /// RequiredFieldValidator19 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator19;
-        
-        /// <summary>
         /// casedropdownlist control.
         /// </summary>
         /// <remarks>
@@ -119,6 +92,15 @@ namespace IMS2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList casedropdownlist;
+        
+        /// <summary>
+        /// RequiredFieldValidator19 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator19;
         
         /// <summary>
         /// Label12 control.

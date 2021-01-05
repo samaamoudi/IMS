@@ -1,4 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CaseHandler.Master" AutoEventWireup="true" CodeBehind="TerminationRequest.aspx.cs" Inherits="IMS2.TerminationRequest" %>
+﻿
+
+<%--This page is for submitting a termination request to the vp after a case has been conducted and verict is termination  --%>
+
+
+<%@ Page Title="" Language="C#" MasterPageFile="~/CaseHandler.Master" AutoEventWireup="true" CodeBehind="TerminationRequest.aspx.cs" Inherits="IMS2.TerminationRequest" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -83,11 +88,31 @@ border-color: #d9d9d9;
         <table style="width: 100%;">
                                                     <tr>
                                                         <td class="auto-style2">
-                                                            <asp:Label class="text" ID="Label14" runat="server" Text="Employee ID"></asp:Label>
+                                                            <asp:Label class="text" ID="Label18" runat="server" Text="Case Handler ID"></asp:Label>
                                                         </td>
                                                         <td>
-                                                            <asp:TextBox ID="trEmptxt" runat="server" CssClass="input" placeholder="Employee ID"></asp:TextBox>
-                                                            &nbsp;<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ControlToValidate="trEmptxt" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                                                                                        <asp:Label ID="CHlbl" runat="server"></asp:Label>
+
+                                                        </td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="auto-style2">
+                                                            &nbsp;</td>
+                                                        <td>
+                                                            &nbsp;</td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="auto-style2">
+                                                            <asp:Label class="text" ID="Label14" runat="server" Text="Employee"></asp:Label>
+                                                        </td>
+                                                        <td>
+                                                            <asp:DropDownList ID="EmpDropDownList" runat="server" AppendDataBoundItems="true" Class="select" DataSourceID="SqlDataSource1" DataTextField="Name" DataValueField="Employee_ID">
+                                                                <asp:ListItem Enabled="true" Selected="True" Text="--Select Employee--" Value="-1"></asp:ListItem>
+                                                            </asp:DropDownList>
+                                                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Investigation_management_systemConnectionString %>" SelectCommand="SELECT [Employee_ID], [First_Name] + ' ' + [Last_Name] as Name FROM [Employee] ORDER BY [First_Name]"></asp:SqlDataSource>
+                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="EmpDropDownList" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
                                                         </td>
 
                                                     </tr>

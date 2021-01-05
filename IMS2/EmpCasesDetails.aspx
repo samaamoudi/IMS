@@ -1,13 +1,13 @@
 ﻿
-<%--this page conatins the details of the case as well as other details that are connected to the case 
-it aslo is the page where the case handler condcuts and update case details.
-it conatins evidevec details, interview details, termination request details, invitaion details as well as the realloaction of the case. --%>
+<%--this page conatins the case details as well as related details of the case such as evidence, evidnce request and interview invite.
+thsi page is also for teh employee to keep tarck of the case--%>
 
 
-<%@ Page Title="" Language="C#" MasterPageFile="~/CaseHandler.Master" AutoEventWireup="true" CodeBehind="CasesDetails.aspx.cs" Inherits="IMS2.CasesDetails" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/Employee.Master" AutoEventWireup="true" CodeBehind="EmpCasesDetails.aspx.cs" Inherits="IMS2.EmpCasesDetails" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
       <style type="text/css">
         .Initial {
             display: block;
@@ -114,22 +114,22 @@ it conatins evidevec details, interview details, termination request details, in
                 <td>
                     <asp:Button Text="Case Details" BorderStyle="None" ID="Tab1" CssClass="Initial" runat="server"
                         OnClick="Tab1_Click" />
-                    <asp:Button Text="Reallocate" BorderStyle="None" ID="Tab2" CssClass="Initial" runat="server"
+                   <%-- <asp:Button Text="Reallocate" BorderStyle="None" ID="Tab2" CssClass="Initial" runat="server"
+                        OnClick="Tab2_Click" />--%>
+                      <asp:Button Text="Evidence Details" BorderStyle="None" ID="Tab2" CssClass="Initial" runat="server"
                         OnClick="Tab2_Click" />
-                      <asp:Button Text="Evidence Details" BorderStyle="None" ID="Tab3" CssClass="Initial" runat="server"
-                        OnClick="Tab3_Click" />
                    <%-- <asp:Button Text="Request Information" BorderStyle="None" ID="Tab4" CssClass="Initial" runat="server"
                         OnClick="Tab4_Click" />
                     <asp:Button Text="Interview Request" BorderStyle="None" ID="Tab5" CssClass="Initial" runat="server"--%>
                        <%-- OnClick="Tab5_Click" />--%>
-                    <asp:Button Text="Interview " BorderStyle="None" ID="Tab4" CssClass="Initial" runat="server"
+                    <%--<asp:Button Text="Interview " BorderStyle="None" ID="Tab4" CssClass="Initial" runat="server"
                         OnClick="Tab4_Click" />
                     <asp:Button Text="Termination Request" BorderStyle="None" ID="Tab5" CssClass="Initial" runat="server"
-                        OnClick="Tab5_Click" />
-                     <asp:Button Text="Interview Invite" BorderStyle="None" ID="Tab6" CssClass="Initial" runat="server"
-                        OnClick="Tab6_Click" />
-                     <asp:Button Text="Evidence Request" BorderStyle="None" ID="Tab7" CssClass="Initial" runat="server"
-                        OnClick="Tab7_Click" />
+                        OnClick="Tab5_Click" />--%>
+                     <asp:Button Text="Interview Invite" BorderStyle="None" ID="Tab3" CssClass="Initial" runat="server"
+                        OnClick="Tab3_Click" />
+                    <asp:Button Text="Evidence Request" BorderStyle="None" ID="Tab4" CssClass="Initial" runat="server"
+                        OnClick="Tab4_Click" />
                     <asp:MultiView ID="MainView" runat="server">
                         <asp:View ID="View1" runat="server">
                             <table class="groove">
@@ -166,7 +166,7 @@ it conatins evidevec details, interview details, termination request details, in
                                                     </tr>
                                                     <tr>
                                                         <td>
-                                                            <asp:DetailsView ID="DetailsView1" runat="server" Height="16px" Width="814px" AutoGenerateEditButton="True" AutoGenerateRows="False" DataKeyNames="Case_ID" DataSourceID="EntityDataSource1" CellPadding="4" ForeColor="#333333" GridLines="None">
+                                                            <asp:DetailsView ID="DetailsView1" runat="server" Height="16px" Width="814px" AutoGenerateRows="False" DataKeyNames="Case_ID" DataSourceID="EntityDataSource1" CellPadding="4" ForeColor="#333333" GridLines="None" AllowPaging="True">
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <CommandRowStyle BackColor="#E2DED6" Font-Bold="True" />
         <EditRowStyle BackColor="#999999" />
@@ -178,10 +178,10 @@ it conatins evidevec details, interview details, termination request details, in
        
              <asp:TemplateField HeaderText="End Date" SortExpression="Case_End_Date"><EditItemTemplate><asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Case_End_Date") %>' TextMode="Date"></asp:TextBox></EditItemTemplate><ItemTemplate><asp:Label ID="Label4" runat="server" Text='<%# Bind("Case_End_Date") %>'></asp:Label></ItemTemplate></asp:TemplateField>
             <asp:TemplateField HeaderText="Status" SortExpression="Case_Status"><EditItemTemplate><asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="EntityDataSource2" Text='<%# Bind("Case_Status") %>' DataTextField="Case_Status1" DataValueField="Case_Status_ID"></asp:DropDownList></EditItemTemplate><ItemTemplate><asp:Label ID="Label3" runat="server" Text='<%# Bind("Case_Status1.Case_Status1") %>'></asp:Label></ItemTemplate></asp:TemplateField>
-            <asp:BoundField DataField="Case_Details" HeaderText="Details"  ReadOnly="True" SortExpression="Case_Details" />
+            <asp:BoundField DataField="Case_Details" HeaderText="Details" SortExpression="Case_Details" />
             <asp:BoundField DataField="Case_Duration" HeaderText="Duration" SortExpression="Case_Duration" />
-            <asp:TemplateField HeaderText="Verdict" SortExpression="Case_Verdict"><EditItemTemplate><asp:DropDownList ID="verdictdropdown" runat="server" Text='<%# Bind("Case_Verdict") %>' DataSourceID="EntityDataSource3" DataTextField="Case_Verdict1" DataValueField="Case_Verdict_ID"></asp:DropDownList></EditItemTemplate><ItemTemplate><asp:Label ID="Label1" runat="server" Text='<%# Eval("Case_Verdict1.Case_Verdict1") %>'></asp:Label></ItemTemplate></asp:TemplateField>
-            <asp:BoundField DataField="Employee_ID" HeaderText="Employee ID"  ReadOnly="True" SortExpression="Employee_ID" />
+            <asp:TemplateField HeaderText="Case Verdict" SortExpression="Case_Verdict"><EditItemTemplate><asp:DropDownList ID="verdictdropdown" runat="server" Text='<%# Bind("Case_Verdict") %>' DataSourceID="EntityDataSource3" DataTextField="Case_Verdict1" DataValueField="Case_Verdict_ID"></asp:DropDownList></EditItemTemplate><ItemTemplate><asp:Label ID="Label1" runat="server" Text='<%# Eval("Case_Verdict1.Case_Verdict1") %>'></asp:Label></ItemTemplate></asp:TemplateField>
+            <asp:BoundField DataField="Employee_ID" HeaderText="Employee ID" SortExpression="Employee_ID" />
             <asp:TemplateField HeaderText="Case Handler ID" SortExpression="Case Handler ID"><EditItemTemplate><asp:DropDownList ID="DropDownList2" runat="server" Text='<%# Bind("Case_Handler_ID") %>' DataSourceID="EntityDataSource4" DataTextField="CH_Employee_ID" DataValueField="CH_Employee_ID"></asp:DropDownList></EditItemTemplate><ItemTemplate><asp:Label ID="Label4" runat="server" Text='<%# Bind("Case_Handler_ID") %>'></asp:Label></ItemTemplate></asp:TemplateField>
             <asp:BoundField DataField="Requester_ID" HeaderText="Requester ID" ReadOnly="True" SortExpression="Requester_ID" />
         </Fields>
@@ -225,7 +225,7 @@ it conatins evidevec details, interview details, termination request details, in
                                 </tr>
                             </table>
                         </asp:View>
-                        <asp:View ID="View2" runat="server">
+                        <%--<asp:View ID="View2" runat="server">
                             <table class="groove">
                                 <tr>
                                     <td>
@@ -244,8 +244,8 @@ it conatins evidevec details, interview details, termination request details, in
                                     </td>
                                 </tr>
                             </table>
-                        </asp:View>
-                        <asp:View ID="View3" runat="server">
+                        </asp:View>--%>
+                        <asp:View ID="View2" runat="server">
                             <table class="groove">
                                 <tr>
                                     <td>
@@ -262,8 +262,8 @@ it conatins evidevec details, interview details, termination request details, in
                                                     <td>
                                                          <div id="detailsPane2" >
                                                                 <br />
-                                                                Details of case number: 
-            <asp:Label ID="lbEvid" runat="server" Text=""></asp:Label>
+                                                              <h3>  Details of case number: 
+            <asp:Label ID="lbEvid" runat="server" Text=""></asp:Label></h3>
                                                         <asp:DetailsView ID="DetailsView2" runat="server" Height="16px" Width="814px" AutoGenerateRows="False" DataKeyNames="Evidence_ID" DataSourceID="EntityDataSource8" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None">
                                                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                                                             <CommandRowStyle BackColor="#E2DED6" Font-Bold="True" />
@@ -289,7 +289,11 @@ it conatins evidevec details, interview details, termination request details, in
                                                             <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
                                                             <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
                                                         </asp:DetailsView>
-                                                        <asp:EntityDataSource ID="EntityDataSource8" runat="server" ConnectionString="name=Investigation_management_systemEntities4" DefaultContainerName="Investigation_management_systemEntities4" EnableFlattening="False" EntitySetName="Evidences"  Where="it.Case_ID=@idparam"><WhereParameters><asp:ControlParameter ControlID="lbEvid" DbType="Int32" DefaultValue="1" Name="idparam" PropertyName="Text" /></WhereParameters></asp:EntityDataSource>
+                                                        <asp:EntityDataSource ID="EntityDataSource8" runat="server" ConnectionString="name=Investigation_management_systemEntities4" DefaultContainerName="Investigation_management_systemEntities4" EnableFlattening="False" EntitySetName="Evidences"  Where="it.Case_ID=@idparam &amp;&amp; it.Requester_ID=@emIdparam">
+                                                            <WhereParameters>
+                                                                <asp:ControlParameter ControlID="lbEvid" DbType="Int32" DefaultValue="1" Name="idparam" PropertyName="Text" />
+                                                              <asp:SessionParameter DbType="String" Name="emIdparam" SessionField="emID" />
+                                                             </WhereParameters></asp:EntityDataSource>
                                                              </div>
                                                     </td>
                                                  
@@ -307,6 +311,8 @@ it conatins evidevec details, interview details, termination request details, in
                                             <h3></h3>
 
                                             <h3></h3>
+
+                                                <h3></h3>
 
                                                 <h3></h3>
 
@@ -336,7 +342,7 @@ it conatins evidevec details, interview details, termination request details, in
                                                         <td>
                                                             <asp:TextBox ID="iichtxt" runat="server" CssClass="input" placeholder="Employee ID"></asp:TextBox>   -- %>--%>
                                               
-                        <asp:View ID="View4" runat="server">
+                       <%-- <asp:View ID="View4" runat="server">
                             <table class="groove">
                                 <tr>
                                     <td>
@@ -355,7 +361,7 @@ it conatins evidevec details, interview details, termination request details, in
                                                     <EditRowStyle BackColor="#999999" />
                                                     <FieldHeaderStyle BackColor="#E9ECF1" Font-Bold="True" />
                                                     <Fields>
-                                                        <asp:BoundField DataField="Investigation_Interview_ID" HeaderText="Investigation Interview ID" ReadOnly="True" SortExpression="Investigation_Interview_ID" />
+                                                        <asp:BoundField DataField="Investigation_Interview_ID" HeaderText="Investigation_Interview_ID" ReadOnly="True" SortExpression="Investigation_Interview_ID" />
                                                         <asp:BoundField DataField="Investigation_Interview_Date" HeaderText="Interview Date" ReadOnly="True" SortExpression="Investigation_Interview_Date" />
                                                         <asp:BoundField DataField="Investigation_Interview_Time" HeaderText="Interview Time" SortExpression="Investigation_Interview_Time" />
                                                         <asp:BoundField DataField="Investigation_Interview_Location" HeaderText="Interview Location" ReadOnly="True" SortExpression="Investigation_Interview_Location" />
@@ -386,8 +392,8 @@ it conatins evidevec details, interview details, termination request details, in
                                     </td>
                                 </tr>
                             </table>
-                        </asp:View>
-                        <asp:View ID="View5" runat="server">
+                        </asp:View>--%>
+                     <%--   <asp:View ID="View5" runat="server">
                            <table class="groove">
                                 <tr>
                                     <td>
@@ -437,44 +443,70 @@ it conatins evidevec details, interview details, termination request details, in
                                 </tr>
                             </table>
                             
-                        </asp:View>
-                         <asp:View ID="View6" runat="server">
+                        </asp:View>--%>
+                         <asp:View ID="View3" runat="server">
                            <table class="groove">
                                 <tr>
                                     <td>
                                         <h3>
                                             
-                                                <h3 style="color: #051e80">Interview Invite </h3>
+                                                <h3 style="color: #051e80">Interview Invite</h3>
                                               
                                            
                                             <h3> Details of case number: 
             <asp:Label ID="InviteLabel" runat="server" Text=""></asp:Label></h3>
 
                                             <h3>
-                                                <asp:DetailsView ID="DetailsView5" runat="server" Height="16px" Width="814px" AutoGenerateRows="False" DataKeyNames="Interview_Invitation_ID" DataSourceID="EntityDataSource5" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None">
+                                                <asp:DetailsView ID="DetailsView5" runat="server" Height="16px" Width="814px" AutoGenerateRows="False" DataKeyNames="Interview_Invitation_ID" DataSourceID="EntityDataSource5" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateEditButton="True">
                                                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                                                     <CommandRowStyle BackColor="#E2DED6" Font-Bold="True" />
                                                     <EditRowStyle BackColor="#999999" />
                                                     <FieldHeaderStyle BackColor="#E9ECF1" Font-Bold="True" />
                                                     <Fields>
                                                         <asp:BoundField DataField="Interview_Invitation_ID" HeaderText="Interview Invitation ID" ReadOnly="True" SortExpression="Interview_Invitation_ID" />
-                                                        <asp:BoundField DataField="Interview_Invitation_Date" HeaderText="Interview Invitation Date" SortExpression="Interview_Invitation_Date" />
-                                                        <asp:BoundField DataField="Interview_Invitation_Time" HeaderText="Interview Invitation Time" SortExpression="Interview_Invitation_Time" />
-                                                        <asp:BoundField DataField="Interview_Invitation_Location" HeaderText="Interview Invitation Location" SortExpression="Interview_Invitation_Location" />
-                                                        <asp:BoundField DataField="Interview_Invitation_Date_Sent" HeaderText="Interview Invitation Date Sent" SortExpression="Interview_Invitation_Date_Sent" />
-                                                        <asp:BoundField DataField="Interview_Invitation_Acceptance" HeaderText="Interview Invitation Acceptance" SortExpression="Interview_Invitation_Acceptance" />
-                                                        <asp:BoundField DataField="Case_Handler_ID" HeaderText="Case Handler ID" SortExpression="Case_Handler_ID" />
-                                                        <asp:BoundField DataField="Interview_Invitation_Invitee" HeaderText="Interview Invitation Invitee" SortExpression="Interview_Invitation_Invitee" />
-                                                        <asp:BoundField DataField="Interview_Invitation_Details" HeaderText="Interview Invitation Details" SortExpression="Interview_Invitation_Details" />
-                                                        <asp:BoundField DataField="Case_ID" HeaderText="Case ID" SortExpression="Case_ID" />
+                                                        <asp:BoundField DataField="Interview_Invitation_Date" HeaderText="Interview Invitation Date" ReadOnly="True" SortExpression="Interview_Invitation_Date" />
+                                                        <asp:BoundField DataField="Interview_Invitation_Time" HeaderText="Interview Invitation Time" ReadOnly="True" SortExpression="Interview_Invitation_Time" />
+                                                        <asp:BoundField DataField="Interview_Invitation_Location" HeaderText="Interview Invitation Location" ReadOnly="True" SortExpression="Interview_Invitation_Location" />
+                                                        <asp:BoundField DataField="Interview_Invitation_Date_Sent" HeaderText="Interview Invitation Date Sent" ReadOnly="True" SortExpression="Interview_Invitation_Date_Sent" />
+  <asp:TemplateField HeaderText="Interview_Invitation_Acceptance" SortExpression="Interview_Invitation_Acceptance">
+                                                            <EditItemTemplate>
+   <asp:RadioButtonList ID="RadioButtonList1" runat="server" >
+        <asp:ListItem>Yes</asp:ListItem>
+        <asp:ListItem>No</asp:ListItem>
+      </asp:RadioButtonList>
+
+<%--                                                                  <asp:DropDownList ID="DropDownList1" runat="server" >
+        <asp:ListItem>Yes</asp:ListItem>
+        <asp:ListItem>No</asp:ListItem>
+      </asp:DropDownList>
+                     --%>                                       </EditItemTemplate>
+                                                            
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="Label1" runat="server" Text='<%# Bind("Interview_Invitation_Acceptance") %>'></asp:Label>
+                                                            </ItemTemplate> 
+      </asp:TemplateField>
+                                                        <asp:BoundField DataField="Case_Handler_ID" HeaderText="Case Handler ID" ReadOnly="True" SortExpression="Case_Handler_ID" />
+                                                        <asp:BoundField DataField="Interview_Invitation_Invitee" HeaderText="Interview Invitation Invitee" ReadOnly="True" SortExpression="Interview_Invitation_Invitee" />
+                                                        <asp:BoundField DataField="Interview_Invitation_Details" HeaderText="Interview Invitation Details" ReadOnly="True" SortExpression="Interview_Invitation_Details" />
+                                                        <asp:BoundField DataField="Case_ID" HeaderText="Case ID" ReadOnly="True" SortExpression="Case_ID" />
                                                     </Fields>
                                                     <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
                                                     <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
                                                     <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
                                                     <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
                                                 </asp:DetailsView>
-                                                <asp:EntityDataSource ID="EntityDataSource5" runat="server" ConnectionString="name=Investigation_management_systemEntities4" DefaultContainerName="Investigation_management_systemEntities4" EnableFlattening="False" EntitySetName="Interview_Invite" Where="it.Case_ID=@idparam"><WhereParameters><asp:ControlParameter ControlID="InviteLabel" DbType="Int32" DefaultValue="1" Name="idparam" PropertyName="Text" /></WhereParameters></asp:EntityDataSource>
+                                                <asp:EntityDataSource ID="EntityDataSource5" runat="server" ConnectionString="name=Investigation_management_systemEntities4" DefaultContainerName="Investigation_management_systemEntities4" EnableFlattening="False" EntitySetName="Interview_Invite" Where="it.Case_ID=@idparam &amp;&amp; it.Interview_Invitation_Invitee=@emparam" EnableUpdate="True">
+                                                    <WhereParameters>
+                                                        <asp:ControlParameter ControlID="InviteLabel" DbType="Int32" DefaultValue="1" Name="idparam" PropertyName="Text" />
+                                                        <asp:SessionParameter DbType="String" Name="emparam" SessionField="emID" />
+                                                    </WhereParameters></asp:EntityDataSource>
                                             </h3>
+
+                                                <h3></h3>
+
+                                                <h3></h3>
+
+                                                <h3></h3>
 
                                                 <h3></h3>
 
@@ -494,7 +526,7 @@ it conatins evidevec details, interview details, termination request details, in
                             </table>
                             
                         </asp:View>
-                        <asp:View ID="View7" runat="server">
+                          <asp:View ID="View4" runat="server">
                            <table class="groove">
                                 <tr>
                                     <td>
@@ -525,12 +557,12 @@ it conatins evidevec details, interview details, termination request details, in
                                                     <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
                                                     <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
                                                 </asp:DetailsView>
-                                                <asp:EntityDataSource ID="EntityDataSource7" runat="server" ConnectionString="name=Investigation_management_systemEntities4" DefaultContainerName="Investigation_management_systemEntities4" EnableFlattening="False" EntitySetName="Evidence_Request" Where="it.Case_ID=@idparam">
+                                                <asp:EntityDataSource ID="EntityDataSource7" runat="server" ConnectionString="name=Investigation_management_systemEntities4" DefaultContainerName="Investigation_management_systemEntities4" EnableFlattening="False" EntitySetName="Evidence_Request" Where="it.Case_ID=@idparam &amp;&amp; it.Employee=@empIdparam         ">
                                                     <WhereParameters>
                                                         <asp:ControlParameter ControlID="InviteLabel" DbType="Int32" DefaultValue="1" Name="idparam" PropertyName="Text" />
+                                                        <asp:SessionParameter DbType="String" Name="empIdparam" SessionField="emID" />
 
-                                                    </WhereParameters>
-                                                    </asp:EntityDataSource>
+                                                    </WhereParameters></asp:EntityDataSource>
                                             </h3>
 
                                                 <h3></h3>

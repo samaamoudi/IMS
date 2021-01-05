@@ -1,4 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="IMS2.login" %>
+﻿
+<%--this is teh login page for the system both employees and case handler have the same one--%>
+
+<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="IMS2.login" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -45,29 +48,31 @@ padding-top: 150px;
 
 
 .button3 {border-radius: 8px;}
-
-.input{ height: 20px;
-        width: 200px;
-
+  
+.input {
+  width: 40%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
 }
 
-.input :focus {
-  border: 3px solid red;
+.input:focus {
+  border: 2px solid #051e80;
 }
 
 
-        .auto-style1 {
-            height: 497px;
-            box-shadow: 10px 10px 8px lightgrey;
-            position: center;
-            width: 307px;
-            padding-left: 80px;
-            padding-top: 60px;
-            -moz-box-shadow: 2px 2px 4px 5px #ccc;
-            -webkit-box-shadow: 2px 2px 4px 5px #ccc;
-            box-shadow: 1px 1px 4px 1px #ccc;
-            padding-right: 10px;
-            padding-bottom: 10px;
+        .auto-style2 {
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            -webkit-transition: 0.5s;
+            transition: 0.5s;
+            outline: none;
         }
 
 
@@ -84,32 +89,32 @@ padding-top: 150px;
             <br />
             <br />
             <label for="username">Username:</label>
-            <br />
+           
             <br />
             <%--<input type="text" id="username" name="username">--%>
-        <asp:TextBox ID="txtUserName" runat="server" maxlength="5" CssClass="input" placeholder="Employee ID"></asp:TextBox>
+        <asp:TextBox ID="txtUserName" runat="server" maxlength="5" CssClass="auto-style2" placeholder="Employee ID" Height="20px" Width="217px"></asp:TextBox>
             <br />
          <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtUserName"  ForeColor="Red" ErrorMessage="This Feild is required" Display="Dynamic"></asp:RequiredFieldValidator>
-        <br />
+        
          <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txtUserName" Display="Dynamic" ErrorMessage="Please enter a valid employee ID" ForeColor="Red" ValidationExpression="^\d{5}$"></asp:RegularExpressionValidator>
         &nbsp;<br />
             <label for="password">Password:</label>
-            <br />
+           
             <br />
            <%-- <input type="password" id="password" name="password">--%>
-       <asp:TextBox ID="txtPWD" runat="server" TextMode="Password" CssClass="input" placeholder="Password"></asp:TextBox>
+       <asp:TextBox ID="txtPWD" runat="server" TextMode="Password" CssClass="auto-style2" placeholder="Password" Height="25px" Width="217px"></asp:TextBox>
         
                         <br />
         
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtPWD" Display="Dynamic" ErrorMessage="This Feild is required"  ForeColor="Red"></asp:RequiredFieldValidator>
             
             <br />
-            <br />
-              <br />
+          
+             
             
              <input type="checkbox"><label class="check" for="checkbox">Keep me logged in</label>
                 <br />
-                <br />
+               <br />
             <asp:Button ID="btnSubmit" runat="server" Text="Login" class="button button3" OnClick="btnSubmit_Click" />
            <br />
         <asp:Label ID="lbMessage" runat="server" ForeColor="#CC3300"></asp:Label>

@@ -67,6 +67,15 @@ namespace IMS2 {
         protected global::System.Web.UI.WebControls.Button Tab6;
         
         /// <summary>
+        /// Tab7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Tab7;
+        
+        /// <summary>
         /// MainView control.
         /// </summary>
         /// <remarks>
@@ -326,5 +335,41 @@ namespace IMS2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSource5;
+        
+        /// <summary>
+        /// View7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.View View7;
+        
+        /// <summary>
+        /// EvidRequest control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label EvidRequest;
+        
+        /// <summary>
+        /// DetailsView6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DetailsView DetailsView6;
+        
+        /// <summary>
+        /// EntityDataSource7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSource7;
     }
 }

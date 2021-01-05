@@ -1,19 +1,155 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Employee.master.cs" Inherits="IMS2.Employee1" %>
+﻿
+<%--This is the master site page for the employees--%> 
+
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Employee.master.cs" Inherits="IMS2.Employee1" %>
 
 <!DOCTYPE html>
-
 <html>
 <head runat="server">
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <style>
+        .header   {
+  background: #fff;
+  color: #FFF;
+  /*padding: 20px 30px;*/
+  width: 100%;
+  height: 50px;
+}
+
+/* logo */
+.logo         {
+  display: inline-block;
+  color: #051e80;
+  text-decoration: none;
+  width: 80%;
+  height: 70%;
+}
+.logo img    {
+ width: 152px;
+    height: 37px;
+  
+  margin-right: 10px;
+  vertical-align: middle;
+}
+/*.logo span   {
+  display: inline-block;
+ text-align: center;
+ width: 50%;
+}*/
+hr.new5 {
+            border: 2px solid lightgrey;
+            border-radius: 5px;
+            width: 100%;
+        }
+   
+        
+        .auto-style1 {
+            display: inline-block;
+            color: #051e80;
+            text-decoration: none;
+            width: 80%;
+            height: 70%;
+            text-align: left;
+        }
+   
+               .footer1 {
+    background: #051e80;
+    color: lightgrey;
+    padding: 2px;
+    text-align: center;
+}
+        
+  </style>
+    <link rel="stylesheet" href="style2.css"/>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
+    <form id="form2" runat="server">
+         <div class="header">
+
+        <!-- our main logo -->
+      <div class="logo" href="index.html">
+          <img src="Images/logo.png" class="auto-style1" />
+            <span >&nbsp;&nbsp;&nbsp;
+                <asp:Label ID="Label1" runat="server" Text="Investigation Management System" ForeColor="#051E80"></asp:Label> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; <asp:Label ID="lbEmName" runat="server" ForeColor="Red"></asp:Label></span>
+          
+
+        <!-- main navigation links -->
+        &nbsp;<span ><asp:Label ID="lbId" runat="server" ForeColor="Red"></asp:Label></span>
+          
+
+        &nbsp;&nbsp;
         </div>
+             <hr class="new5"> 
+    </div>
+       <%-- <hr class="new5"> --%>
+       
+          
+       <nav class="main-menu">
+           <ul>
+                <li>
+                    <a href="EmployeeHP.aspx">
+                        <i class="fa fa-home fa-2x"></i>
+                        <span class="nav-text">
+                            Home
+                        </span>
+                    </a>
+                  
+                </li>
+               
+                <li class="has-subnav">
+                    <a href="EmpCases.aspx">
+                       <i class="fa fa-list fa-2x"></i>
+                        <span class="nav-text">
+                            Cases
+                        </span>
+                    </a>
+                    
+                </li>
+                <li class="has-subnav">
+                    <a href="EmpCaseRequest.aspx">
+                       <i class="fa fa-plus-square fa-2x"></i>
+                        <span class="nav-text">
+                            Request Case
+                        </span>
+                    </a>
+                   
+                </li>
+                <li>
+                    <a href="EmpEvidenceSubmission.aspx">
+                        <i class="fa fa-upload fa-2x"></i>
+                        <span class="nav-text">
+                            Evidence Submission
+                        </span>
+                    </a>
+                </li>
+                
+            </ul>
+
+            <ul class="logout">
+                <li>
+                   <a href="login.aspx">
+                         <i class="fa fa-power-off fa-2x"></i>
+                        <span class="nav-text">
+                            Logout
+                        </span>
+                    </a>
+                </li>  
+            </ul>
+        </nav>
+
+    ,
+         <br />
+         <div class="article">
+           <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+     </div>
+          <div class="footer1">
+              <p>&copy; <%: DateTime.Now.Year %> - Binzagr Company </p>
+        </div>
+      
     </form>
 </body>
 </html>

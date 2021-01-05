@@ -70,8 +70,12 @@ namespace IMS2
                     string query_chEmpName = (from x in db.Employees
                                               where x.Employee_ID == userinfo.UserID
                                               select x.First_Name + " " + x.Last_Name).FirstOrDefault();
-                    Response.Redirect("Homepage.aspx?name=" + query_chEmpName);
-
+                    //Response.Redirect("Homepage.aspx?name=" + query_chEmpName);
+                    //string empID = userinfo.UserID;
+                    //Response.Redirect(String.Format("Homepage.aspx?name={0}&emp_ID={1}", query_chEmpName, empID));
+                    Session["empID"] = txtUserName.Text;
+                    Session["name"] = query_chEmpName;
+                    Response.Redirect("Homepage.aspx");
                 }
 
                 else if (userinfo.UserType == "Em")
@@ -79,14 +83,18 @@ namespace IMS2
                     string query_empName = (from x in db.Employees
                                             where x.Employee_ID == userinfo.UserID
                                             select x.First_Name + " " + x.Last_Name).FirstOrDefault();
-                    Response.Redirect("EmployeeHP.aspx?name=" + query_empName);
+
+                    Session["emID"] = txtUserName.Text;
+                    Session["name"] = query_empName;
+                    Response.Redirect("EmployeeHP.aspx");
+                    //Response.Redirect("EmployeeHP.aspx?name=" + query_empName);
                 }
 
             }
 
             else lbMessage.Text = "Invalid username or password";
 
-            //int empID = .Case_ID;
+            
         }
     }
 }

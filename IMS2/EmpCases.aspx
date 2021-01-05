@@ -1,12 +1,12 @@
 ﻿
-<%--This page conatins a list of all the cases that case handler is invloved with or in
-    case ahndler can also search cases based on specfic criteria--%>
+<%--This page conatins a list of all the cases that employee is invloved with or in
+    Employee can also search cases based on specfic criteria--%>
 
-<%@ Page Title="" Language="C#" MasterPageFile="~/CaseHandler.Master" AutoEventWireup="true" CodeBehind="Cases.aspx.cs" Inherits="IMS2.Cases" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/Employee.Master" AutoEventWireup="true" CodeBehind="EmpCases.aspx.cs" Inherits="IMS2.EmpCases" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-           <meta charset="utf-8">
+      <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <style type="text/css">
@@ -98,15 +98,17 @@
     
     <asp:TextBox ID="TextBox1" runat="server" CssClass="input"></asp:TextBox><asp:Button ID="Button1" runat="server" Text="Search" CssClass="button button2" />
 
-    <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=Investigation_management_systemEntities4" DefaultContainerName="Investigation_management_systemEntities4" EnableFlattening="False" EnableUpdate="True" EntitySetName="details_view" AutoGenerateOrderByClause="True"  EntityTypeFilter="" Select="" Where="it.Case_Handler_ID=@chidparam"  >
+    <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=Investigation_management_systemEntities4" DefaultContainerName="Investigation_management_systemEntities4" EnableFlattening="False" EnableUpdate="True" EntitySetName="details_view" AutoGenerateOrderByClause="True"  Where=" it.Requester_ID=@chidparam || it.Employee_ID=@chidparam1" EntityTypeFilter="" Select="" >
                 <OrderByParameters>
     <asp:Parameter
     DefaultValue="Case_ID"/>
 </OrderByParameters>
-         <WhereParameters>
-                 <asp:SessionParameter DbType="String" Name="chidparam" SessionField="empID" />
-             </WhereParameters>
-             
+       
+             <WhereParameters>
+<%--                 <asp:ControlParameter ControlID="GridView2" DefaultValue="Up-For-Review" Name="param" PropertyName="SelectedValue" DbType="String" />--%>
+                    <asp:SessionParameter DbType="String" Name="chidparam" SessionField="emID" />
+                   <asp:SessionParameter DbType="String" Name="chidparam1" SessionField="emID" />
+                 </WhereParameters>
     </asp:EntityDataSource>
             <asp:QueryExtender runat="server" TargetControlID="EntityDataSource1">
                   <asp:SearchExpression SearchType="StartsWith" DataFields="Case_Status">
@@ -114,20 +116,21 @@
         </asp:SearchExpression>
             </asp:QueryExtender>
 
-           <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
-
       <br />
       <br />
      <div class="rounded_corners" style="width: 1000px">
          <asp:GridView ID="GridView3" runat="server"  AutoGenerateColumns="False" OnSelectedIndexChanged="GridView3_SelectedIndexChanged" OnPageIndexChanging="GridView3_PageIndexChanging"   HeaderStyle-BackColor="#A9A9A9" GridLines="None" style="width: 1000px" HeaderStyle-ForeColor="White" RowStyle-BackColor="#DCDCDC" AlternatingRowStyle-BackColor="White" Height="208px" DataSourceID="EntityDataSource1" AllowPaging="True" PageSize="7" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" DataKeyNames="Case_ID,Case_Start_Date,Case_Details,Employee_ID,Requester_ID,Case_Status,Case_Type" >
 <AlternatingRowStyle BackColor="#DCDCDC"></AlternatingRowStyle>
                <Columns>
-                    <asp:BoundField DataField="Case_ID" HeaderText="Case ID" ReadOnly="True" SortExpression="Case_ID" />
+                   <asp:BoundField DataField="Case_ID" HeaderText="Case ID" ReadOnly="True" SortExpression="Case_ID" />
                     <asp:BoundField DataField="Case_Type" HeaderText="Case Type" ReadOnly="True" SortExpression="Case_Type" />
                    <asp:BoundField DataField="Case_Status" HeaderText="Case Status" ReadOnly="True" SortExpression="Case_Status" />
                    <asp:BoundField DataField="Case_Start_Date" HeaderText="Start Date" ReadOnly="True" SortExpression="Case_Start_Date" />
                   
                    <asp:BoundField DataField="Requester_ID" HeaderText="Requester ID" ReadOnly="True" SortExpression="Requester_ID" />
+                   
+                  
+                  
                                     <asp:CommandField ButtonType="Button" SelectText="Details" ShowSelectButton="True"  ControlStyle-CssClass="button button3" />
 
              </Columns>

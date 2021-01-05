@@ -1,4 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/CaseHandler.Master" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="IMS2.Dashboard" %>
+﻿
+<%--This page conatins the dashboard for the case ahndlers to view--%>
+
+
+<%@ Page Title="" Language="C#" MasterPageFile="~/CaseHandler.Master" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="IMS2.Dashboard" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

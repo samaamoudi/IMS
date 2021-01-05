@@ -45,7 +45,8 @@ namespace IMS2
                          where o.Case_Status == 3
                          select o).Count();
 
-            lb4.Text = open.ToString(); ;
+            lb4.Text = open.ToString(); 
+
         }
     }
 }

@@ -10,7 +10,7 @@
 namespace IMS2 {
     
     
-    public partial class evidenceSubmission {
+    public partial class EmpEvidenceSubmission {
         
         /// <summary>
         /// Label2 control.

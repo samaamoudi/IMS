@@ -10,7 +10,7 @@
 namespace IMS2 {
     
     
-    public partial class Cases {
+    public partial class EmpCases {
         
         /// <summary>
         /// TextBox1 control.
@@ -38,15 +38,6 @@ namespace IMS2 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSource1;
-        
-        /// <summary>
-        /// Label2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
         /// GridView3 control.

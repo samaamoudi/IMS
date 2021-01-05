@@ -74,6 +74,11 @@
     <Content Include="Cases.aspx" />
     <Content Include="CasesDetails.aspx" />
     <Content Include="Dashboard.aspx" />
+    <Content Include="EmpCaseRequest.aspx" />
+    <Content Include="EmpCases.aspx" />
+    <Content Include="EmpCasesDetails.aspx" />
+    <Content Include="EmpEvidence.aspx" />
+    <Content Include="EmpEvidenceSubmission.aspx" />
     <Content Include="EmployeeHP.aspx" />
     <Content Include="Evidence.aspx" />
     <Content Include="EvidenceRequest.aspx" />
@@ -81,7 +86,6 @@
     <Content Include="Homepage.aspx" />
     <Content Include="Images\logo.png" />
     <Content Include="Interview.aspx" />
-    <Content Include="InterviewInvitation.aspx" />
     <Content Include="InterviewInvitationRequest.aspx" />
     <Content Include="Interviewmemo.aspx" />
     <Content Include="login.aspx" />
@@ -100,6 +104,8 @@
     <Content Include="TerminationRequest.aspx" />
     <Content Include="Web.config" />
     <Content Include="WebForm1.aspx" />
+    <Content Include="WebForm2.aspx" />
+    <Content Include="WebForm3.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccusedEmp.cs">
@@ -164,6 +170,41 @@
     <Compile Include="details_view.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="EmpCaseRequest.aspx.cs">
+      <DependentUpon>EmpCaseRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmpCaseRequest.aspx.designer.cs">
+      <DependentUpon>EmpCaseRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmpCases.aspx.cs">
+      <DependentUpon>EmpCases.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmpCases.aspx.designer.cs">
+      <DependentUpon>EmpCases.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmpCasesDetails.aspx.cs">
+      <DependentUpon>EmpCasesDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmpCasesDetails.aspx.designer.cs">
+      <DependentUpon>EmpCasesDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmpEvidence.aspx.cs">
+      <DependentUpon>EmpEvidence.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmpEvidence.aspx.designer.cs">
+      <DependentUpon>EmpEvidence.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmpEvidenceSubmission.aspx.cs">
+      <DependentUpon>EmpEvidenceSubmission.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmpEvidenceSubmission.aspx.designer.cs">
+      <DependentUpon>EmpEvidenceSubmission.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Employee.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -221,13 +262,6 @@
     </Compile>
     <Compile Include="Interview.aspx.designer.cs">
       <DependentUpon>Interview.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="InterviewInvitation.aspx.cs">
-      <DependentUpon>InterviewInvitation.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="InterviewInvitation.aspx.designer.cs">
-      <DependentUpon>InterviewInvitation.aspx</DependentUpon>
     </Compile>
     <Compile Include="InterviewInvitationRequest.aspx.cs">
       <DependentUpon>InterviewInvitationRequest.aspx</DependentUpon>
@@ -330,6 +364,20 @@
     </Compile>
     <Compile Include="WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm2.aspx.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm2.aspx.designer.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm3.aspx.cs">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm3.aspx.designer.cs">
+      <DependentUpon>WebForm3.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

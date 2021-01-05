@@ -10,88 +10,88 @@
 namespace IMS2 {
     
     
-    public partial class evidenceSubmission {
+    public partial class EmpCasesDetails {
         
         /// <summary>
-        /// Label2 control.
+        /// Tab1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Button Tab1;
         
         /// <summary>
-        /// RadioButtonList1 control.
+        /// Tab2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonList1;
+        protected global::System.Web.UI.WebControls.Button Tab2;
         
         /// <summary>
-        /// RequiredFieldValidator1 control.
+        /// Tab3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.Button Tab3;
         
         /// <summary>
-        /// Label1 control.
+        /// Tab4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Button Tab4;
         
         /// <summary>
-        /// datetxt control.
+        /// MainView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox datetxt;
+        protected global::System.Web.UI.WebControls.MultiView MainView;
         
         /// <summary>
-        /// RequiredFieldValidator2 control.
+        /// View1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        protected global::System.Web.UI.WebControls.View View1;
         
         /// <summary>
-        /// Label3 control.
+        /// Button6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Button Button6;
         
         /// <summary>
-        /// CaseDropDownList control.
+        /// lpCaseID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList CaseDropDownList;
+        protected global::System.Web.UI.WebControls.Label lpCaseID;
         
         /// <summary>
-        /// RequiredFieldValidator3 control.
+        /// DetailsView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+        protected global::System.Web.UI.WebControls.DetailsView DetailsView1;
         
         /// <summary>
         /// EntityDataSource1 control.
@@ -103,93 +103,138 @@ namespace IMS2 {
         protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSource1;
         
         /// <summary>
-        /// Label4 control.
+        /// EntityDataSource3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSource3;
         
         /// <summary>
-        /// FileUpload1 control.
+        /// EntityDataSource2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
+        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSource2;
         
         /// <summary>
-        /// RequiredFieldValidator4 control.
+        /// EntityDataSource4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
+        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSource4;
         
         /// <summary>
-        /// Label5 control.
+        /// View2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
+        protected global::System.Web.UI.WebControls.View View2;
         
         /// <summary>
-        /// Detailstxt control.
+        /// lbEvid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Detailstxt;
+        protected global::System.Web.UI.WebControls.Label lbEvid;
         
         /// <summary>
-        /// RequiredFieldValidator5 control.
+        /// DetailsView2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
+        protected global::System.Web.UI.WebControls.DetailsView DetailsView2;
         
         /// <summary>
-        /// Label6 control.
+        /// EntityDataSource8 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label6;
+        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSource8;
         
         /// <summary>
-        /// CHlbl control.
+        /// View3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CHlbl;
+        protected global::System.Web.UI.WebControls.View View3;
         
         /// <summary>
-        /// Button1 control.
+        /// InviteLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Label InviteLabel;
         
         /// <summary>
-        /// Button2 control.
+        /// DetailsView5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.DetailsView DetailsView5;
+        
+        /// <summary>
+        /// EntityDataSource5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSource5;
+        
+        /// <summary>
+        /// View4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.View View4;
+        
+        /// <summary>
+        /// EvidRequest control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label EvidRequest;
+        
+        /// <summary>
+        /// DetailsView6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DetailsView DetailsView6;
+        
+        /// <summary>
+        /// EntityDataSource7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSource7;
     }
 }

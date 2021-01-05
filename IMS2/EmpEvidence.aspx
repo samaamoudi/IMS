@@ -1,11 +1,12 @@
 ﻿
-<%--this page for submitting evidence that the case handler recieved --%>
+<%--thsi page is for evidnce submission part during the proccess of requesting an investigation case --%>
 
-<%@ Page Title="" Language="C#" MasterPageFile="~/CaseHandler.Master" AutoEventWireup="true" CodeBehind="evidenceSubmission.aspx.cs" Inherits="IMS2.evidenceSubmission" %>
+
+<%@ Page Title="" Language="C#" MasterPageFile="~/Employee.Master" AutoEventWireup="true" CodeBehind="EmpEvidence.aspx.cs" Inherits="IMS2.EmpEvidence" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <style>
+         <style>
     .select {
   width: 30%;
   padding: 16px 20px;
@@ -76,18 +77,18 @@ border-color: #d9d9d9;
         </style>
    
     <div class="groove">
-           <h3 style=" color: #051e80 ">Evidence Submission Details </h3>
+           <h3 style=" color: #051e80 ">Evidence Details </h3>
         <table style="width: 100%;">
             <tr>
                 <td class="auto-style2">
                     <asp:Label class="text" ID="Label2" runat="server" Text="Evidnce Type"></asp:Label>
                 </td>
                 <td>
-                    <asp:RadioButtonList ID="RadioButtonList1" runat="server" >
+                    <asp:RadioButtonList ID="RadioButtonList1" runat="server">
                         <asp:ListItem>Text</asp:ListItem>
                         <asp:ListItem>PDF</asp:ListItem>
                     </asp:RadioButtonList>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="*" ControlToValidate="RadioButtonList1" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="RequiredFieldValidator"></asp:RequiredFieldValidator>--%>
                 </td>
              
             </tr>
@@ -101,8 +102,6 @@ border-color: #d9d9d9;
                 <td class="auto-style2"> <asp:Label class="text" ID="Label1" runat="server" Text="Date"></asp:Label></td>
                 <td>
                     <asp:TextBox ID="datetxt" runat="server" class="input" TextMode="Date"></asp:TextBox>
-                      <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="*" ControlToValidate="datetxt" ForeColor="Red"></asp:RequiredFieldValidator>
-
                 </td>
               
             </tr>
@@ -114,13 +113,8 @@ border-color: #d9d9d9;
             <tr>
                 <td class="auto-style2"> <asp:Label class="text" ID="Label3" runat="server" Text="Case ID"></asp:Label></td>
                 <td>
-                    <asp:DropDownList ID="CaseDropDownList" runat="server" DataSourceID="EntityDataSource1" CssClass="select" DataTextField="Case_ID" DataValueField="Case_ID" AppendDataBoundItems="true">
-                                                            <asp:ListItem Enabled="true" Text="--Select Case ID--" Value="-1" Selected=True></asp:ListItem>
-                    </asp:DropDownList>
-                      <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="*" ControlToValidate="CaseDropDownList" ForeColor="Red"></asp:RequiredFieldValidator>
-
-                    <asp:EntityDataSource ID="EntityDataSource1" runat="server" ConnectionString="name=Investigation_management_systemEntities4" DefaultContainerName="Investigation_management_systemEntities4" EnableFlattening="False" EntitySetName="InvestigationCase1" Select="it.[Case_ID]">
-                    </asp:EntityDataSource>
+                   <%-- <asp:TextBox ID="casetxt" runat="server" class="input" TextMode="SingleLine"></asp:TextBox>--%>
+                    <asp:Label ID="CaseIDlb" runat="server" ></asp:Label>
                 </td>
               
             </tr>
@@ -131,12 +125,10 @@ border-color: #d9d9d9;
             </tr>
             <tr>
                 <td class="auto-style2"> 
-                    <asp:Label ID="Label4" runat="server" class="text" Text="Evidence Documents"></asp:Label>
+                    <asp:Label ID="Eviddoc" runat="server" class="text" Text="Evidence Documents"></asp:Label>
                 </td>
                 <td>
                     <asp:FileUpload ID="FileUpload1" runat="server" />
-                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="*" ControlToValidate="FileUpload1" ForeColor="Red"></asp:RequiredFieldValidator>
-
                 </td>
                
             </tr>
@@ -147,11 +139,9 @@ border-color: #d9d9d9;
                 
             </tr>
             <tr>
-                <td class="auto-style2">  <asp:Label class="text" ID="Label5" runat="server" Text="Evidence Details"></asp:Label></td>
+                <td class="auto-style2">  <asp:Label class="text" ID="eviddetail" runat="server" Text="Evidence Details"></asp:Label></td>
                 <td>
                     <asp:TextBox ID="Detailstxt" runat="server"  class="input" TextMode="MultiLine"></asp:TextBox>
-                      <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="*" ControlToValidate="Detailstxt" ForeColor="Red"></asp:RequiredFieldValidator>
-
                 </td>
                
             </tr>
@@ -165,7 +155,7 @@ border-color: #d9d9d9;
                     <asp:Label ID="Label6" class="text" runat="server" Text="Requester ID"></asp:Label>
                 </td>
                 <td>
-                    <asp:Label ID="CHlbl" runat="server"></asp:Label>
+                    <asp:Label ID="RequesterIDlb" runat="server" ></asp:Label>
                 </td>
                
             </tr>
@@ -185,5 +175,4 @@ border-color: #d9d9d9;
             </tr>
         </table>
     </div>
-
 </asp:Content>

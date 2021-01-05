@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace IMS2
 {
-    public partial class EmployeeHP : System.Web.UI.Page
+    public partial class EmpCases : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,20 +23,6 @@ namespace IMS2
         {
             GridView3.PageIndex = e.NewPageIndex;
             GridView3.DataBind();
-
-
-        }
-
-        protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //Response.Redirect("CasesDetails.aspx?CaseID=" + GridView2.SelectedRow.Cells[0].Text);
-            Response.Redirect("EmpCasesDetails.aspx?CaseID=" + GridView2.SelectedRow.Cells[0].Text);
-        }
-
-        protected void GridView2_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            GridView2.PageIndex = e.NewPageIndex;
-            GridView2.DataBind();
 
 
         }

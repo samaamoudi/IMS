@@ -13,21 +13,18 @@ namespace IMS2
         {
             UnobtrusiveValidationMode = System.Web.UI.UnobtrusiveValidationMode.None;
 
-            if (IsPostBack)
+            if (!IsPostBack)
             //if the user clicked on the submit button, and the page is refreshing
             {
                 Validate();
+              
+                    CHlbl.Text = Session["empID"].ToString();
 
-                //if (Page.IsValid)
-                //{
-                //    successLabel.Text = "All Required Fields are Filled and Valid";
-                //}
-                //else
-                //{
-                //    successLabel.Text = "";
-                //}
+
+
+                    
+                }
             }
-        }
 
 
 
@@ -40,37 +37,54 @@ namespace IMS2
             tr.Termination_Request_Date = Convert.ToDateTime(trDatetxt.Text);
             tr.Termination_Request_Justification = Justificationtxt.Text;
             tr.Case_ID = int.Parse(trDropDownList.SelectedValue);
-            tr.Employee_ID = trEmptxt.Text;
+            tr.Employee_ID = EmpDropDownList.SelectedValue;
 
-            var userinfo = (from a in db.Employees
-                            where a.Employee_ID == trEmptxt.Text
-                            select new LoginRecords
-                            {
-                                UserID = a.Employee_ID,
+            //var userinfo = (from a in db.Employees
+            //                where a.Employee_ID == trEmptxt.Text
+            //                select new LoginRecords
+            //                {
+            //                    UserID = a.Employee_ID,
 
-                            }).FirstOrDefault();
+            //                }).FirstOrDefault();
 
             db.Termination_Requests.Add(tr);
 
-            if (userinfo != null)
+            int res = db.SaveChanges();
+
+            if (res > 0)
             {
-                int res = db.SaveChanges();
 
-                if (res > 0)
-                {
+                LabelTermination.Text = "Data Inserted Successfully";
 
-                    LabelTermination.Text = "Data Inserted Successfully";
-
-                }
-                else
-                {
-
-                    LabelTermination.Text = "Try Again!!!";
-
-                }
-               
             }
-            else LabelTermination.Text = "Invalid username";
-        }
+            else
+            {
+
+                LabelTermination.Text = "Try Again!!!";
+
+            }
+
+
+        
+        //if (userinfo != null)
+        //{
+        //    int res = db.SaveChanges();
+
+        //    if (res > 0)
+        //    {
+
+        //        LabelTermination.Text = "Data Inserted Successfully";
+
+        //    }
+        //    else
+        //    {
+
+        //        LabelTermination.Text = "Try Again!!!";
+
+        //    }
+
+        //}
+        //else LabelTermination.Text = "Invalid username";
+    }
     }
 }

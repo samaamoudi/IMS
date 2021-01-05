@@ -10,7 +10,7 @@
 namespace IMS2 {
     
     
-    public partial class evidenceSubmission {
+    public partial class EmpEvidence {
         
         /// <summary>
         /// Label2 control.
@@ -31,15 +31,6 @@ namespace IMS2 {
         protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonList1;
         
         /// <summary>
-        /// RequiredFieldValidator1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
-        
-        /// <summary>
         /// Label1 control.
         /// </summary>
         /// <remarks>
@@ -58,15 +49,6 @@ namespace IMS2 {
         protected global::System.Web.UI.WebControls.TextBox datetxt;
         
         /// <summary>
-        /// RequiredFieldValidator2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
-        
-        /// <summary>
         /// Label3 control.
         /// </summary>
         /// <remarks>
@@ -76,40 +58,22 @@ namespace IMS2 {
         protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// CaseDropDownList control.
+        /// CaseIDlb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList CaseDropDownList;
+        protected global::System.Web.UI.WebControls.Label CaseIDlb;
         
         /// <summary>
-        /// RequiredFieldValidator3 control.
+        /// Eviddoc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
-        
-        /// <summary>
-        /// EntityDataSource1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.EntityDataSource EntityDataSource1;
-        
-        /// <summary>
-        /// Label4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::System.Web.UI.WebControls.Label Eviddoc;
         
         /// <summary>
         /// FileUpload1 control.
@@ -121,22 +85,13 @@ namespace IMS2 {
         protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
         
         /// <summary>
-        /// RequiredFieldValidator4 control.
+        /// eviddetail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
-        
-        /// <summary>
-        /// Label5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
+        protected global::System.Web.UI.WebControls.Label eviddetail;
         
         /// <summary>
         /// Detailstxt control.
@@ -148,15 +103,6 @@ namespace IMS2 {
         protected global::System.Web.UI.WebControls.TextBox Detailstxt;
         
         /// <summary>
-        /// RequiredFieldValidator5 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
-        
-        /// <summary>
         /// Label6 control.
         /// </summary>
         /// <remarks>
@@ -166,13 +112,13 @@ namespace IMS2 {
         protected global::System.Web.UI.WebControls.Label Label6;
         
         /// <summary>
-        /// CHlbl control.
+        /// RequesterIDlb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CHlbl;
+        protected global::System.Web.UI.WebControls.Label RequesterIDlb;
         
         /// <summary>
         /// Button1 control.
